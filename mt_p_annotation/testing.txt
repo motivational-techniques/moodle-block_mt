@@ -1,0 +1,102 @@
+These are test cases for block_mt_p_annotation
+
+
+
+TEST CASE: Cancel clicked in annotation options (no options to save)
+TO PASS: Redirect to course page, no errors
+
+TEST CASE: Save changes clicked in annotation options (no options to save)
+TO PASS: Same as cancel button, redirect to course page, no errors
+
+TEST CASE: Turn editing on/off when viewing chart, this checks the internal $PAGE URL
+TO PASS: Page refreshs without errors
+
+TEST CASE: Turn editing on/off when viewing options, this checks the internal $PAGE URL
+TO PASS: Page refreshs without errors
+
+TEST CASE: Turn editing on/off when viewing list of learning objects, this checks the internal $PAGE URL
+TO PASS: Page refreshs without errors
+
+TEST CASE: View course page after install block, turn on annotation feature in block, view course page again
+TO PASS: First viewing shows activity instances without annotaion icons, second viewing shows icons for all activity instances, all not done
+
+TEST CASE: View chart without clicking any annotation icons
+TO PASS: Chart shows all instances as not done
+
+TEST CASE: Click annotation icons to change from default not done
+TO PASS: Clicking an icon changes that icon from grey to coloured and turns the previously chosen icon grey, same for all 3 icons
+
+TEST CASE: Hover over icons
+TO PASS: Grey icons tip box text is prepended with 'click if', otherwise tip boxes show appropriate message, (6 different strings)
+
+TEST CASE: Click on "See the list of learning objects" in chart
+TO PASS: New page shows a list of learning objects meeting the selected criteria (done, not, or ip), items are links with icons but, no pencil icon
+
+TEST CASE: Install block in course, leave editing on, enable annotation feature, view chart, view list of learning objects
+TO PASS: When in editing mode, course activity links have pencil icons attached, these do not appear when viewing the list of learning objects
+
+TEST CASE: Click activity link in list of activities
+TO PASS: Link directs the browser to the associated course page
+
+TEST CASE: Click back button when viewing list of learning objects
+TO PASS: Button calls window.history.back(), so returns to previous page visited, not always chart
+
+TEST CASE: Count activity instances on main course page (manually or search source code for activityinstance), view chart, click each slice to count the number of activities in each category
+TO PASS: Number of activities on main course page matches number of items charted
+
+TEST CASE: Note count of chart slice, view list of learning objects, count activity links
+TO PASS: Count on chart slice matches number of items shown in list
+
+TEST CASE: Change icons for various activities, view chart, repeat
+TO PASS: Each time the chart is viewed, it accurately reflects the changes made on the course page
+
+TEST CASE: Note which activities are marked as done/not/IP, view list of learning objects
+TO PASS: The list of learning objects accurately reflects which activites are selected for that category
+
+TEST CASE: Set various icons to different values, log out, log in, view course again
+TO PASS: The selections made previously are accurately reflected in the icons shown
+
+TEST CASE: Set values for icons in same course for different user, view as first user
+TO PASS: Values selected for that user are shown, no overlapping/overwriting data
+
+TEST CASE: View different courses as same user
+TO PASS: Each course reflects the selcetions made only in that course, no overlapping/overwriting data
+
+TEST CASE: Use block in course with multiple module types 
+TO PASS: All activities instances have annotation icons
+
+TEST CASE: Chart is viewed in course with no content, no data for chart
+TO PASS: Chart page shows, but there is no chart, just description and title
+
+TEST CASE: View chart, manually change the courseid value in the URL, go to page
+TO PASS: If block is installed in that course and user is enroled in that course, chart will display, if block is not installed in that course, the page redirects to the user's dashboard, if the block is installed, but the user is not enroled, enrolment options page is shown
+
+TEST CASE: View list of learning objects, manually change the courseid in URL, go to page
+TO PASS: If block is installed in that course and user is enroled in that course, list will display, if block is not installed in that course, the page redirects to the user's dashboard, if the block is installed, but the user is not enroled, enrolment options page is shown
+ 
+TEST CASE: View list of learning objects, manually change the value value in the URL, go to page
+TO PASS: The value defaults to 3 (in progress) if it is not 1, 2, or 3, appropriate objects are shown
+
+TEST CASE: View administrator options, manually change the courseid value in the URL, go to page
+TO PASS: If block is installed in that course, and user is enroled in that course, options will display, if block is not installed in that course, the page redirects to the user's dashboard, if the block is installed, but the user is not enroled, enrolment options page is shown
+
+TEST CASE: View student options, manually change the courseid value in the URL, go to page
+TO PASS: If block is installed in that course, and user is enroled in that course, options will display, if block is not installed in that course, the page redirects to the user's dashboard, if the block is installed, but the user is not enroled, enrolment options page is shown
+
+TEST CASE: Call annotation_entry.php manually, change courseid value, go to page
+TO PASS: If block is installed in that course and other parameters okay, empty page will display, if block is not installed in that course, the page redirects to the user's dashboard, if the block is installed, but the user is not enroled, enrolment options page is shown
+
+TEST CASE: Call annotation_entry.php manually, change item value, go to page (item consists of 2 parts, a-b, where a is instanceid and b is value)
+TO PASS: If the item parts are good, entry added to DB, if instanceid not in instancenames table for that course or if value is not 1, 2, or 3, then the script dies and nothing is entered into the DB table
+
+TEST CASE: Call annotation_entry.php manually, change sesskey value, go to page
+TO PASS: Notice page about your session timing out -> log in again
+
+TEST CASE: Add activity to course page, view chart and lists
+TO PASS: New activity shows in chart numbers and in associated list
+
+TEST CASE: Remove activity from course page, view chart and lists
+TO PASS: Removed activity no longer shown in list, number on chart may not immediately match number of list items, this appears to be a caching problem and will self-correct
+
+TEST CASE: View course page as student when there are unread posts in forum (read tracking must be on in user preferences).
+TO PASS: There is only 1 set of icons per activity, no extra icons when extra link for unread posts.
