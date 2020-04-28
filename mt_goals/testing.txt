@@ -1,0 +1,330 @@
+These are test cases for block_mt_goals
+
+
+TEST CASE: View goals administration page (as admin) (admin.php), turn editing on/off
+TO PASS: Page refreshes without errors
+
+TEST CASE: View goals administration page (as admin) (admin.php), click "Cancel"
+TO PASS: Block MT administration page is shown, no errors
+
+TEST CASE: View goals administration page (as admin) (admin.php), click "Save changes"
+TO PASS: Block MT administration page is shown, no errors
+
+TEST CASE: View goals administration page (as admin) (admin.php), manually change url, remove courseid param, load page
+TO PASS: Moodle error message about missing parameter
+
+TEST CASE: View goals administration page (as admin) (admin.php), manually change url, change courseid to non-existent value, load page
+TO PASS: Moodle error message about missing database record
+
+TEST CASE: View goals administration page (as admin) (admin.php), manually change url, change courseid to other course value where block is installed, load page
+TO PASS: Administration page loads without errors
+
+TEST CASE: View goals administration page (as admin) (admin.php), manually change url, change courseid to other course value where block is not installed, load page
+TO PASS: User is redirected to their dashboard
+
+TEST CASE: View goals administration page (as student) (options.php), click "Cancel"
+TO PASS: Block MT administration page is shown (student version), no errors
+
+TEST CASE: View goals administration page (as student) (options.php), click "Save changes"
+TO PASS: Block MT administration page is shown (student version), no errors
+
+TEST CASE: View goals administration page (as student) (options.php), manually change url, remove courseid param, load page
+TO PASS: Moodle error message about missing parameter
+
+TEST CASE: View goals administration page (as student) (options.php), manually change url, change courseid to non-existent value, load page
+TO PASS: Moodle error message about missing database record
+
+TEST CASE: View goals administration page (as student) (options.php), manually change url, change courseid to other course value where block is installed, load page
+TO PASS: If user is enrolled in that course, options page shows, if user is not enrolled, then enrolment options page is shown
+
+TEST CASE: View goals administration page (as student) (options.php), manually change url, change courseid to other course value where block is not installed, load page
+TO PASS: If user is enrolled in that course, they are redirected to their dashboard, if user is not enrolled, then enrolment options page is shown
+
+
+For each renderable goals related page:
+
+TEST CASE: View the page (as admin), turn editing on/off (this tests the internal page URL)
+TO PASS: The page refreshes without errors
+
+End for each renderable goals related page
+
+
+Unless otherwise noted, all the following tests assume the user is a student:
+
+TEST CASE: Click "Goals" link in block
+TO PASS: Goals page is shown, no errors
+
+For each page in goals: (all pages use same includes.php file, so testing one page should be enough)
+
+TEST CASE: View goals page, manually change url, remove courseid parameter, load page
+TO PASS: Moodle error about missing parameter
+
+TEST CASE: View goals page, manually change url, change courseid to non-existent value, load page
+TO PASS: Moodle error about missing database record
+
+TEST CASE: View goals page, manually change url, change courseid to other course value where block is installed, load page
+TO PASS: If user is enrolled in that course, then the goals page is shown, if the user in not enrolled, the enrolment options page is shown
+
+TEST CASE: View goals page, manually change url, change courseid to other course value where block is not installed, load page
+TO PASS: If user is enrolled in that course, then they are redirected to their dashboard, if the user in not enrolled, the enrolment options page is shown
+
+End for each page in goals
+
+
+TEST CASE: Click "All Goals" link to view page
+TO PASS: Page shows without errors
+
+TEST CASE: View "All Goals" page, note the goals the student has achieved and not, look up those goals in other goals pages
+TO PASS: All goals present on "All Goals" page are also in related page, achieved status is the same
+
+TEST CASE: View "All Goals" page, click "Goals Main Menu" button
+TO PASS: Main goals page is shown without errors
+
+TEST CASE: Click "Course Progress" link to view page
+TO PASS: Page shows without errors, graph is rendered, all milestone goals in course are shown in graph
+
+TEST CASE: View "Course Progress" page, note "My Goal" vs. "My Progress" differences, check actual values
+TO PASS: For each goal in the graph, the time completed is correct and the goal time is correct
+
+TEST CASE: View "Course Progress" page, note "My Goal" values, change goals, view again
+TO PASS: Chart correctly changes to account for changed goals
+
+TEST CASE: View "Course Progress" page, note "My Progress" values, complete a milestone, view again
+TO PASS: Chart correctly changes to account for completed milestone
+
+TEST CASE: View "Course Progress" page, click "Goals Main Menu" button
+TO PASS: Main goals page is shown without errors
+
+TEST CASE: Click "Course Average" link to view page
+TO PASS: Page shows without errors, graph is rendered, all milestone goals in course are shown in graph
+
+TEST CASE: View "Course Average" page, note "Class average progress" vs. "My progress" differences, check actual values
+TO PASS: For each goal in the graph, the "My progress" line is accurate and consistent with the previous page, the "Class average progress" line is consistent with the average class progress
+
+TEST CASE: View "Course Average" page, note "My progress" values, complete milestone, view again
+TO PASS: The "My progress" line correctly shows the mielstone as complete, average line changes to account for new data (if small data set)
+
+TEST CASE: View "Course Average" page, click "Goals Main Menu" button
+TO PASS: Main goals page is shown without errors
+
+TEST CASE: Click "Overall Grade" link to view page
+TO PASS: Page shows without errors, status is consistent with grade and goal values, button shows "Add goal" if no goal set, else "Update goal"
+
+TEST CASE: View "Overall Grade" page, note grade, check against actual value
+TO PASS: Grade value is correct
+
+TEST CASE: View "Overall Grade" page, note grade, complete a milestone, view again
+TO PASS: Grade value is correct and has changed to account for new data
+
+TEST CASE: View "Overall Grade" page, click "Add/Update goal" button
+TO PASS: Grade entry page is shown without errors
+
+TEST CASE: View "Overall Grade" page, click "Add/Update goal" button, click "Save changes" (no value entered)
+TO PASS: Overall grade page is shown without errors, no value defaults to 0, which is the new goal
+
+TEST CASE: View "Overall Grade" page, click "Add/Update goal" button, enter value, click "Save changes"
+TO PASS: Overall grade page is shown without errors, new goal value shows correctly
+
+TEST CASE: View "Overall Grade" page, click "Add/Update goal" button, enter value, click "Cancel"
+TO PASS: Overall grade page is shown without errors, goal value is same as before
+
+TEST CASE: View "Overall Grade" page, click "Add/Update goal" button, enter values greater than 100, less then 50, and numbers with decimals
+TO PASS: Error message is given about value outside valid range (50 - 100), only integers are accepted
+
+TEST CASE: View "Overall Grade" page, click "Goals Main Menu" button
+TO PASS: Main goals page is shown without errors
+
+TEST CASE: Click "Assignment to Complete" link to view page
+TO PASS: Page shows without errors, all assignments are shown, status is consistent with actual and goal values, buttons show or not as appropriate
+
+TEST CASE: View "Assignment to Complete" page, note day completed (for any assignments completed), check day assignment completed (as teacher)
+TO PASS: Day finished value is correct, assignments are not showing as complete unless they are complete
+
+TEST CASE: Complete assignment, view "Assignment to Complete" page
+TO PASS: Newly completed assignment shows correct day, no longer able to change goal
+
+TEST CASE: View "Assignment to Complete" page, make a goal, wait for it to pass, view again
+TO PASS: Status shows as "Not acheived" when student fails to submit assignment before goal
+
+TEST CASE: View "Assignment to Complete" page, make a goal, submit assignment as draft, view again
+TO PASS: Assignment shows as being incomplete, goal not yet acheived
+
+TEST CASE: View "Assignment to Complete" page, make a goal, submit assignment for marking, view again
+TO PASS: Assignment shows as complete, goal acheived
+
+TEST CASE: View "Assignment to Complete" page, click "Add/Update goal" button
+TO PASS: Goal entry page is shown without errors
+
+TEST CASE: View "Assignment to Complete" page, click "Add/Update goal" button, click "Save changes" (no value entered)
+TO PASS: Assignment to complete page is shown without errors
+
+TEST CASE: View "Assignment to Complete" page, click "Add/Update goal" button, enter value (with date picker), click "Save changes"
+TO PASS: Overall grade page is shown without errors, new goal value shows correctly, days left is correct
+
+TEST CASE: View "Assignment to Complete" page, click "Add/Update goal" button, enter value (with date picker), change manually, click "Save changes"
+TO PASS: If manual date is valid, then overall grade page is shown without errors and new goal value shows correctly, else error message about incorrect value
+
+TEST CASE: View "Assignment to Complete" page, click "Add/Update goal" button, enter value, click "Cancel"
+TO PASS: Assignment to complete page is shown without errors, goal value is same as before
+
+TEST CASE: View "Assignment to Complete" page, click "Goals Main Menu" button
+TO PASS: Main goals page is shown without errors
+
+TEST CASE: Click "Assignment Grade" link to view page
+TO PASS: Page shows without errors, all assignments are shown, status is consistent with actual and goal values, buttons show or not as appropriate
+
+TEST CASE: View "Assignment Grade" page, note grade (for any assignments completed), check actual grade
+TO PASS: Assignment grades are correct
+
+TEST CASE: View "Assignment Grade" page, set goal, submit assignment as draft, view again
+TO PASS: No grade for assignment, still incomplete
+
+TEST CASE: View "Assignment Grade" page, set goal, submit assignment for marking, view again
+TO PASS: No grade for assignment, still incomplete
+
+TEST CASE: Mark assignment (as teacher), view "Assignment Grade" page
+TO PASS: Assignment is now complete and has appropriate grade, status is correct, "Update goal" button no longer visible
+
+TEST CASE: View "Assignment Grade" page, click "Add/Update goal" button
+TO PASS: Goal entry page is shown without errors
+
+TEST CASE: View "Assignment Grade" page, click "Add/Update goal" button, delete default value, click "Save changes"
+TO PASS: Assignment Grade page is shown without errors, no goal is set or old goal value is unchanged
+
+TEST CASE: View "Assignment Grade" page, click "Add/Update goal" button, enter good value, click "Save changes"
+TO PASS: Assignment grade page is shown without errors, new goal value shows correctly
+
+TEST CASE: View "Assignment Grade" page, click "Add/Update goal" button, enter text, decimal, negative values, click "Save changes"
+TO PASS: Error message about invalid value
+
+TEST CASE: View "Assignment Grade" page, click "Add/Update goal" button, enter value, click "Cancel"
+TO PASS: Assignment Grade page is shown without errors, goal value is same as before
+
+TEST CASE: View "Assignment Grade" page, click "Goals Main Menu" button
+TO PASS: Main goals page is shown without errors
+
+TEST CASE: Click "Quiz to Start" link to view page
+TO PASS: Page shows without errors, all quizzes are shown, status is consistent with actual and goal values, buttons show or not as appropriate
+
+TEST CASE: View "Quiz to Start" page, note day started (for any quizzes started), check actual date
+TO PASS: Dates started are correct
+
+TEST CASE: View "Quiz to Start" page, set goal, start quiz, view again
+TO PASS: Quiz shows as being started, goal achieved, no more update goal button
+
+TEST CASE: View "Quiz to Start" page, click "Add/Update goal" button
+TO PASS: Goal entry page is shown without errors
+
+TEST CASE: View "Quiz to Start" page, click "Add/Update goal" button, click "Save changes" (no value entered)
+TO PASS: Quiz to Start page is shown without errors
+
+TEST CASE: View "Quiz to Start" page, click "Add/Update goal" button, enter value (with date picker), click "Save changes"
+TO PASS: Overall grade page is shown without errors, new goal value shows correctly, days left is correct
+
+TEST CASE: View "Quiz to Start" page, click "Add/Update goal" button, enter value (with date picker), change manually, click "Save changes"
+TO PASS: If manual date is valid, then overall grade page is shown without errors and new goal value shows correctly, else error message about incorrect value
+
+TEST CASE: View "Quiz to Start" page, click "Add/Update goal" button, enter value, click "Cancel"
+TO PASS: Quiz to Start page is shown without errors, goal value is same as before
+
+TEST CASE: View "Quiz to Start" page, click "Goals Main Menu" button
+TO PASS: Main goals page is shown without errors
+
+TEST CASE: Click "Quiz to Complete" link to view page
+TO PASS: Page shows without errors, all quizzes are shown, status is consistent with actual and goal values, buttons show or not as appropriate
+
+TEST CASE: View "Quiz to Complete" page, note day completed (for any quizzes completed), check actual date
+TO PASS: Dates started are correct
+
+TEST CASE: View "Quiz to Complete" page, set goal, start quiz, view again
+TO PASS: Quiz does not show as being completed
+
+TEST CASE: View "Quiz to Complete" page, set goal, finish quiz, view again
+TO PASS: Quiz shows as being completed, day is correct, goal achieved, no more update goal button
+
+TEST CASE: View "Quiz to Complete" page, click "Add/Update goal" button
+TO PASS: Goal entry page is shown without errors
+
+TEST CASE: View "Quiz to Complete" page, click "Add/Update goal" button, click "Save changes" (no value entered)
+TO PASS: Quiz to Complete page is shown without errors
+
+TEST CASE: View "Quiz to Complete" page, click "Add/Update goal" button, enter value (with date picker), click "Save changes"
+TO PASS: Overall grade page is shown without errors, new goal value shows correctly, days left is correct
+
+TEST CASE: View "Quiz to Complete" page, click "Add/Update goal" button, enter value (with date picker), change manually, click "Save changes"
+TO PASS: If manual date is valid, then overall grade page is shown without errors and new goal value shows correctly, else error message about incorrect value
+
+TEST CASE: View "Quiz to Complete" page, click "Add/Update goal" button, enter value, click "Cancel"
+TO PASS: Quiz to Complete page is shown without errors, goal value is same as before
+
+TEST CASE: View "Quiz to Complete" page, click "Goals Main Menu" button
+TO PASS: Main goals page is shown without errors
+
+TEST CASE: Click "Quiz Grade" link to view page
+TO PASS: Page shows without errors, all quizzes are shown, status is consistent with actual and goal values, buttons show or not as appropriate
+
+TEST CASE: View "Quiz Grade" page, note grade (for any quizzes completed), check actual grades
+TO PASS: Grades are correct
+
+TEST CASE: View "Quiz Grade" page, set goal, start quiz, view again
+TO PASS: Quiz does not show as being completed, no grade
+
+TEST CASE: View "Quiz Grade" page, set goal, finish quiz, view again
+TO PASS: Quiz shows as being completed, grade is correct, goal achieved, no more update goal button
+
+TEST CASE: View "Quiz Grade" page, click "Add/Update goal" button
+TO PASS: Goal entry page is shown without errors
+
+TEST CASE: View "Quiz Grade" page, click "Add/Update goal" button, delete default value, click "Save changes"
+TO PASS: Quiz Grade page is shown without errors, goal has not changed, if set
+
+TEST CASE: View "Quiz Grade" page, click "Add/Update goal" button, enter good value, click "Save changes"
+TO PASS: Overall grade page is shown without errors, new goal value shows correctly
+
+TEST CASE: View "Quiz Grade" page, click "Add/Update goal" button, enter values less than 50, greater than 100, and non-integers, click "Save changes"
+TO PASS: Error message about incorrect value
+
+TEST CASE: View "Quiz Grade" page, click "Add/Update goal" button, enter value, click "Cancel"
+TO PASS: Quiz Grade page is shown without errors, goal value is same as before
+
+TEST CASE: View "Quiz Grade" page, click "Goals Main Menu" button
+TO PASS: Main goals page is shown without errors
+
+TEST CASE: Click "Ranking" link to view page
+TO PASS: Page displays without errors, all rankings are shown, table ordered by rank
+
+TEST CASE: View "Ranking" page, click "Add goal" button
+TO PASS: Goal entry page shows without errors
+
+TEST CASE: View "Ranking" page, click "Add goal" button, click "Save changes" (no value entered)
+TO PASS: Ranking page shows without errors
+
+TEST CASE: View "Ranking" page, click "Add goal" button, enter good value, click "Save changes"
+TO PASS: Ranking page shows without errors, new goal value is shown, status is correct
+
+TEST CASE: View "Ranking" page, click "Add goal" button, enter negative values, non-numeric, decimals, click "Save changes"
+TO PASS: Ranking page shows without errors, new goal value is shown, status is correct
+
+TEST CASE: View "Ranking" page, click "Add goal" button, enter value, click "Cancel"
+TO PASS: Ranking page shows without errors, goal value is unchanged
+
+TEST CASE: View "Ranking" page, click "Goals Main Menu" button
+TO PASS: Goals main page is shown without errors
+
+TEST CASE: Click "Award" link to view page
+TO PASS: Page shows without errors, all awards are shown, awards are correct, status is consistent with goal
+
+TEST CASE: View "Award" page, click "Add goal" button
+TO PASS: Goal entry page is shown without errors
+
+TEST CASE: View "Award" page, click "Add goal" button, click "Save changes" (no value selected)
+TO PASS: Goal entry page is shown without errors
+
+TEST CASE: View "Award" page, click "Add goal" button, select goal, click "Save changes"
+TO PASS: Goal entry page is shown without errors, new goal value is set, status is correct
+
+TEST CASE: View "Award" page, click "Add goal" button, select goal, click "Cancel"
+TO PASS: Goal entry page is shown without errors, goal value is unchanged
+
+TEST CASE: View "Award" page, click "Goals Main Menu" button
+TO PASS: Goals main page shows without errors
