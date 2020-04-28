@@ -1,0 +1,324 @@
+These are test cases for block_mt_rankings
+
+
+TEST CASE: View rankings administration page (as admin) (admin.php), turn editing on/off
+TO PASS: Page refreshes without errors
+
+TEST CASE: View rankings administration page (as admin) (admin.php), click "Cancel"
+TO PASS: Block MT administration page is shown, no errors
+
+TEST CASE: View rankings administration page (as admin) (admin.php), click "Save changes"
+TO PASS: Block MT administration page is shown, no errors
+
+TEST CASE: View rankings administration page (as student) (options.php), click "Cancel"
+TO PASS: Block MT administration page is shown (student version), no errors
+
+TEST CASE: View rankings administration page (as student) (options.php), click "Save changes"
+TO PASS: Block MT administration page is shown (student version), no errors
+
+TEST CASE: View rankings administration page (as student) (options.php), change value to "yes", click "Save changes", view rankings administration page again
+TO PASS: "yes" value is still set
+
+TEST CASE: Set anonymous option for student, log in as another student, view a ranking page that shows anonymous student
+TO PASS: Students set as anonymous are shown as anonymous, other have names
+
+TEST CASE: Unset anonymous option for student where previously set, log in as another student, view a ranking page that shows student
+TO PASS: Student who had unset anonymous option is now named, others are anonymous or have names based on their settings
+
+TEST CASE: View rankings administration page (as admin) (admin.php), manually change url, remove courseid param, load page
+TO PASS: Moodle error message about missing parameter
+
+TEST CASE: View rankings administration page (as admin) (admin.php), manually change url, change courseid to non-existent value, load page
+TO PASS: Moodle error message about missing database record
+
+TEST CASE: View rankings administration page (as admin) (admin.php), manually change url, change courseid to other course value where block is installed, load page
+TO PASS: Administration page loads without error
+
+TEST CASE: View rankings administration page (as admin) (admin.php), manually change url, change courseid to other course value where block is not installed, load page
+TO PASS: User is redirected to their dashboard
+
+TEST CASE: View rankings administration page (as student) (options.php), manually change url, remove courseid param, load page
+TO PASS: Moodle error message about missing parameter
+
+TEST CASE: View rankings administration page (as student) (options.php), manually change url, change courseid to non-existent value, load page
+TO PASS: Moodle error message about missing database record
+
+TEST CASE: View rankings administration page (as student) (options.php), manually change url, change courseid to other course value where block is installed, load page
+TO PASS: If user is enrolled in that course, options page shows, if user is not enrolled, then enrolment options page is shown
+
+TEST CASE: View rankings administration page (as student) (options.php), manually change url, change courseid to other course value where block is not installed, load page
+TO PASS: If user is enrolled in that course, they are redirected to their dashboard, if user is not enrolled, then enrolment options page is shown
+
+
+For each renderable rankings related page:
+
+TEST CASE: View the page (as admin), turn editing on/off (this tests the internal page URL)
+TO PASS: The page refreshes without errors
+
+End for each renderable rankings related page
+
+
+Unless otherwise noted, all the following tests assume the user is a student:
+
+TEST CASE: Click "Rankings" link in block
+TO PASS: Rankings page is shown, no errors
+
+For each page in rankings: (all pages use same includes.php file, so testing one page should be enough)
+
+TEST CASE: View rankings page, manually change url, remove courseid parameter, load page
+TO PASS: Moodle error about missing parameter
+
+TEST CASE: View rankings page, manually change url, change courseid to non-existent value, load page
+TO PASS: Moodle error about missing database record
+
+TEST CASE: View rankings page, manually change url, change courseid to other course value where block is installed, load page
+TO PASS: If user is enrolled in that course, then the rankings page is shown, if the user in not enrolled, the enrolment options page is shown
+
+TEST CASE: View rankings page, manually change url, change courseid to other course value where block is not installed, load page
+TO PASS: If user is enrolled in that course, then they are redirected to their dashboard, if the user in not enrolled, the enrolment options page is shown
+
+End for each page in rankings
+
+
+TEST CASE: View rankings page (main_rankings.php), Grades Overall shows current rank.
+TO PASS: Current rank for overall grade is the correct ranking.
+
+TEST CASE: View rankings page (main_rankings.php), Total Number of Awards Achieved
+TO PASS: Current rank for overall grade is the correct ranking.
+
+TEST CASE: View rankings page (main_rankings.php), Average Online Time by Month
+TO PASS: Current rank for Average Online Time by Month is the correct ranking.
+
+TEST CASE: View rankings page (main_rankings.php), Average Online Time this Month
+TO PASS: Current rank for Average Online Time this Month is the correct ranking.
+
+TEST CASE: View rankings page (main_rankings.php), Average Number of Posts Submitted by Month
+TO PASS: Current rank for Average Number of Posts Submitted by Month is the correct ranking.
+
+TEST CASE: View rankings page (main_rankings.php), Average Number of Posts Submitted this Month
+TO PASS: Current rank for Average Number of Posts Submitted this Month is the correct ranking.
+
+TEST CASE: View rankings page (main_rankings.php), Average Post Ratings by Month
+TO PASS: Current rank for Average Post Ratings by Month is the correct ranking.
+
+TEST CASE: View rankings page (main_rankings.php), Average Post Ratings this Month
+TO PASS: Current rank for Average Post Ratings this Month is the correct ranking.
+
+TEST CASE: View rankings page (main_rankings.php), Read All Posts by Month
+TO PASS: Current rank for Read All Posts by Month is the correct ranking.
+
+TEST CASE: View rankings page (main_rankings.php), Read All Posts this Month
+TO PASS: Current rank for Read All Posts this Month is the correct ranking.
+
+TEST CASE: View rankings page (main_rankings.php), Pace at Which Student is Completing Milestones
+TO PASS: Current rank for Pace at Which Student is Completing Milestones is the correct ranking.
+
+TEST CASE: Click "Show All Rankings" link to view page
+TO PASS: Page shows without errors
+
+TEST CASE: View "Show All Rankings" page, note the ranks the student has achieved, look up those ranks
+TO PASS: All ranks shown have been achieved by that student and all values are the same, table is ordered properly, not showing any ranks not achieved
+
+TEST CASE: Click "Grades by Assignment" link to view page
+TO PASS: Page shows without errors, all assignments in course are listed
+
+TEST CASE: View "Grades by Assignment" page, click "Ranking Main Menu" button
+TO PASS: Main rankings page is shown without errors
+
+TEST CASE: View "Grades by Assignment" page, note rankings shown in links, check the assignment ranking
+TO PASS: Rank in link is same as rank in table, or not yet ranked
+
+TEST CASE: View "Grades by Assignment" page, follow assignment links
+TO PASS: Pages render without error, show the rankings for that assignment, table ordered by grade
+
+TEST CASE: View "Grades by Assignment" page, follow assignment link to view page, click "show active/inactive students" button
+TO PASS: Table changes based on student active status, each student is flagged active/inactive properly, only showing correct students at correct time
+
+TEST CASE: View "Grades by Assignment" page, follow assignment link to view page, click "Assignment Grades Ranking" button
+TO PASS: Assignment grades ranking page is shown without error, all assignments are present with appropriate ranks
+
+TEST CASE: View "Grades by Assignment" page, follow assignment link to view page, click "Ranking Main Menu" button
+TO PASS: Main rankings page is shown without errors
+
+TEST CASE: View "Grades by Assignment" page, follow assignment link to view page, note grade recieved for assignment
+TO PASS: Grade in table matches actual grade, student is not shown as having completed assignments unless they have received a mark
+
+TEST CASE: Submit assignment as draft, view "Grades by Assignment" page > assignment page
+TO PASS: Student is not ranked for that assignment
+
+TEST CASE: Submit assignment for marking, view "Grades by Assignment" page > assignment page
+TO PASS: Student is still not ranked for that assignment
+
+TEST CASE: Mark student assignment (as teacher), view "Grades by Assignment" page > assignment page
+TO PASS: Student is now ranked for that assignment, grades match
+
+TEST CASE: Click "Grades by Quiz" link to view page
+TO PASS: Page shows without errors, all quizzes in course are listed
+
+TEST CASE: View "Grades by Quiz" page, click "Ranking Main Menu" button
+TO PASS: Main rankings page is shown without errors
+
+TEST CASE: View "Grades by Quiz" page, note rankings shown in links, check the quiz ranking
+TO PASS: Rank in link is same as rank in table, or not yet ranked
+
+TEST CASE: View "Grades by Quiz" page, follow assignment links
+TO PASS: Pages render without error, show the rankings for that quiz, table ordered by grade
+
+TEST CASE: View "Grades by Quiz" page, follow quiz link to view page, click "show active/inactive students" button
+TO PASS: Table changes based on student active status, each student is flagged active/inactive properly, only showing correct students at correct time
+
+TEST CASE: View "Grades by Quiz" page, follow quiz link to view page, click "Quiz Grades Ranking" button
+TO PASS: Quiz grades ranking page is shown without error, all quizzes are present with appropriate ranks
+
+TEST CASE: View "Grades by Quiz" page, follow quiz link to view page, click "Ranking Main Menu" button
+TO PASS: Main rankings page is shown without errors
+
+TEST CASE: View "Grades by Quiz" page, follow quiz link to view page, note grade recieved for quiz
+TO PASS: Grade in table matches actual grade, student is not shown as having completed quizzes unless they have received a mark
+
+TEST CASE: Start a quiz, but do not finish it, view "Grades by Quiz" page > quiz page
+TO PASS: Student is not ranked for that quiz
+
+TEST CASE: Finish quiz and submit, view "Grades by Quiz" page > quiz page
+TO PASS: Student is now ranked for that quiz, grades match
+
+TEST CASE: Click "Grades Overall" link to view page
+TO PASS: Page renders without errors, tables is ordered by grade
+
+TEST CASE: View "Grades Overall" page, click "Show active/inactive students"
+TO PASS: Tables changes based on student active status, students are flagged and shown correctly
+
+TEST CASE: View "Grades Overall" page, click "Ranking Main Menu" button
+TO PASS: Main rankings page is shown without errors
+
+TEST CASE: View "Grades Overall" page, note the grades received, check actual grades
+TO PASS: Grades in table match averaged actual values
+
+TEST CASE: Click "Total Number of Awards Achieved" link to view page
+TO PASS: Page renders without errors, rank on link matches that in table, table is ordered by total points
+
+TEST CASE: View "Total Number of Awards Achieved" page, click "Show active/inactive students" button
+TO PASS: Tables changes to show/hide users based on their active status
+
+TEST CASE: View "Total Number of Awards Achieved" page, click "Ranking Main Menu" button
+TO PASS: Main rankings page is shown without errors
+
+TEST CASE: Click "Average Online Time by Month" link to view page
+TO PASS: Page renders without errors, rank on link matches that in table, table is ordered by average time which is broken down by month
+
+TEST CASE: View "Average Online Time by Month" page, click "Show active/inactive students" button
+TO PASS: Tables changes according to students active status
+
+TEST CASE: View "Average Online Time by Month" page, click "Ranking Main Menu" button
+TO PASS: Main rankings page is shown without errors
+
+TEST CASE: View "Averge Online Time by Month" page, wait a few minutes, refresh page
+TO PASS: Current student has a few minutes of time added to their time for that month, average changes accordingly
+
+TEST CASE: Click "Online Time This Month" link to view page
+TO PASS: Page renders without errors, rank on link matches that in table, table is ordered by online time
+
+TEST CASE: View "Online Time This Month" page, click "Show active/inactive students" button
+TO PASS: Tables changes according to students active status
+
+TEST CASE: View "Online Time This Month" page, click "Ranking Main Menu" button
+TO PASS: Main rankings page is shown without errors
+
+TEST CASE: Click "Average Number of Posts Submitted by Month" link to view page
+TO PASS: Page renders without errors, rank in link matches that in table, table is ordered by average number of posts
+
+TEST CASE: View "Average Number of Posts Submitted by Month" page, click "Show active/inactive students" button
+TO PASS: Table changes based on students ative status
+
+TEST CASE: View "Average Number of Posts Submitted by Month" page, click "Ranking Main Menu" button
+TO PASS: Main rankings page is shown without errors
+
+TEST CASE: View "Average Number of Posts Submitted by Month" page, note the number of posts, make a post (or multiple), view page again
+TO PASS: Number of posts submitted for current student has changed appropriately
+
+TEST CASE: Click "Number of Posts Submitted this Month" link to view page
+TO PASS: Page renders withour errors, rank in link matches that in table, table is ordered by number of posts
+
+TEST CASE: View "Number of Posts Submitted this Month" page, click "Ranking Main Menu" button
+TO PASS: Main rankings page is shown without errors
+
+TEST CASE: View "Number of Posts Submitted this Month" page, note the number of posts, make a post (or multiple), view page again
+TO PASS: Number of posts submitted for current student has changed appropriately
+
+TEST CASE: Click "Average Post Rating by Month" link to view page
+TO PASS: Page renders without errors, rank in link matches that in table, table is ordered by average rating which is broken down by month
+
+TEST CASE: View "Average Post Rating by Month" page, click "Show active/inactive students" button
+TO PASS: Table changes according to students active status
+
+TEST CASE: View "Average Post Rating by Month" page, click "Ranking Main Menu" button
+TO PASS: Main rankings page is shown without errors
+
+TEST CASE: View "Average Post Rating by Month" page, (as teacher) rate a post (or multiple), view page again
+TO PASS: Ratings of those students who were just rated has changed appropriately
+
+TEST CASE: Click "Average Post Rating this Month" link to view page
+TO PASS: Page renders without errors, rank in link matches that in table, table is ordered by average rating
+
+TEST CASE: View "Average Post Rating this Month" page, click "Ranking Main Menu" button
+TO PASS: Main rankings page is shown without errors
+
+TEST CASE: View "Average Post Rating this Month" page, (as teacher) rate a post (or multiple), view page again
+TO PASS: Ratings of those students who were just rated has changed appropriately
+
+TEST CASE: Click "Read All Posts by Month" link to view page
+TO PASS: Page renders without errors, rank in link matches that in table, table is ordered by average number of posts which is broken down by month
+
+TEST CASE: View "Read All Posts by Month" page, click "Show active/inactive students" button
+TO PASS: Table changes according to students active status
+
+TEST CASE: View "Read All Posts by Month" page, click "Ranking Main Menu" button
+TO PASS: Main rankings page is shown without errors
+
+TEST CASE: View "Read All Posts by Month" page, note number of read posts, (with forum tracking enabled) read unread posts
+TO PASS: The newly read posts show in the table as having been read
+
+TEST CASE: Click "Read All Posts this Month" link to view page
+TO PASS: Page renders without errors, rank in link matches that in table, table is ordered by posts read
+
+TEST CASE: View "Read All Posts this Month" page, click "Ranking Main Menu" button
+TO PASS: Main rankings page is shown without errors
+
+TEST CASE: View "Read All Posts this Month" page, note number of read posts, (with forum tracking enabled) read unread posts
+TO PASS: The newly read posts show in the table as having been read
+
+TEST CASE: Click "Amount of Time It Took to Reach Each Milestone" link to view page
+TO PASS: Page renders without errors, all milestones for course are shown
+
+TEST CASE: View "Amount of Time It Took to Reach Each Milestone" page, click "Rankings Main Menu" button
+TO PASS: Main rankings page is shown without errors
+
+TEST CASE: View "Amount of Time It Took to Reach Each Milestone" page, click links for milestones
+TO PASS: Milestone page renders without errors, rank in link matches that in table, table is ordered by time
+
+TEST CASE: View "Amount of Time It Took to Reach Each Milestone" page, view links for milestones pages, click "Show active/inactive students"
+TO PASS: Table changes according to students active status
+
+TEST CASE: View "Amount of Time It Took to Reach Each Milestone" page, view links for milestones pages, click "Milestones Ranking Menu" button
+TO PASS: Milestones ranking page is shown without errors, all milestones are shown
+
+TEST CASE: View "Amount of Time It Took to Reach Each Milestone" page, view links for milestones pages, click "Ranking Main Menu" button
+TO PASS: Main ranking page is shown without errors
+
+TEST CASE: View "Amount of Time It Took to Reach Each Milestone" page, note which milestones are complete, check to see if milestone is actually complete
+TO PASS: All milestones that are considered complete actually are, unfinished milestones are not considered complete
+
+TEST CASE: Complete a milestone, view "Amount of Time It Took to Reach Each Milestone" page, then the page for the milestone just completed
+TO PASS: The student is now ranked in the link and in the table, ranks match, time in table is appropriate
+
+TEST CASE: Click "Pace at Which Student is Completing Milestones" link to view page
+TO PASS: Page renders without errors, rank in link matches that in table, table is ordered by average time
+
+TEST CASE: View "Pace at Which Student is Completing Milestones" page, click "Show active/inactive students" button
+TO PASS: Table changes according to student active status
+
+TEST CASE: View "Pace at Which Student is Completing Milestones" page, click "Rankings Main Menu" button
+TO PASS: Main ranking page is shown
+
+TEST CASE: View "Pace at Which Student is Completing Milestones" page, note the average time, complete a milestone, view page again
+TO PASS: The average time for the current student has changed to consider the newly completed milestone
