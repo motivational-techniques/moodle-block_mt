@@ -1,0 +1,67 @@
+ul {
+    list-style: none;
+}
+
+.ui-menu {
+    width: 800px;
+}
+
+.ui-widget-header {
+    padding: 0.2em;
+}
+
+div.menu-item, .ui-button-text, div.add-update-item {
+    border: 1px #1C94C4 solid;
+    border-radius: 5px;
+    width: 300px;
+    height: 60px;
+    text-align: center;
+    margin: 2px;
+    float: left;
+    background-color: #F6F6F6;
+    font-family: Trebuchet MS, Tahoma, Verdana, Arial, sans-serif;
+    display: table-cell;
+    vertical-align: middle;
+    display: inline-block;
+    font-weight: bold;
+}
+
+a.menu-item, .ui-button-text, a.add-update-item {
+    color: #1C94C4;
+    text-decoration: none;
+    margin: 0px;
+}
+
+a.menu-item :hover, .ui-button :hover, a.add-update-item :hover {
+    background-color: #E6E6E6;
+}
+
+.ui-button-text {
+    height: 30px;
+}
+
+p.menu-header {
+    width: 100%;
+    color: #3d3d3d;
+    background-color: #99BFE6;
+    height: 25px;
+    padding: 0px;
+    margin: 0px;
+    margin-bottom: 5px;
+    margin-top: 10px;
+    vertical-align: middle;
+    padding: 0.2em;
+    font-weight: bold;
+    font-family: Trebuchet MS, Tahoma, Verdana, Arial, sans-serif;
+}
+
+div.menu-header {
+    width: 100%;
+    display: table;
+}
+
+div.add-update-item {
+    width: 150px;
+    height: 30px;
+    margin: 0px;
+}
