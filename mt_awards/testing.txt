@@ -1,0 +1,292 @@
+These are test cases for block_mt_awards
+
+
+TEST CASE: View awards administration page (as admin), turn editing on/off
+TO PASS: Page refreshes without errors
+
+TEST CASE: View awards administration page (as admin), click "Cancel"
+TO PASS: Block MT administration page is shown, no errors
+
+TEST CASE: View awards administration page (as admin), click "Save changes"
+TO PASS: Block MT administration page is shown, no errors
+
+TEST CASE: View awards administration page (as admin), change default values, click "Save changes", view page again
+TO PASS: Text boxes do not allow values less than 0, greater than 100, and only integers, new values entered are now shown
+
+TEST CASE: View awards administration page (as admin), change default values, click "Cancel", view page again
+TO PASS: New values entered are not shown, previous values are shown
+
+
+For each value in awards administration page (as admin):
+
+TEST CASE: View awards page that uses the value, change the value, view awards page again
+TO PASS: The new value is used in the calculations, student awards change based on new values
+
+End for each value in awards administration page
+
+
+TEST CASE: View awards administration page (as student), click "Cancel"
+TO PASS: Block MT administration page is shown (student version), no errors
+
+TEST CASE: View awards administration page (as student), click "Save changes"
+TO PASS: Block MT administration page is shown (student version), no errors
+
+TEST CASE: View awards administration page (as student), change value to "yes", click "Save changes", view awards administration page again
+TO PASS: "yes" value is still set
+
+TEST CASE: Set anonymous option for student, log in as another student, view an awards page that shows anonymous student
+TO PASS: Students set as anonymous are shown as anonymous, other have names
+
+TEST CASE: Unset anonymous option for student where previously set, log in as another student, view an awards page that shows student
+TO PASS: Student who had unset anonymous option is now named, others are anonymous or have names based on their settings
+
+TEST CASE: View awards administration page (as admin), manually change url, remove courseid param, load page
+TO PASS: Moodle error message about missing parameter
+
+TEST CASE: View awards administration page (as admin), manually change url, change courseid to non-existent value, load page
+TO PASS: Moodle error message about missing database record
+
+TEST CASE: View awards administration page (as admin), manually change url, change courseid to other course value where block is installed, load page
+TO PASS: Administration page loads without errors
+
+TEST CASE: View awards administration page (as admin), manually change url, change courseid to other course value where block is not installed, load page
+TO PASS: User is redirected to their dashboard
+
+TEST CASE: View awards administration page (as student), manually change url, remove courseid param, load page
+TO PASS: Moodle error message about missing parameter
+
+TEST CASE: View awards administration page (as student), manually change url, change courseid to non-existent value, load page
+TO PASS: Moodle error message about missing database record
+
+TEST CASE: View awards administration page (as student), manually change url, change courseid to other course value where block is installed, load page
+TO PASS: If user is enrolled in that course, options page shows, if user is not enrolled, then enrolment options page is shown
+
+TEST CASE: View awards administration page (as student), manually change url, change courseid to other course value where block is not installed, load page
+TO PASS: If user is enrolled in that course, they are redirected to their dashboard, if user is not enrolled, then enrolment options page is shown
+
+
+For each renderable awards related page:
+
+TEST CASE: View the page (as admin), turn editing on/off (this tests the internal page URL)
+TO PASS: The page refreshes without errors
+
+End for each renderable awards related page
+
+
+Unless otherwise noted, all the following tests assume the user is a student:
+
+TEST CASE: Click "Awards" link in block
+TO PASS: Awards page is shown, no errors
+
+
+For each page in awards: (all pages use same includes.php file, so testing one page should be enough)
+
+TEST CASE: View awards page, manually change url, remove courseid parameter, load page
+TO PASS: Moodle error about missing parameter
+
+TEST CASE: View awards page, manually change url, change courseid to non-existent value, load page
+TO PASS: Moodle error about missing database record
+
+TEST CASE: View awards page, manually change url, change courseid to other course value where block is installed, load page
+TO PASS: If user is enrolled in that course, then the awards page is shown, if the user in not enrolled, the enrolment options page is shown
+
+TEST CASE: View awards page, manually change url, change courseid to other course value where block is not installed, load page
+TO PASS: If user is enrolled in that course, then they are redirected to their dashboard, if the user in not enrolled, the enrolment options page is shown
+
+End for each page in awards
+
+
+TEST CASE: Click "Personal Achievements" link to view page
+TO PASS: Page shows without errors
+
+TEST CASE: View "Personal Achievements" page, note the awards the student has achieved, look up those awards
+TO PASS: All awards shown have been achieved by that student and all values are the same, table is ordered properly, not showing any awards not achieved
+
+TEST CASE: Click "Grades by Assignment" link to view page
+TO PASS: Page shows without errors, all assignments in course are listed
+
+TEST CASE: View "Grades by Assignment" page, click "Awards Main Menu" button
+TO PASS: Main awards page is shown without errors
+
+TEST CASE: View "Grades by Assignment" page, follow assignment links
+TO PASS: Pages render without error, award in link matches that in table, table ordered by award
+
+TEST CASE: View "Grades by Assignment" page, follow assignment link to view page, click "show active/inactive students" button
+TO PASS: Table changes based on student active status, each student is flagged active/inactive properly, only showing correct students at correct time
+
+TEST CASE: View "Grades by Assignment" page, follow assignment link to view page, click "Assignment Grades Award Menu" button
+TO PASS: Assignment grades page is shown without error, all assignments are present with appropriate ranks
+
+TEST CASE: View "Grades by Assignment" page, follow assignment link to view page, click "Awards Main Menu" button
+TO PASS: Main awards page is shown without errors
+
+TEST CASE: View "Grades by Assignment" page, follow assignment link to view page, note award and grade needed for that assignment, check actual value
+TO PASS: Award in table aligned with actual grade, student is not shown as having an award unless they have received a high enough mark
+
+TEST CASE: Submit assignment as draft, view "Grades by Assignment" page > assignment page
+TO PASS: Student does not have an award for that assignment
+
+TEST CASE: Submit assignment for marking, view "Grades by Assignment" page > assignment page
+TO PASS: Student does not have an award for that assignment
+
+TEST CASE: Mark student assignment (as teacher), view "Grades by Assignment" page > assignment page
+TO PASS: Student has an award if they received a high enough mark, award is correct for that mark
+
+TEST CASE: Click "Grades by Quiz" link to view page
+TO PASS: Page shows without errors, all quizzes in course are listed
+
+TEST CASE: View "Grades by Quiz" page, click "Awards Main Menu" button
+TO PASS: Main awards page is shown without errors
+
+TEST CASE: View "Grades by Quiz" page, follow assignment links
+TO PASS: Pages render without error, award in link matches that in table, table ordered by award
+
+TEST CASE: View "Grades by Quiz" page, follow quiz link to view page, click "show active/inactive students" button
+TO PASS: Table changes based on student active status, each student is flagged active/inactive properly, only showing correct students at correct time
+
+TEST CASE: View "Grades by Quiz" page, follow quiz link to view page, click "Quiz Grades Awards Menu" button
+TO PASS: Quiz grades ranking page is shown without error, all quizzes are present with appropriate ranks
+
+TEST CASE: View "Grades by Quiz" page, follow quiz link to view page, click "Awards Main Menu" button
+TO PASS: Main awards page is shown without errors
+
+TEST CASE: View "Grades by Quiz" page, follow quiz link to view page, note awards recieved and grade needed, check actual grades
+TO PASS: Grades in table match actual grades, student has no award unless they received a high enough mark
+
+TEST CASE: Start a quiz, but do not finish it, view "Grades by Quiz" page > quiz page
+TO PASS: Student has no award for that quiz
+
+TEST CASE: Finish quiz and submit, view "Grades by Quiz" page > quiz page
+TO PASS: Student has an award for that quiz if grade was high enough, award is correct for the grade
+
+TEST CASE: Click "Grades Overall" link to view page
+TO PASS: Page renders without errors, table is ordered by award
+
+TEST CASE: View "Grades Overall" page, click "Show active/inactive students"
+TO PASS: Tables changes based on student active status, students are flagged and shown correctly
+
+TEST CASE: View "Grades Overall" page, click "Awards Main Menu" button
+TO PASS: Main awards page is shown without errors
+
+TEST CASE: View "Grades Overall" page, note the grades and awards received, check actual grades
+TO PASS: Awards in table match averaged actual values, grade information is correct in chart
+
+TEST CASE: Click "Completed Course Milestones Within a Time Period" link to view page
+TO PASS: Page renders without errors, all milestones for that course are shown
+
+TEST CASE: View "Completed Course Milestones Within a Time Period" page, click "Awards Main Menu" button
+TO PASS: Main awards page is shown without errors
+
+TEST CASE: View "Completed Course Milestones Within a Time Period" page, follow milestone links
+TO PASS: Pages render without error, award in link matches that in table, table ordered by award
+
+TEST CASE: View "Completed Course Milestones Within a Time Period" page, follow milestone link to view page, click "Milestones Awards Menu" button
+TO PASS: Milestones awards page is shown without error, all milestones are present with appropriate awards
+
+TEST CASE: View "Completed Course Milestones Within a Time Period" page, follow milestone link to view page, click "Awards Main Menu" button
+TO PASS: Main awards page is shown without errors
+
+TEST CASE: View "Completed Course Milestones Within a Time Period" page, follow milestone link to view page, note awards recieved and grade needed, check actual grades
+TO PASS: Awards match actual grades, student has no award unless they received a high enough mark
+
+TEST CASE: Start a quiz, but do not finish it, view "Completed Course Milestones Within a Time Period" page > quiz page
+TO PASS: Student has no award for that quiz
+
+TEST CASE: Finish the quiz and submit, view "Completed Course Milestones Within a Time Period" page > quiz page
+TO PASS: Student has award for that quiz if they meet the required days, days in table match actual time, award is correct
+
+TEST CASE: Submit an assignment as draft, view "Completed Course Milestones Within a Time Period" page > assignment page
+TO PASS: Student has no award for that assignment
+
+TEST CASE: Submit an assignment for marking, view "Completed Course Milestones Within a Time Period" page > assignment page
+TO PASS: Student has no award for that assignment
+
+TEST CASE: Mark assignment (as teacher), view "Completed Course Milestones Within a Time Period" page > assignment page
+TO PASS: Student has award for that assignment if they meet the required days, days in table match actual time, award is correct
+
+TEST CASE: Click "Online Time by Month" link to view page
+TO PASS: Page renders without errors, table is ordered by total points, which is calculated correctly based on current weights
+
+TEST CASE: View "Online Time by Month" page, click "Show active/inactive students" button
+TO PASS: Tables changes according to students active status
+
+TEST CASE: View "Online Time by Month" page, click "Awards Main Menu" button
+TO PASS: Main awards page is shown without errors
+
+TEST CASE: View "Online Time by Month" page, note awards received, check against actual time online (rankings table)
+TO PASS: Awards are consistent across tables and data values
+
+TEST CASE: View "Online Time by Month" page, wait a few minutes (with appropriate settings), refresh page
+TO PASS: Current student award changes according to extra time (may not actually change if not enough time added)
+
+TEST CASE: Click "Online Time this Month" link to view page
+TO PASS: Page renders without errors, award in link matches that in table, table is ordered by award
+
+TEST CASE: View "Online Time this Month" page, click "Awards Main Menu" button
+TO PASS: Main awards page is shown without errors
+
+TEST CASE: View "Online Time this Month" page, wait a few minutes (with appropriate settings), refresh page
+TO PASS: Current student award changes according to extra time (may not actually change if not enough time added)
+
+TEST CASE: Click "Number of Posts Submitted by Month" link to view page
+TO PASS: Page renders without errors, table is ordered by total awards points, which is calculated correctly based on current weights
+
+TEST CASE: View "Number of Posts Submitted by Month" page, click "Show active/inactive students" button
+TO PASS: Table changes based on students ative status
+
+TEST CASE: View "Number of Posts Submitted by Month" page, click "Awards Main Menu" button
+TO PASS: Main awards page is shown without errors
+
+TEST CASE: View "Number of Posts Submitted by Month" page, note the number of posts, make a post (or multiple), view page again
+TO PASS: Number of posts submitted for current student has changed appropriately
+
+TEST CASE: Click "Number of Posts Submitted this Month" link to view page
+TO PASS: Page renders withour errors, award in link matches that in table, table is ordered by award
+
+TEST CASE: View "Number of Posts Submitted this Month" page, click "Awards Main Menu" button
+TO PASS: Main awards page is shown without errors
+
+TEST CASE: View "Number of Posts Submitted this Month" page, note the number of posts, make a post (or multiple), view page again
+TO PASS: Award has changed if student reached the next award level
+
+TEST CASE: Click "Post Rating by Month" link to view page
+TO PASS: Page renders without errors, table is ordered by total award points, which is calculated correctly based on current weights
+
+TEST CASE: View "Post Rating by Month" page, click "Show active/inactive students" button
+TO PASS: Table changes according to students active status
+
+TEST CASE: View "Post Rating by Month" page, click "Awards Main Menu" button
+TO PASS: Main awards page is shown without errors
+
+TEST CASE: View "Post Rating by Month" page, (as teacher) rate a post (or multiple), view page again
+TO PASS: Awards of those students who were just rated has changed appropriately
+
+TEST CASE: Click "Average Post Rating this Month" link to view page
+TO PASS: Page renders without errors, award in link matches that in table, table is ordered by award
+
+TEST CASE: View "Average Post Rating this Month" page, click "Awards Main Menu" button
+TO PASS: Main awards page is shown without errors
+
+TEST CASE: View "Average Post Rating this Month" page, (as teacher) rate a post (or multiple), view page again
+TO PASS: Awards of those students who were just rated has changed appropriately
+
+TEST CASE: Click "Read All Posts by Month" link to view page
+TO PASS: Page renders without errors, table is ordered by award points, which is calculated correctly based on current weights
+
+TEST CASE: View "Read All Posts by Month" page, click "Show active/inactive students" button
+TO PASS: Table changes according to students active status
+
+TEST CASE: View "Read All Posts by Month" page, click "Awards Main Menu" button
+TO PASS: Main awards page is shown without errors
+
+TEST CASE: View "Read All Posts by Month" page, note number of read posts, (with forum tracking enabled) read unread posts
+TO PASS: Award has changed if student achieved the next award level
+
+TEST CASE: Click "Read All Posts this Month" link to view page
+TO PASS: Page renders without errors, award in link matches that in table, table is ordered by award
+
+TEST CASE: View "Read All Posts this Month" page, click "Awards Main Menu" button
+TO PASS: Main awards page is shown without errors
+
+TEST CASE: View "Read All Posts this Month" page, note number of read posts, (with forum tracking enabled) read unread posts
+TO PASS: The award changes if the student has achieved the next award level
