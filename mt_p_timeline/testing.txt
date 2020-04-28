@@ -1,0 +1,123 @@
+These are test cases for block_mt_p_timeline
+
+
+
+TEST CASE: Graph viewed in course with no enroled users
+TO PASS: Graph shows only ideal timeline (or empty graph)
+
+TEST CASE: Graph viewed before milestone data entered
+TO PASS: Graph shows, but is empty, nothing along x-axis
+
+TEST CASE: Graph viewed when ideal milestone data all 0
+TO PASS: Graph shows, but is empty, nothing along x-axis
+
+TEST CASE: Graph viewed with some milestones 0 or empty
+TO PASS: Those that are 0/empty do not show while those that have values show
+
+TEST CASE: Graph viewed with various milestone values (sequential and non-sequential)
+TO PASS: Milestones are ordered by week value entered, line reflects values entered
+
+TEST CASE: Milestone ideal week values entered less than 0, greater than 26, or non-numeric
+TO PASS: The number reverts to its previous value when saved or cursor moved out of text box
+
+TEST CASE: Graph viewed with only one milestone
+TO PASS: Graph displays dot(s) instead of lines
+
+TEST CASE: Graph viewed with many milestones (30+)
+TO PASS: Graph displays milestone names, but not all, graph still looks about the same
+
+TEST CASE: Graph viewed with disjointed milestone completion (quiz 1, 3, and 4 done, but not quiz 2)
+TO PASS: Graph shows dot for disjoint milestone, but no lines to disjointed milestone, lines between others
+
+TEST CASE: Graph viewed by teacher/admin
+TO PASS: Graph shows ideal and average lines, nothing for "your progress"
+
+TEST CASE: Graph viewed by student who has not reached any milestone
+TO PASS: Graph shows ideal and average lines, nothing for "your progress"
+
+TEST CASE: Graph viewed when average and your lines overlap
+TO PASS: Your line (red) is on top of the average line (yellow)
+
+TEST CASE: Graph viewed before and after quiz/assignment submitted (as draft)
+TO PASS: Graph does not show milestone upon submission
+
+TEST CASE: Graph viewed before and after quiz/assignment submitted
+TO PASS: Graph does not show milestone upon submission
+
+TEST CASE: Graph viewed before and after quiz/assignment marked
+TO PASS: Graph now shows the new milestone with the correct week value, average line may move as well to account for new data
+
+TEST CASE: Graph viewed with one milestone done
+TO PASS: Graph shows dot at milestone
+
+TEST CASE: Graph viewed with multiple milestones done
+TO PASS: Graph shows lines between milestone dots, unless milestone is disjoint
+
+TEST CASE: Cancel clicked in admin options after changes made to values, view again
+TO PASS: Redirect to course page, no errors, changes were not saved
+
+TEST CASE: Save changes clicked in admin options with no changes made to values, view again
+TO PASS: Redirects to course page, no errors, empty values default to 0, others same as before
+
+TEST CASE: Save changes clicked in admin options after changes made to values, view again
+TO PASS: Redirects to course page, no errors, empty values default to 0, others show changed values
+
+TEST CASE: Cancel clicked in student options (no options to save)
+TO PASS: Redirect to course page, no errors
+
+TEST CASE: Save changes clicked in student options (no options to save)
+TO PASS: Same as cancel button, redirect to course page, no errors
+
+TEST CASE: Turn editing on/off when viewing graph, this checks the internal $PAGE URL
+TO PASS: Page refreshs without errors
+
+TEST CASE: Turn editing on/off when viewing options, this checks the internal $PAGE URL
+TO PASS: Page refreshs without errors
+
+TEST CASE: View the graph with multiple users who all have data
+TO PASS: Graph ideal and average lines remain the same, student line changes
+
+TEST CASE: View graph, change ideal week values, view again
+TO PASS: Average and student lines does not change, ideal line changes, has new values
+
+TEST CASE: View graph, remove ideal week value(s), view again (set to 0)
+TO PASS: All lines change to reflect missing milestone(s)
+
+TEST CASE: View graph in multiple courses
+TO PASS: Graph line change based on data for that course, no overlapping data
+
+TEST CASE: View graph with multiple users
+TO PASS: Graph line change based on data for that student, no overlapping data
+
+TEST CASE: Use graph with both quizzes and assignments
+TO PASS: Both types of module will be visible
+
+TEST CASE: Use graph with other module types in course
+TO PASS: No other module types show in graph, only quiz and assignment types
+
+TEST CASE: Ideal timeline options are viewed in course with no content
+TO PASS: Options page shows, but nothing there
+
+TEST CASE: Options are viewed in course with no content, click save changes, nothing to save
+TO PASS: Page redirects without errors
+
+TEST CASE: Chart is viewed in course with no content, no data for chart
+TO PASS: Chart shows, but there are no lines
+
+TEST CASE: View chart, manually change the courseid value in the URL, go to page
+TO PASS: If block is installed in that course and user is enroled in that course, chart will display, if block is not installed in that course, the page redirects to the user's dashboard, if the block is installed, but the user is not enroled, enrolment options page is shown
+
+TEST CASE: View administrator options, manually change the courseid value in the URL, go to page
+TO PASS: If block is installed in that course, and user is enroled in that course, options will display, if block is not installed in that course, the page redirects to the user's dashboard, if the block is installed, but the user is not enroled, enrolment options page is shown
+
+TEST CASE: View student options, manually change the courseid value in the URL, go to page
+TO PASS: If block is installed in that course, and user is enroled in that course, options will display, if block is not installed in that course, the page redirects to the user's dashboard, if the block is installed, but the user is not enroled, enrolment options page is shown
+
+TEST CASE: Add assessment to course page, give ideal time value, view chart
+TO PASS: New assessment shows in chart
+
+TEST CASE: Remove assessment from course page, view chart
+TO PASS: Removed assessment no longer shown on chart, may not happen immediately, appears to be a caching problem and will self correct
+
+TEST CASE: Remove assessment from course page, view settings for ideal times, click cancel/save
+TO PASS: Removed assessment no longer shown in settings, may not happen immediately, appears to be a caching problem and will self correct
