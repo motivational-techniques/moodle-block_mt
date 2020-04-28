@@ -1,0 +1,56 @@
+image: php:7.1.1
+pipelines:
+  default:
+    - step:
+        name: PEAR configuration check
+        script:
+          - pear -V
+          - pear config-get php_dir
+
+    - step:
+        name: PHP Code Sniffer
+        script:
+          - pear install pear/PHP_CodeSniffer
+          - phpcs -h
+          - phpcs -p --standard=ruleset.xml
+
+    - step:
+        name: PHP Mess Detector
+        script:
+          - echo "PHP Mess Detector"
+#          - pear -h
+#          - pear channel-discover pear.phpmd.org
+#          - pear channel-discover pear.pdepend.org
+#          - pear install --alldeps phpmd/PHP_PMD
+#          - apt-get update && apt-get install -y unzip
+#          - curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
+#          - phpmd
+
+    - step:
+        name: PHP Copy/Paste Detector
+        script:
+          - echo "PHP Copy/Past Detector"
+#          - pear -h
+#           - pear config-set auto_discover 1
+#           - pear install pear.phpunit.de/phpcpd
+#           - vendor/bin/phpcpd mt_rankings/
+
+#          - php vendor/bin/phpcpd mt_rankings/ mt_p_timeline/ mt_p_annotation/ mt_goals/ mt_awards/
+    - step:
+        name: Deploy to test
+        deployment: Test
+        trigger: automatic
+        script:
+          - echo "Deploy to test"
+    - step:
+        name: Deploy to staging
+        deployment: Staging
+        trigger: manual
+        script:
+          - echo "Deploy to staging"
+    - step:
+        name: Deploy to production
+        deployment: Production
+        trigger: manual
+        script:
+          - echo "Deploy to production"

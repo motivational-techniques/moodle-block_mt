@@ -1,0 +1,358 @@
+<?xml version="1.0"?>
+<ruleset name="Custom Standard" namespace="MT">
+
+    <description>Moodle coding standard</description>
+
+    <!-- If no files or directories are specified on the command line your 
+        custom standard can specify what files should be checked instead. Note that 
+        file and directory paths specified in a ruleset are relative to the ruleset's 
+        location, and that specifying any file or directory path on the command line 
+        will ignore all file tags. -->
+    <file>./block_mt.php</file>
+    <file>./mt_rankings/all_ranks.php</file>
+
+    <exclude-pattern>*/tests/*</exclude-pattern>
+    <exclude-pattern>*/data/*</exclude-pattern>
+
+    <!-- Patterns can be specified as relative if you would like the relative 
+        path of the file checked instead of the full path. This can sometimes help 
+        with portability. The relative path is determined based on the paths you 
+        pass into PHP_CodeSniffer on the command line. -->
+    <exclude-pattern type="relative">^/tests/*</exclude-pattern>
+    <exclude-pattern type="relative">^/data/*</exclude-pattern>
+
+    <arg name="report" value="full" />
+    <arg name="report" value="summary" />
+    <arg name="report" value="summary" />
+    <arg name="colors" />
+    <arg value="sp" />
+    <!-- <arg name="config-set" /> <arg value="ignore_errors_on_exit 1" /> 
+        <arg name="config-set" /> <arg value="ignore_warnings_on_exit 1" /> -->
+
+    <!-- You can hard-code custom php.ini settings into your custom standard. 
+        The following tag sets the memory limit to 64M. -->
+    <ini name="memory_limit" value="64M" />
+
+    <!-- Include all sniffs in the PEAR standard. Note that the path to the 
+        standard does not have to be specified as the PEAR standard exists inside 
+        the PHP_CodeSniffer install directory. -->
+    <rule ref="PEAR" />
+
+    <!-- Include everything in another ruleset.xml file. This is really handy 
+        if you want to customise another developer's custom standard. They just need 
+        to distribute their single ruleset file to allow this. -->
+    <!-- <rule ref="/home/username/standards/custom.xml"/> -->
+    <!-- Relative paths can also be used everywhere absolute paths are used. 
+        Make sure the reference starts with ./ or ../ so PHP_CodeSniffer knows it 
+        is a relative path. -->
+    <!-- <rule ref="./excluded_ruleset.xml" /> -->
+
+    <!-- Include some specific sniffs from the Generic standard. Note again 
+        that the name of the sniff is the code that PHP_CodeSniffer gives it. -->
+    <rule ref="Generic.CodeAnalysis.UnusedFunctionParameter" />
+    <rule ref="Generic.Commenting.Todo" />
+    <rule ref="Generic.ControlStructures.InlineControlStructure" />
+
+    <!-- Here we are including a specific sniff but also changing the error 
+        message of a specific message inside the sniff. Note that the specific code 
+        for the message, which is CommentFound in this case, is defined by the sniff 
+        developer. You can display these codes by using the -s command line argument 
+        when checking a file. Also note that this message has a variable inside it, 
+        which is why it is important that sniffs use a printf style format for their 
+        error messages. We also drop the severity of this message from the default 
+        value (5) so that it is hidden by default. It can be displayed by setting 
+        the minimum severity on the PHP_CodeSniffer command line. This is great if 
+        you want to use some messages only in code reviews and not have them block 
+        code commits. -->
+    <rule ref="Generic.Commenting.Todo.CommentFound">
+        <message>Please review this TODO comment: %s</message>
+        <severity>3</severity>
+    </rule>
+
+    <!-- You can also change the type of a message from error to warning 
+        and vice versa. -->
+    <rule ref="Generic.Commenting.Todo.CommentFound">
+        <type>error</type>
+    </rule>
+    <rule ref="Squiz.Strings.DoubleQuoteUsage.ContainsVar">
+        <type>warning</type>
+    </rule>
+
+    <!-- Here we change two messages from the same sniff. Note how the codes 
+        are slightly different because the sniff developer has defined both a MaxExceeded 
+        message and a TooLong message. In the case of this sniff, one is used for 
+        warnings and one is used for errors. -->
+    <rule ref="Generic.Files.LineLength.MaxExceeded">
+        <message>Line contains %2$s chars, which is more than the limit
+            of %1$s</message>
+    </rule>
+    <rule ref="Generic.Files.LineLength.TooLong">
+        <message>Line longer than %s characters; contains %s characters
+        </message>
+    </rule>
+
+    <!-- Some sniffs have public member vars that allow you to customise 
+        specific elements of the sniff. In the case of the Generic LineLength sniff, 
+        you can customise the limit at which the sniff will throw warnings and the 
+        limit at which it will throw errors. The rule below includes the LineLength 
+        sniff but changes the settings so the sniff will show warnings for any line 
+        longer than 90 chars and errors for any line longer than 100 chars. -->
+    <rule ref="Generic.Files.LineLength">
+        <properties>
+            <property name="lineLimit" value="100" />
+            <property name="absoluteLineLimit" value="127" />
+        </properties>
+    </rule>
+
+    <!-- Another useful example of changing sniff settings is to specify 
+        the end of line character that your standard should check for. -->
+    <rule ref="Generic.Files.LineEndings">
+        <properties>
+            <property name="eolChar" value="\n" />
+        </properties>
+    </rule>
+
+    <!-- Boolean values should be specified by using the strings "true" and 
+        "false" rather than the integers 0 and 1. -->
+    <rule ref="Generic.Formatting.MultipleStatementAlignment">
+        <properties>
+            <property name="maxPadding" value="8" />
+            <property name="ignoreMultiLine" value="true" />
+            <property name="error" value="true" />
+        </properties>
+    </rule>
+
+    <!-- Array values are specified by using "element" tags with "key" and 
+        "value" attributes. NOTE: This syntax is is only supported in PHP_CodeSniffer 
+        versions 3.3.0 and greater. -->
+    <rule ref="Generic.PHP.ForbiddenFunctions">
+        <properties>
+            <property name="forbiddenFunctions" type="array">
+                <element key="delete" value="unset" />
+                <element key="print" value="echo" />
+                <element key="create_function" value="null" />
+            </property>
+        </properties>
+    </rule>
+
+    <!-- Before version 3.3.0, array values are specified by using a string 
+        representation of the array. NOTE: This syntax is deprecated and will be 
+        removed in PHP_CodeSniffer version 4.0 -->
+    <rule ref="Generic.PHP.ForbiddenFunctions">
+        <properties>
+            <property name="forbiddenFunctions" type="array"
+                value="delete=>unset,print=>echo,create_function=>null" />
+        </properties>
+    </rule>
+
+    <!-- If you are including another standard, some array properties may 
+        have already been defined. Instead of having to redefine them you can choose 
+        to extend the property value instead. Any elements with new keys will be 
+        added to the property value, and any elements with existing keys will override 
+        the imported value. NOTE: This syntax is is only supported in PHP_CodeSniffer 
+        versions 3.4.0 and greater. -->
+    <rule ref="Generic.PHP.ForbiddenFunctions">
+        <properties>
+            <property name="forbiddenFunctions" type="array"
+                extend="true">
+                <element key="sizeof" value="count" />
+            </property>
+        </properties>
+    </rule>
+
+    <!-- If you want to completely disable an error message in a sniff but 
+        you don't want to exclude the whole sniff, you can change the severity of 
+        the message to 0. In this case, we want the Squiz DoubleQuoteUsage sniff 
+        to be included in our standard, but we don't want the ContainsVar error message 
+        to ever be displayed. -->
+    <rule ref="Squiz.Strings.DoubleQuoteUsage.ContainsVar">
+        <severity>0</severity>
+    </rule>
+
+    <!-- There is a special internal error message produced by PHP_CodeSniffer 
+        when it is unable to detect code in a file, possible due to the use of short 
+        open tags even though php.ini disables them. You can disable this message 
+        in the same way as sniff messages. Again, the code here will be displayed 
+        in the PHP_CodeSniffer output when using the -s command line argument while 
+        checking a file. -->
+    <rule ref="Internal.NoCodeFound">
+        <severity>0</severity>
+    </rule>
+
+    <!-- You can hard-code ignore patterns for specific sniffs, a feature 
+        not available on the command line. Please note that all sniff-specific ignore 
+        patterns are checked using absolute paths. The code here will hide all messages 
+        from the Squiz DoubleQuoteUsage sniff for files that match either of the 
+        two exclude patterns. -->
+    <rule ref="Squiz.Strings.DoubleQuoteUsage">
+        <exclude-pattern>*/tests/*</exclude-pattern>
+        <exclude-pattern>*/data/*</exclude-pattern>
+    </rule>
+
+    <!-- You can also be more specific and just exclude some messages. Please 
+        note that all message-specific ignore patterns are checked using absolute 
+        paths. The code here will just hide the ContainsVar error generated by the 
+        Squiz DoubleQuoteUsage sniff for files that match either of the two exclude 
+        patterns. -->
+    <rule ref="Squiz.Strings.DoubleQuoteUsage.ContainsVar">
+        <exclude-pattern>*/tests/*</exclude-pattern>
+        <exclude-pattern>*/data/*</exclude-pattern>
+    </rule>
+
+    <!-- You can hard-code include patterns for specific sniffs, allowing 
+        you to only include sniffs when checking specific files. Please note that 
+        all sniff-specific include patterns are checked using absolute paths. The 
+        code here will only run the Squiz DoubleQuoteUsage sniff for files that match 
+        either of the two include patterns. -->
+    <rule ref="Squiz.Strings.DoubleQuoteUsage">
+        <include-pattern>*/templates/*</include-pattern>
+        <include-pattern>*\.tpl$</include-pattern>
+    </rule>
+
+    <!-- As with exclude rules, you can be more specific and just include 
+        some messages. Please note that all message-specific include patterns are 
+        checked using absolute paths. The code here will just show the ContainsVar 
+        error generated by the Squiz DoubleQuoteUsage sniff for files that match 
+        either of the two include patterns. -->
+    <rule ref="Squiz.Strings.DoubleQuoteUsage.ContainsVar">
+        <include-pattern>*/templates/*</include-pattern>
+        <include-pattern>*\.tpl$</include-pattern>
+    </rule>
+    <rule ref="Generic.Formatting.SpaceAfterCast">
+        <properties>
+            <property name="spacing" value="0" />
+        </properties>
+    </rule>
+    <rule ref="Generic.Formatting.SpaceAfterNot">
+        <properties>
+            <property name="spacing" value="0" />
+        </properties>
+    </rule>
+    <rule ref="Generic.Metrics.CyclomaticComplexity">
+        <properties>
+            <property name="complexity" value="10" />
+            <property name="absoluteComplexity" value="30" />
+        </properties>
+    </rule>
+    <rule ref="Generic.PHP.NoSilencedErrors">
+        <properties>
+            <property name="error" value="false" />
+        </properties>
+    </rule>
+    <rule ref="PSR2.Files.EndFileNewline.NoneFound">
+        <properties>
+            <property name="error" value="false" />
+        </properties>
+    </rule>
+
+
+
+
+    <!-- Include all sniffs in the Squiz standard except one. Note that the 
+        name of the sniff being excluded is the code that the sniff is given by PHP_CodeSniffer 
+        and is based on the file name and path of the sniff class. You can display 
+        these codes using the -s command line argument when checking a file. -->
+    <rule ref="Squiz.PHP">
+        <exclude name="Squiz.PHP" />
+        <exclude name="Squiz.PHP.CommentedOutCode" />
+    </rule>
+    <!-- You can also exclude a single sniff message. -->
+    <rule ref="Squiz">
+        <exclude
+            name="Squiz.Strings.DoubleQuoteUsage.ContainsVar" />
+    </rule>
+    <!-- You can even exclude a whole standard. This example includes all 
+        sniffs from the Squiz standard, but excludes any that come from the Generic 
+        standard. -->
+    <rule ref="Squiz">
+        <exclude name="Generic" />
+    </rule>
+
+<!-- 
+    <rule ref="PSR1">
+        <exclude name="PSR1" />
+    </rule>
+ -->    
+
+
+    <rule ref="Squiz">
+        <exclude name="Squiz.Files.FileExtension.ClassFound" />
+    </rule>
+    <rule ref="Squiz">
+        <exclude name="Squiz.Commenting" />
+    </rule>
+    <rule ref="Squiz.WhiteSpace.FunctionSpacing.After">
+        <properties>
+            <property name="spacing" value="0" />
+        </properties>
+    </rule>
+    
+    <rule ref="Squiz.Strings.ConcatenationSpacing">
+        <exclude name="Squiz.Strings.ConcatenationSpacing" />
+    </rule>
+    <rule ref="Squiz.Classes">
+        <exclude name="Squiz.Classes.ClassDeclaration" />
+        <exclude name="Squiz.Classes.ValidClassName" />
+    </rule>
+    <rule ref="Squiz.Functions.MultiLineFunctionDeclaration">
+        <exclude name="Squiz.Functions.MultiLineFunctionDeclaration" />
+    </rule>
+    <rule ref="Squiz.WhiteSpace">
+        <exclude name="Squiz.WhiteSpace.FunctionSpacing" />
+        <exclude name="Squiz.WhiteSpace.FunctionClosingBraceSpace" />
+        <exclude name="Squiz.WhiteSpace.ControlStructureSpacing" />
+    </rule>
+    <rule ref="Squiz.Arrays.ArrayBracketSpacing">
+        <exclude name="Squiz.Arrays.ArrayBracketSpacing" />
+    </rule>
+    <rule ref="Squiz.NamingConventions.ValidFunctionName">
+        <exclude name="Squiz.NamingConventions.ValidFunctionName" />
+    </rule>
+
+    <rule ref="Squiz.Objects.ObjectInstantiation">
+        <exclude name="Squiz.Objects.ObjectInstantiation" />
+    </rule>
+    <rule ref="Squiz.Operators.ComparisonOperatorUsage">
+        <exclude name="Squiz.Operators.ComparisonOperatorUsage" />
+    </rule>
+    <rule ref="Squiz.Arrays.ArrayDeclaration">
+        <exclude name="Squiz.Arrays.ArrayDeclaration" />
+    </rule>
+
+     <rule ref="PSR2.Files">
+        <exclude name="PSR2.Files.EndFileNewline" />
+    </rule>
+    <rule ref="PSR2.Methods">
+        <exclude name="PSR2.Methods.FunctionCallSignature" />
+    </rule>
+
+    <rule ref="Generic">
+        <exclude name="Generic.Commenting" />
+    </rule>
+    <rule ref="Generic">
+        <exclude name="Generic.PHP.ClosingPHPTag" />
+    </rule>
+
+    <rule ref="PEAR.Classes.ClassDeclaration">
+        <exclude
+            name="PEAR.Classes.ClassDeclaration.OpenBraceNewLine" />
+    </rule>
+    <rule ref="PEAR.Files.IncludingFile">
+        <exclude name="PEAR.Files.IncludingFile" />
+    </rule>
+    <rule ref="PEAR.Commenting">
+        <exclude name="PEAR.Commenting.ClassComment" />
+        <exclude name="PEAR.Commenting.FunctionComment" />
+        <exclude name="PEAR.Commenting.FileComment" />
+    </rule>
+    <rule ref="PEAR.NamingConventions">
+        <exclude name="PEAR.NamingConventions.ValidClassName" />
+        <exclude name="PEAR.NamingConventions.ValidFunctionName" />
+    </rule>
+    <rule ref="PEAR.Functions">
+        <exclude
+            name="PEAR.Functions.FunctionDeclaration.BraceOnSameLine" />
+        <exclude
+            name="PEAR.Functions.FunctionCallSignature" />
+    </rule>
+</ruleset>

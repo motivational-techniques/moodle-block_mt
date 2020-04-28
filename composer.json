@@ -1,0 +1,18 @@
+{
+	"name" : "mt/ci",
+	"description" : "Pipeline CI test repository",
+	"autoload" : {
+		"psr-4" : {
+			"MT\\" : "mt_rankings/,mt_p_timeline/,mt_p_annotation/,mt_goals/,mt_awards/"
+		}
+	},
+	"require" : {
+		"php" : ">=5.6"
+	},
+	"require-dev" : {
+		"phpunit/phpunit" : "5.*",
+		"squizlabs/php_codesniffer" : "2.*",
+		"phpmd/phpmd" : "@stable",
+		"codeception/codeception" : "2.*"
+	}
+}

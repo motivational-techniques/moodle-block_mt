@@ -1,0 +1,107 @@
+These are the test cases for the block_mt plugin/block itself.
+
+
+TEST CASE: Install plugin in Moodle
+TO PASS: Plugin installs without errors or warnings
+
+TEST CASE: Uninstall plugin from Moodle
+TO PASS: Plugin uninstalls without errors
+
+TEST CASE: Instal block in course
+TO PASS: Block installs without errors or warnings, only admin link visible initially
+
+TEST CASE: Uninstall block from course
+TO PASS: Block uninstalls without errors
+
+TEST CASE: Click "Administration" link to view page
+TO PASS: Admin page show without errors, five check boxes and five links to other admin pages
+
+TEST CASE: View "Administration" page, turn editing on/off
+TO PASS: Page refreshes without error
+
+TEST CASE: View "Administration" page, click "Save changes" (nothing checked)
+TO PASS: Course page is shown without errors, available block features has not changed
+
+TEST CASE: View "Administration" page, check boxes, click "Save changes"
+TO PASS: Course page is shown without errors, block now shows checked features
+
+TEST CASE: View "Administration" page, uncheck boxes, click "Save changes"
+TO PASS: Course page is shown without errors, block no longer shows unchecked features
+
+TEST CASE: View "Administration" page, check/uncheck boxes, click "Cancel"
+TO PASS: Course page is shown without errors, available block features has not changed
+
+TEST CASE: Click "Awards adminstration page" link to view page (settings are tested in mt_awards/testing.txt)
+TO PASS: Awards settings page shows without errors
+
+TEST CASE: Click "Goals adminstration page" link to view page (settings are tested in mt_goals/testing.txt)
+TO PASS: Goals settings page shows without errors
+
+TEST CASE: Click "Progress Annotation adminstration page" link to view page (settings are tested in mt_p_annotation/testing.txt)
+TO PASS: Progress annotation settings page shows without errors
+
+TEST CASE: Click "Progress Timeline adminstration page" link to view page (settings are tested in mt_p_timeline/testing.txt)
+TO PASS: Progress timeline settings page shows without errors
+
+TEST CASE: Click "Rankings adminstration page" link to view page (settings are tested in mt_rankings/testing.txt)
+TO PASS: Rankings settings page shows without errors
+
+TEST CASE: View block as student with no features enabled
+TO PASS: Only options link visible
+
+TEST CASE: View block as student with no features enabled, click "Options" link to view page
+TO PASS: No links to any feature settings
+
+TEST CASE: View block as student with some features enabled, click "Options" link to view page
+TO PASS: Only features shown in block have links to settings pages
+
+TEST CASE: View block as student, click "Options" link to view page, click "Save changes"
+TO PASS: Course page is shown without errors
+
+TEST CASE: View block as student, click "Options" link to view page, click "Cancel"
+TO PASS: Course page is shown without errors
+
+TEST CASE: View block options page as student, click "Awards adminstration page" link to view page (settings are tested in mt_awards/testing.txt)
+TO PASS: Awards settings page shows without errors
+
+TEST CASE: View block options page as student, click "Goals adminstration page" link to view page (settings are tested in mt_goals/testing.txt)
+TO PASS: Goals settings page shows without errors
+
+TEST CASE: View block options page as student, click "Progress Annotation adminstration page" link to view page (settings are tested in mt_p_annotation/testing.txt)
+TO PASS: Progress annotation settings page shows without errors
+
+TEST CASE: View block options page as student, click "Progress Timeline adminstration page" link to view page (settings are tested in mt_p_timeline/testing.txt)
+TO PASS: Progress timeline settings page shows without errors
+
+TEST CASE: View block options page as student, click "Rankings adminstration page" link to view page (settings are tested in mt_rankings/testing.txt)
+TO PASS: Rankings settings page shows without errors
+
+TEST CASE: With block installed in multiple courses which have students and data, run scheduled task manually to view output
+TO PASS: All data is generated without errors
+
+TEST CASE: View global block settings page (site administration > plugins > plugins overview > settings)
+TO PASS: Settings page shows without errors
+
+TEST CASE: View global block settings page, click "Save changes" (no changes)
+TO PASS: Settings page refreshes without errors
+
+TEST CASE: View global block settings page, change values, click "Save changes"
+TO PASS: Settings page refreshes without errors, values shown are those that were entered or error message about invalid value
+
+TEST CASE: View rankings > online time by month, note values, view global block settings page, change online cutoff time, view online time again
+TO PASS: Changing the online cutoff time alters the table values appropriately
+
+TEST CASE: View global block settings page, enter negative values, decimals, and text for online cutoff time, click "Save changes"
+TO PASS: Only integer values greater than 1 are accepted, others give error about invalid value
+
+TEST CASE: View page that uses active and inactive students, note active status, view global block settings page, change inactive time, view first page again
+TO PASS: Changing the inactive time value changes which students are considered active/inactive appropriately
+
+TEST CASE: View global block settings page, enter negative values, decimals, and text for inactive time, click "Save changes"
+TO PASS: Only integer values greater than 1 are accepted, others give error about invalid value
+
+TEST CASE: Run scheduled task, note time taken, view global block settings page, enable regenerate rankings, run task, note time
+TO PASS: Regenerating rankings causes the scheduled task to run longer and use more DB queries
+
+TEST CASE: Run scheduled task, note time taken, view global block settings page, enable regenerate awards, run task, note time
+TO PASS: Regenerating awards causes the scheduled task to run longer and use more DB queries

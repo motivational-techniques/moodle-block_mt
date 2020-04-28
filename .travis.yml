@@ -11,6 +11,7 @@ addons:
 
 services:
   - mysql
+  - postgresql
 
 cache:
   directories:
@@ -19,9 +20,9 @@ cache:
 
 php:
 #   - 7.3
-  - 7.2
-#   - 7.1
-#   - 7.0
+#  - 7.2
+  - 7.1
+#  - 7.0
 #   - 5.6
 #   - 5.4
 
@@ -31,16 +32,12 @@ env:
     # Custom form elements are formatted according for formslib, which doesn't match Moodle's style.
     - IGNORE_PATHS=db/upgrade.php
     # - COVERAGE=false
-
+    - MOODLE_BRANCH=MOODLE_35_STABLE
+    - MOODLE_BRANCH=MOODLE_37_STABLE
+  
   matrix:
-    - MOODLE_BRANCH=MOODLE_34_STABLE DB=pgsql
-    # - MOODLE_BRANCH=MOODLE_34_STABLE DB=mysqli
-    # - MOODLE_BRANCH=MOODLE_35_STABLE DB=mysqli
-    # - MOODLE_BRANCH=MOODLE_35_STABLE DB=pgsql
-    # - MOODLE_BRANCH=MOODLE_36_STABLE DB=mysqli
-    # - MOODLE_BRANCH=MOODLE_36_STABLE DB=pgsql
-    # - MOODLE_BRANCH=MOODLE_37_STABLE DB=mysqli
-    # - MOODLE_BRANCH=MOODLE_37_STABLE DB=pgsql
+    - DB=mysqli
+    - DB=pgsql
 
 before_install:
   - phpenv config-rm xdebug.ini
@@ -55,15 +52,16 @@ install:
 
 script:
   - moodle-plugin-ci phplint
-  - moodle-plugin-ci phpcpd
-  - moodle-plugin-ci phpmd
+  - moodle-plugin-ci phpcpd || true # report issues, but don't fail the build.
+  - moodle-plugin-ci phpmd || true # report issues, but don't fail the build.
   - moodle-plugin-ci codechecker
+  - moodle-plugin-ci phpdoc
   - moodle-plugin-ci validate
   - moodle-plugin-ci savepoints
   - moodle-plugin-ci mustache
-  - moodle-plugin-ci phpdoc
+# CSS and YUI linting
+#  - moodle-plugin-ci grunt
   - moodle-plugin-ci phpunit
   - moodle-plugin-ci behat
-  
-  # CSS and YUI linting
-  #  - moodle-plugin-ci grunt
+
+  - moodle-plugin-ci phpunit --coverage-text

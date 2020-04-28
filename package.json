@@ -1,0 +1,20 @@
+{
+  "name": "mt-motivational-techniques",
+  "description": "build for deployment as a Moodle block plugin",
+  "version": "0.9.11",
+  "license": "ISC",
+  "devDependencies": {
+    "grunt": "^1.0.4",
+    "grunt-better-build-number": "^1.0.1",
+    "grunt-bumpup": "^0.6.3",
+    "grunt-contrib-clean": "^2.0.0",
+    "grunt-contrib-compress": "^1.5.0",
+    "grunt-contrib-copy": "^1.0.0",
+    "grunt-string-replace": "^1.3.1",
+    "grunt-zip": "^0.18.2"
+  },
+  "build": "450",
+  "testDirectory": "D:\\Athabasca\\git\\mt-test\\",
+  "copyDirectory": "D:\\xampp\\htdocs\\moodle-3.7.2-pg\\blocks\\mt\\",
+  "mcopyDirectory": "D:\\xampp\\htdocs\\moodle-3.4-maria-10.0\\blocks\\mt\\"
+}
