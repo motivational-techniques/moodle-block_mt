@@ -54,11 +54,26 @@ OR
 The plugin can be installed manually at the server. All the plugin files will
 need to be placed into the /path/to/moodle/blocks/mt directory.
 
+See https://docs.moodle.org/37/en/Installing_plugins#Installing_a_plugin for
+more details about these installation methods.
+
 After installing, (as admin) navigate to Settings > Site administration >
 Notifications, which will show a message saying the plugin is to be installed.
 
-See https://docs.moodle.org/37/en/Installing_plugins#Installing_a_plugin for
-more details about these installation methods.
+
+### Adding the block to a course. ###
+
+As an admin, click on the gear icon at the top right of the course page.
+Click Turn editing on.
+
+On the bottom left of the course page click on Add a block
+Select MT - Motivational Techniques
+click on the gear icon at the top right of the course page.
+Click Turn editing off.
+
+To select specific Motivational Techniques for the course, click on the Administration link within the Motivational Techniques block.
+Select the Motivational Technique to be enabled for the course.
+Click Save Changes
 
 
 ### Report a bug ###
