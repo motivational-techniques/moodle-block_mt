@@ -1,4 +1,4 @@
-# Motivational Techniques #
+# MotTEC - Motivational Techniques #
 
 This block plugin provides 5 domain and content independent features that are
 designed to provide students more motivation in a course.
@@ -67,7 +67,7 @@ As an admin, click on the gear icon at the top right of the course page.
 Click Turn editing on.
 
 On the bottom left of the course page click on Add a block
-Select MT - Motivational Techniques
+Select MotTEC - Motivational Techniques
 click on the gear icon at the top right of the course page.
 Click Turn editing off.
 
@@ -103,7 +103,7 @@ adjusted by the administrator. When the plugin is first installed, these setting
 are shown and can be adjusted, but also have default values that can be used.
 After the plugin is installed, these settings can be accessed from
 Site administration > Plugins > Plugins overview, which shows a long list of all
-the installed plugins. Search for the MT - Motivational Techniques plugin and
+the installed plugins. Search for the MotTEC - Motivational Techniques plugin and
 click settings. 
 
 There are 4 settings that can be altered. The first is online cutoff time, which
@@ -190,7 +190,7 @@ implemented.
 The Moodle administrator can modify the default settings for the online cutoff
 time in minutes and the time in days before a user is considered inactive. These
 settings are available from the Site administration > Plugins > Plugins overview
-page. Search through the list of plugins to find MT - Motivational Techniques
+page. Search through the list of plugins to find MotTEC - Motivational Techniques
 and click settings. These settings can also be altered when the plugin is
 installed.
 
@@ -265,7 +265,7 @@ are being completed.
 The Moodle administrator can modify the default settings for the online cutoff
 time in minutes and the time in days before a user is considered inactive. These
 settings are available from the Site administration > Plugins > Plugins overview
-page. Search through the list of plugins to find MT - Motivational Techniques
+page. Search through the list of plugins to find MotTEC - Motivational Techniques
 and click settings. These settings can also be altered when the plugin is
 installed.
 
