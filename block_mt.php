@@ -56,7 +56,7 @@ class block_mt extends block_list {
         if (! empty ( $this->config->title )) {
             $this->title = $this->config->title;
         }
-        global $COURSE, $USER, $PAGE, $DB;
+        global $COURSE, $USER, $DB;
 
         $courseid = $COURSE->id;
         $userid = $USER->id;
@@ -91,11 +91,11 @@ class block_mt extends block_list {
             );
 
             // Pass them to the page to get rendered with each activity.
-            $PAGE->requires->jquery();
-            $PAGE->requires->jquery_plugin('ui');
-            $PAGE->requires->jquery_plugin('ui-css');
-            $PAGE->requires->js(new moodle_url('/blocks/mt/mt_p_annotation/display_pannotation_images.js'));
-            $PAGE->requires->js_init_call('getSessionInfo', $params);
+            $this->page->requires->jquery();
+            $this->page->requires->jquery_plugin('ui');
+            $this->page->requires->jquery_plugin('ui-css');
+            $this->page->requires->js(new moodle_url('/blocks/mt/mt_p_annotation/display_pannotation_images.js'));
+            $this->page->requires->js_init_call('getSessionInfo', $params);
         }
 
         $this->content->items[] = display_item_and_icon($courseid, 'p_timeline', '/blocks/mt/mt_p_timeline/draw_chart.php',
