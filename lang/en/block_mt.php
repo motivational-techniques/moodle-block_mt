@@ -131,7 +131,7 @@ $string ['mt:rankings'] = 'Rankings';
 $string ['mt:settings_description'] = 'Settings for the Motivational Techniques.';
 $string ['mt:settings_header'] = 'Settings for Motivational Techniques';
 $string ['mt:settings_header_config'] = 'Settings for Motivational Techniques';
-$string ['mt:title'] = 'Motivational Techniques';
+$string ['mt:title'] = 'MotTEC - Motivational Techniques';
 $string ['mt:to_enable'] = 'To enable check the box';
 $string ['mt_awards'] = 'Awards'; // Shows in course edit Add Block list.
 $string ['mt_awards:achievements_bronze_weight_desc'] = 'The Achievements weight for a Bronze award.';
@@ -971,7 +971,7 @@ $string ['mt_rankings:generate_rank_participation_rating_posts_overall_number_po
 
 $string ['mt_rankings:get_rank_format'] = '{$a->rankname} - {$a->parameter}';
 
-$string ['pluginname'] = 'MT - Motivational Techniques';
+$string ['pluginname'] = 'MotTEC - Motivational Techniques';
 
 $string['privacy:metadata:annotation'] = 'Stores the user selected completion status of the learning objects.';
 $string['privacy:metadata:annotation:course'] = 'The ID of the course these selections relate to.';
