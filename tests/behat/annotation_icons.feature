@@ -21,7 +21,7 @@ Feature: Annotation icons can be clicked
       | page     | C1     | page1    | Test page name | Test page description | Test page content |
     And I log in as "teacher1"
     And I am on "Course 1" course homepage with editing mode on
-    And I add the "MT - Motivational Techniques" block
+    And I add the "MotTEC - Motivational Techniques" block
     And I follow "Administration"
     And I check checkbox "Awards" in block mt admin
     And I check checkbox "Goals" in block mt admin
