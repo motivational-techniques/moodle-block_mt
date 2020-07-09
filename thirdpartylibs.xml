@@ -15,7 +15,21 @@
         <licenseversion></licenseversion>
     </library>
     <library>
+        <location>css/theme.blud.css</location>
+        <name>TableSorter</name>
+        <version>2.17.8</version>
+        <license>MIT and GPL licenses</license>
+        <licenseversion></licenseversion>
+    </library>
+    <library>
         <location>js/jquery.tablesorter.pager.js</location>
+        <name>TableSorter.pager</name>
+        <version>2.17.8</version>
+        <license>MIT and GPL licenses</license>
+        <licenseversion></licenseversion>
+    </library>
+    <library>
+        <location>css/jquery.tablesorter.pager.css</location>
         <name>TableSorter.pager</name>
         <version>2.17.8</version>
         <license>MIT and GPL licenses</license>
