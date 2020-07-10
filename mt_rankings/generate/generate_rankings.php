@@ -72,8 +72,8 @@ function generate_active_users() {
             on {user_enrolments}.enrolid = {enrol}.id
             order by userid";
     }
-    if (isset ( $CFG->block_mt_ranks_inactive_time )) {
-        $inactivetime = $CFG->block_mt_ranks_inactive_time;
+    if (isset ( get_config("block_mt", "ranks_inactive_time") )) {
+        $inactivetime = get_config("block_mt", "ranks_inactive_time");
     } else {
         $inactivetime = intval ( get_string ( 'mt_rankings:settings_inactive_time_value', 'block_mt' ) );
     }
@@ -98,8 +98,8 @@ function generate_active_users() {
 function clear_ranks() {
     global $DB, $CFG;
 
-    if (isset ( $CFG->block_mt_ranks_regenerate_all )) {
-        if ($CFG->block_mt_ranks_regenerate_all == 1) {
+    if (isset ( get_config("block_mt", "ranks_regenerate_all") )) {
+        if (get_config("block_mt", "ranks_regenerate_all") == 1) {
             mtrace(get_string('mt:cron_rankings_clearing', 'block_mt'));
             $sql = 'TRUNCATE TABLE {block_mt_ranks_last_per}';
             $DB->execute ( $sql, null );

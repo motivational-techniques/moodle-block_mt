@@ -25,26 +25,26 @@
  */
 defined('MOODLE_INTERNAL') || die();
 
-$settings->add(new admin_setting_heading('settings_header_config',
+$settings->add(new admin_setting_heading('block_mt/settings_header_config',
     get_string('mt:settings_header', 'block_mt'),
     get_string('mt:settings_description', 'block_mt')));
 
-$settings->add(new admin_setting_configtext('block_mt_ranks_onl_time',
+$settings->add(new admin_setting_configtext('block_mt/ranks_onl_time',
         get_string('mt_rankings:settings_online_time_label', 'block_mt'),
         get_string('mt_rankings:settings_online_time_desc', 'block_mt'),
         get_string('mt_rankings:settings_online_time_value', 'block_mt'),
         '/^[1-9][0-9]*$/'));
 
-$settings->add(new admin_setting_configtext('block_mt_ranks_inactive_time',
+$settings->add(new admin_setting_configtext('block_mt/ranks_inactive_time',
         get_string('mt_rankings:settings_inactive_time_label', 'block_mt'),
         get_string('mt_rankings:settings_inactive_time_desc', 'block_mt'),
         get_string('mt_rankings:settings_inactive_time_value', 'block_mt'),
         '/^[1-9][0-9]*$/'));
 
-$settings->add(new admin_setting_configcheckbox('block_mt_ranks_regenerate_all',
+$settings->add(new admin_setting_configcheckbox('block_mt/ranks_regenerate_all',
     get_string('mt_rankings:settings_regenerate_all', 'block_mt'),
     get_string('mt_rankings:settings_regenerate_all_desc', 'block_mt'), 0));
 
-$settings->add(new admin_setting_configcheckbox('block_mt_awards_regenerate_all',
+$settings->add(new admin_setting_configcheckbox('block_mt/awards_regenerate_all',
     get_string('mt_awards:settings_regenerate_all', 'block_mt'),
     get_string('mt_awards:settings_regenerate_all_desc', 'block_mt'), 0));

@@ -134,8 +134,8 @@ function awards_process_course($paramcourseid, $paramitemid, $paramawardname, $p
 function clear_awards() {
     global $DB, $CFG;
 
-    if (isset($CFG->block_mt_awards_regenerate_all)) {
-        if ($CFG->block_mt_awards_regenerate_all == 1) {
+    if (isset(get_config("block_mt", "awards_regenerate_all"))) {
+        if (get_config("block_mt", "awards_regenerate_all") == 1) {
             mtrace(get_string('mt:cron_awards_clearing', 'block_mt'));
             $sql = 'TRUNCATE TABLE {block_mt_awards_last_period}';
             $DB->execute($sql, null);
