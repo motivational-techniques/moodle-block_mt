@@ -19,18 +19,18 @@
  *
  * @package block_mt
  * @author phil.lachance
- * @copyright 2019
+ * @copyright 2020
  * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  *
  */
 defined('MOODLE_INTERNAL') || die();
 
 $plugin->component = 'block_mt';
-$plugin->version = 2019101815; // YYYYMMDDHH (year, month, day, 24-hr time).
+$plugin->version = 2020071008; // YYYYMMDDHH (year, month, day, 24-hr time).
 $plugin->requires = 2017111300; // YYYYMMDDHH (This is a Moodle 3.4, 13 November 2017 release).
 
 $plugin->cron = 60;
 
 $plugin->maturity = MATURITY_BETA;
 
-$plugin->release = 'v3.4-r0.9.11-449';
+$plugin->released = 'v3.4-r1.0.0-450';

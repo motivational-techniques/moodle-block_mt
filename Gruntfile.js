@@ -21,7 +21,7 @@ module.exports = function(grunt) {
 									},
 									{
 										pattern : /release = \'v([a-z0-9.-]*)\'/,
-										replacement : 'release = \'v3.4-r<%= pkg.version %>-<%= pkg.build %>\''
+										replacement : 'released = \'v3.4-r<%= pkg.version %>-<%= pkg.build %>\''
 									} ]
 						}
 					}
