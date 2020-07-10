@@ -15,7 +15,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * This displays the mt motivational_technique block.
+ * This displays the MotTEC Motivational_technique block.
  *
  * @package block_mt
  * @author phil.lachance

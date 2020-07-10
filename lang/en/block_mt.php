@@ -15,7 +15,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * This is the language strings for the MT block.
+ * This is the language strings for the MotTEC block.
  *
  * @package block_mt
  * @author phil.lachance
@@ -143,7 +143,7 @@ $string ['mt_awards:achievements_gold_weight_value'] = '3';
 $string ['mt_awards:achievements_silver_weight_desc'] = 'The Achievements weight for a Silver award.';
 $string ['mt_awards:achievements_silver_weight_label'] = 'Achievements Silver weighing.';
 $string ['mt_awards:achievements_silver_weight_value'] = '2';
-$string ['mt_awards:admin'] = 'Administration of MT Awards parameters';
+$string ['mt_awards:admin'] = 'Administration of MotTEC Awards parameters';
 $string ['mt_awards:admin_heading'] = 'Options for awards';
 $string ['mt_awards:admin_page'] = 'Administration';
 $string ['mt_awards:admin_settings'] = 'Settings';
@@ -345,7 +345,7 @@ $string ['mt_awards:personal_achievements_desc'] = 'Listing of all the awards yo
 $string ['mt_awards:personal_achievements_details'] = 'Details of awards';
 $string ['mt_awards:personal_achievements_summary'] = 'Summary of awards';
 $string ['mt_awards:personal_achievements_total'] = 'Total';
-$string ['mt_awards:pluginname'] = 'MT - Awards'; // Shows in admin block list.
+$string ['mt_awards:pluginname'] = 'MotTEC - Awards'; // Shows in admin block list.
 $string ['mt_awards:progress_graph_award_achieved'] = 'Award achieved : {$a}';
 $string ['mt_awards:progress_graph_current'] = '{$a->currenttext} : {$a->currentnum}';
 $string ['mt_awards:progress_graph_next'] = '{$a->nexttext} : {$a->nextnum}';
@@ -487,7 +487,7 @@ $string ['mt_awards:total_posts_overall_student_name'] = '{$a->firstname} {$a->l
 $string ['mt_awards:total_posts_overall_title'] = 'Award for {$a}';
 $string ['mt_awards:total_posts_overall_total'] = 'Total';
 $string ['mt_awards:view'] = 'Motivation Techniques Awards viewed';
-$string ['mt_awards:viewed'] = 'The user with id \'{$a->userid}\' viewed the MT Awards page for course with id \'{$a->courseid}\'.';
+$string ['mt_awards:viewed'] = 'The user with id \'{$a->userid}\' viewed the MotTEC Awards page for course with id \'{$a->courseid}\'.';
 $string ['mt_awards:generate_award_milestone_award_name'] = 'Milestone {$a->id} - {$a->name}';
 $string ['mt_awards:get_current_award_markup'] = '<span class=\'award-{$a}\'>{$a}</span>';
 
@@ -640,7 +640,7 @@ $string ['mt_goals:ranking_status'] = 'Status';
 $string ['mt_goals:timemilestone'] = 'Milestones - Time to reach milestone';
 $string ['mt_goals:update_button'] = 'Update goal';
 $string ['mt_goals:view'] = 'Motivation Techniques Goals viewed';
-$string ['mt_goals:viewed'] = 'The user with id \'{$a->userid}\' viewed the MT Goals page for course with id \'{$a->courseid}\'.';
+$string ['mt_goals:viewed'] = 'The user with id \'{$a->userid}\' viewed the MotTEC Goals page for course with id \'{$a->courseid}\'.';
 $string ['mt_goals:weeklyposts'] = 'Participation - Read Weekly Posts';
 
 $string ['mt_p_annotation'] = 'Progress Annotation';
@@ -661,7 +661,7 @@ $string ['mt_p_annotation:getinfo_back'] = 'Back';
 $string ['mt_p_annotation:myaddinstance'] = 'Add a new progress annotation block to the My Moodle page';
 $string ['mt_p_annotation:page_title'] = '{$a->pagename} - {$a->firstname} {$a->lastname} in {$a->coursename}';
 $string ['mt_p_annotation:view'] = 'Motivation Techniques Progress Annotation viewed';
-$string ['mt_p_annotation:viewed'] = 'The user with id \'{$a->userid}\' viewed the MT Progress Annotation page for course with id \'{$a->courseid}\'.';
+$string ['mt_p_annotation:viewed'] = 'The user with id \'{$a->userid}\' viewed the MotTEC Progress Annotation page for course with id \'{$a->courseid}\'.';
 $string ['mt_p_annotation:tip_done'] = 'the learning object has been completed';
 $string ['mt_p_annotation:tip_not'] = 'the learning object has not been completed';
 $string ['mt_p_annotation:tip_ip'] = 'you are currently working on this learning object';
@@ -689,9 +689,9 @@ $string ['mt_ptimeline:dialog_title'] = 'Progress Timeline';
 $string ['mt_ptimeline:myaddinstance'] = 'Add a new progress timeline block to the My Moodle page';
 $string ['mt_ptimeline:page_title'] = '{$a->pagename} - {$a->firstname} {$a->lastname} in {$a->coursename}';
 $string ['mt_p_timeline:view'] = 'Motivation Techniques Progress Timeline viewed';
-$string ['mt_p_timeline:viewed'] = 'The user with id \'{$a->userid}\' viewed the MT Progress Timeline page for course with id \'{$a->courseid}\'.';
+$string ['mt_p_timeline:viewed'] = 'The user with id \'{$a->userid}\' viewed the MotTEC Progress Timeline page for course with id \'{$a->courseid}\'.';
 $string ['mt_rankings'] = 'Rankings';
-$string ['mt_rankings:admin'] = 'Administration of MT Ranks parameters';
+$string ['mt_rankings:admin'] = 'Administration of MotTEC Ranks parameters';
 $string ['mt_rankings:admin_edit_page'] = 'Edit page';
 $string ['mt_rankings:admin_header_config'] = 'Settings for Rankings';
 $string ['mt_rankings:admin_no_options'] = 'There are currently no options available to be set for rankings.';
@@ -948,7 +948,7 @@ $string ['mt_rankings:total_posts_overall_student_name'] = '{$a->firstname} {$a-
 $string ['mt_rankings:total_posts_overall_title_month'] = 'Number of posts for {$a}';
 $string ['mt_rankings:total_posts_overall_title_percent'] = 'Average is calculated by total number of posts ({$a->total_num_posts}) divided by the number of months enrolled ({$a->num_months}).';
 $string ['mt_rankings:view'] = 'Motivation Techniques Rankings viewed';
-$string ['mt_rankings:viewed'] = 'The user with id \'{$a->userid}\' viewed the MT Rankings page for course with id \'{$a->courseid}\'.';
+$string ['mt_rankings:viewed'] = 'The user with id \'{$a->userid}\' viewed the MotTEC Rankings page for course with id \'{$a->courseid}\'.';
 
 $string ['mt_rankings:generate_rank_period'] = '{$a->year}-{$a->month}-01';
 $string ['mt_rankings:generate_rank_period_year_month'] = '{$a->year}-{$a->month}';
@@ -978,4 +978,4 @@ $string['privacy:metadata:annotation:course'] = 'The ID of the course these sele
 $string['privacy:metadata:annotation:userid'] = 'The ID of the user that made the selections.';
 $string['privacy:metadata:annotation:object'] = 'The ID value of the learning object.';
 $string['privacy:metadata:annotation:value'] = 'The value of the student selection; 1 (done), 2 (not done), or 3 (in progress).';
-$string['mt:addinstance'] = 'Add a new MT block';
+$string['mt:addinstance'] = 'Add a new MotTEC block';
