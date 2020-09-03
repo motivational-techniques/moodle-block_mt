@@ -47,6 +47,9 @@ jobs:
           key: node-v1-{{ checksum "package.json" }}
           paths:
             - node_modules
+      - run:
+          name: Run CS tests
+          command: vendor/bin/phpcs
 
       # prepare the database
       # - run: touch storage/testing.sqlite
