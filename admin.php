@@ -47,11 +47,11 @@ $mtconfig = new mt_admin();
 
 $toform['courseid'] = $courseid;
 
-$toform['awards'] = get_module_display($courseid, 'awards');
-$toform['goals'] = get_module_display($courseid, 'goals');
-$toform['p_annotation'] = get_module_display($courseid, 'p_annotation');
-$toform['p_timeline'] = get_module_display($courseid, 'p_timeline');
-$toform['rankings'] = get_module_display($courseid, 'rankings');
+$toform['awards'] = block_mt_get_module_display($courseid, 'awards');
+$toform['goals'] = block_mt_get_module_display($courseid, 'goals');
+$toform['p_annotation'] = block_mt_get_module_display($courseid, 'p_annotation');
+$toform['p_timeline'] = block_mt_get_module_display($courseid, 'p_timeline');
+$toform['rankings'] = block_mt_get_module_display($courseid, 'rankings');
 
 $mtconfig->set_data($toform);
 
@@ -64,11 +64,11 @@ if ($mtconfig->is_cancelled()) {
 } else if ($fromform = $mtconfig->get_data()) {
     // If submit was clicked insert or update the selection and redirect to admin main page.
 
-    set_module_display($courseid, 'awards', $fromform->awards);
-    set_module_display($courseid, 'goals', $fromform->goals);
-    set_module_display($courseid, 'p_annotation', $fromform->p_annotation);
-    set_module_display($courseid, 'p_timeline', $fromform->p_timeline);
-    set_module_display($courseid, 'rankings', $fromform->rankings);
+    block_mt_set_module_display($courseid, 'awards', $fromform->awards);
+    block_mt_set_module_display($courseid, 'goals', $fromform->goals);
+    block_mt_set_module_display($courseid, 'p_annotation', $fromform->p_annotation);
+    block_mt_set_module_display($courseid, 'p_timeline', $fromform->p_timeline);
+    block_mt_set_module_display($courseid, 'rankings', $fromform->rankings);
 
     $courseurl = new moodle_url('/course/view.php', array(
         'id' => $courseid

@@ -41,7 +41,7 @@ function block_mt_display_item_and_icon($courseid, $module, $url, $textstring, $
             'courseid' => $courseid
     );
     $newwindow = array ();
-    if (get_module_display($courseid, $module)) {
+    if (block_mt_get_module_display($courseid, $module)) {
         $icon = html_writer::empty_tag('img', array(
                 'src' => $iconurl,
                 'class' => 'icon'

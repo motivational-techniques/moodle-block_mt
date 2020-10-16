@@ -63,31 +63,31 @@ class mt_options extends moodleform
             'courseid' => $courseid
         );
 
-        if (get_module_display($courseid, 'awards')) {
+        if (block_mt_get_module_display($courseid, 'awards')) {
             $link = html_writer::link(
                 new moodle_url('/blocks/mt/mt_awards/options.php', $querystring),
                 get_string('mt:options_awards', 'block_mt'));
             $mform->addElement('static', 'awards_option', '', $link);
         }
-        if (get_module_display($courseid, 'goals')) {
+        if (block_mt_get_module_display($courseid, 'goals')) {
             $link = html_writer::link(
                 new moodle_url('/blocks/mt/mt_goals/options.php', $querystring),
                 get_string('mt:options_goals', 'block_mt'));
             $mform->addElement('static', 'goals_option', '', $link);
         }
-        if (get_module_display($courseid, 'p_annotation')) {
+        if (block_mt_get_module_display($courseid, 'p_annotation')) {
             $link = html_writer::link(
                 new moodle_url('/blocks/mt/mt_p_annotation/options.php', $querystring),
                 get_string('mt:options_p_annotation', 'block_mt'));
             $mform->addElement('static', 'pa_option', '', $link);
         }
-        if (get_module_display($courseid, 'p_timeline')) {
+        if (block_mt_get_module_display($courseid, 'p_timeline')) {
             $link = html_writer::link(
                 new moodle_url('/blocks/mt/mt_p_timeline/options.php', $querystring),
                 get_string('mt:options_p_timeline', 'block_mt'));
             $mform->addElement('static', 'pt_option', '', $link);
         }
-        if (get_module_display($courseid, 'rankings')) {
+        if (block_mt_get_module_display($courseid, 'rankings')) {
             $link = html_writer::link(
                 new moodle_url('/blocks/mt/mt_rankings/options.php', $querystring),
                 get_string('mt:options_rankings', 'block_mt'));

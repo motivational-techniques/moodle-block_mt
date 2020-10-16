@@ -31,7 +31,7 @@ defined('MOODLE_INTERNAL') || die();
  * @param string $modulename
  * @param boolean $setting
  */
-function set_module_display($courseid, $modulename, $setting) {
+function block_mt_set_module_display($courseid, $modulename, $setting) {
     global $DB;
     $params = array (
             'courseid' => $courseid,
@@ -63,7 +63,7 @@ function set_module_display($courseid, $modulename, $setting) {
  * @param string $modulename
  * @return number
  */
-function get_module_display($courseid, $modulename) {
+function block_mt_get_module_display($courseid, $modulename) {
     global $DB;
     $params = array (
             'courseid' => $courseid,
