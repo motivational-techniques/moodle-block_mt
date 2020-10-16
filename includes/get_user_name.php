@@ -31,7 +31,7 @@ defined('MOODLE_INTERNAL') || die();
  * @param string $userid
  * @return array
  */
-function get_user_name($userid) {
+function block_mt_get_user_name($userid) {
     global $DB;
 
     $parameters = array(

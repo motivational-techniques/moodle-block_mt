@@ -192,7 +192,7 @@ if ($DB->record_exists_sql ( $sql, $params )) {
             $studentname = get_string ( 'mt_rankings:rating_posts_overall_anonymous', 'block_mt' );
         } else {
             $studentname = get_string ( 'mt_rankings:rating_posts_overall_student_name', 'block_mt',
-                get_user_name($studentlist->userid)  );
+                block_mt_get_user_name($studentlist->userid)  );
         }
 
         $row = array (

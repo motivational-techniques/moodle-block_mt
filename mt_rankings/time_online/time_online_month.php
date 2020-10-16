@@ -78,7 +78,7 @@ if ($DB->record_exists ( 'block_mt_ranks_onl_time', $params )) {
             $studentname = get_string ( 'mt_rankings:grade_quiz_anonymous', 'block_mt' );
         } else {
             $studentname = get_string ( 'mt_rankings:grade_quiz_student_name', 'block_mt',
-                get_user_name($student->userid));
+                block_mt_get_user_name($student->userid));
         }
         $timehours = $student->onlinetime / 3600;
         $tablerow = new html_table_row (array(

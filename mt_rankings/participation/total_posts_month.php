@@ -81,7 +81,7 @@ if ($DB->record_exists_sql ( $sql, $params )) {
             $studentname = get_string ('mt_rankings:total_posts_month_anonymous', 'block_mt');
         } else {
             $studentname = get_string ('mt_rankings:total_posts_month_student_name', 'block_mt',
-                get_user_name($student->userid));
+                block_mt_get_user_name($student->userid));
         }
         $tablerow = new html_table_row ( array (
             $i,
