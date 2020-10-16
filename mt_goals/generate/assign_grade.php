@@ -61,7 +61,7 @@ function assign_grades_process_entry($param) {
 function generate_goal_assign_grade($courseid) {
     global $DB;
 
-    $assignlist = get_assignment_list($courseid);
+    $assignlist = block_mt_get_assignment_list($courseid);
     foreach ($assignlist as $assign) {
         $parameters = array (
             'itemid' => $assign->id,

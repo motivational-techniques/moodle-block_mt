@@ -32,7 +32,7 @@ defined('MOODLE_INTERNAL') || die();
  */
 function generate_ranks_assignments($courseid, $userranking) {
     global $DB;
-    $assignmentlist = get_assignment_list($courseid);
+    $assignmentlist = block_mt_get_assignment_list($courseid);
     foreach ($assignmentlist as $assignment) {
         $userranking->rankname = $DB->get_record('grade_items',
             array(

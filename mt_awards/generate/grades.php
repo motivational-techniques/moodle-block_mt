@@ -33,7 +33,7 @@ defined('MOODLE_INTERNAL') || die();
 function generate_awards_assignment($paramcourseid) {
     mtrace(get_string('mt:cron_awards_assign', 'block_mt'));
 
-    $assignmentlist = get_assignment_list($paramcourseid);
+    $assignmentlist = block_mt_get_assignment_list($paramcourseid);
     foreach ($assignmentlist as $assignment) {
         awards_process_course($paramcourseid, $assignment->id, get_grade_award_name($assignment->itemname),
             block_mt_get_current_period(), RANK_PERIOD_INDIVIDUAL);

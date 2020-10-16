@@ -28,7 +28,7 @@ defined('MOODLE_INTERNAL') || die();
  * @param string $courseid
  * @return array
  */
-function get_assignment_list($courseid) {
+function block_mt_get_assignment_list($courseid) {
     global $DB;
     $parameters = array (
             'courseid' => $courseid,

@@ -65,7 +65,7 @@ $table->size = array (
         '50'
 );
 $table->id = "myTable";
-$assignlist = get_assignment_list($courseid);
+$assignlist = block_mt_get_assignment_list($courseid);
 if (count ( ( array ) $assignlist ) > 0) {
     $currentday = date_timestamp_get ( date_create () );
     foreach ($assignlist as $assign) {
