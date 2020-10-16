@@ -37,7 +37,7 @@ require_login($course);
 $pagename = get_string('mt_p_annotation:chart_title', 'block_mt');
 $pageurl = '/blocks/mt/mt_p_annotation/draw_chart.php';
 
-send_to_dashboard_if_no_block_installed($courseid);
+block_mt_send_to_dashboard_if_no_block_installed($courseid);
 
 // Log an annotation viewed event.
 $context = context_course::instance($courseid);

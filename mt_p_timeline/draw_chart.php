@@ -37,7 +37,7 @@ require_login($course);
 $pagename = get_string('mt_ptimeline:chart_page_name', 'block_mt');
 $pageurl = '/blocks/mt/mt_p_timeline/draw_chart.php';
 
-send_to_dashboard_if_no_block_installed($courseid);
+block_mt_send_to_dashboard_if_no_block_installed($courseid);
 
 // Log a timeline viewed event.
 $context = context_course::instance($courseid);

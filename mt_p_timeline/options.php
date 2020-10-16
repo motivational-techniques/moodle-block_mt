@@ -40,7 +40,7 @@ require_login($course);
 
 $pageurl = '/blocks/mt/mt_p_timeline/options.php';
 
-send_to_dashboard_if_no_block_installed($courseid);
+block_mt_send_to_dashboard_if_no_block_installed($courseid);
 
 // Set up the page.
 $PAGE->set_url($pageurl, array('courseid' => $courseid));

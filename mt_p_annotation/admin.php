@@ -33,7 +33,7 @@ require_login($courseid);
 
 require_capability('block/mt_p_annotation:admin', context_course::instance($courseid));
 
-send_to_dashboard_if_no_block_installed($courseid);
+block_mt_send_to_dashboard_if_no_block_installed($courseid);
 
 // Set up the page.
 $coursename = $DB->get_record('course', array('id' => $courseid))->shortname;

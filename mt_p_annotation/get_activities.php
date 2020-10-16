@@ -47,7 +47,7 @@ if ($value == 1) {
 
 $pageurl = '/blocks/mt/mt_p_annotation/get_activities.php';
 
-send_to_dashboard_if_no_block_installed($courseid);
+block_mt_send_to_dashboard_if_no_block_installed($courseid);
 
 // Set up the page.
 $PAGE->set_url($pageurl, array('courseid' => $courseid, 'value' => $value));

@@ -35,7 +35,7 @@ $course = $DB->get_record('course', array('id' => $courseid), "*", MUST_EXIST);
 require_login($course);
 require_sesskey();
 
-send_to_dashboard_if_no_block_installed($courseid);
+block_mt_send_to_dashboard_if_no_block_installed($courseid);
 
 $object = $a[0];
 $value  = $a[1];

@@ -37,7 +37,7 @@ require_login($course);
 $context = context_course::instance($courseid);
 require_capability('block/mt_p_timeline:admin', $context);
 
-send_to_dashboard_if_no_block_installed($courseid);
+block_mt_send_to_dashboard_if_no_block_installed($courseid);
 
 // Set up the page.
 $PAGE->set_url('/blocks/mt/mt_p_timeline/admin.php', array('courseid' => $courseid));

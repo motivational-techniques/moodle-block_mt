@@ -57,7 +57,7 @@ function block_mt_is_installed(&$courseid) {
  *
  * @param int $courseid The course id
  */
-function send_to_dashboard_if_no_block_installed($courseid) {
+function block_mt_send_to_dashboard_if_no_block_installed($courseid) {
     // Send user to dashboard if they passed a bad courseid.
     if (! block_mt_is_installed($courseid)) {
         redirect(new moodle_url('/my'));

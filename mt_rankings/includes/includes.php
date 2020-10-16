@@ -36,7 +36,7 @@ $userid = $USER->id;
 $course = get_course($courseid);
 require_login ( $course );
 
-send_to_dashboard_if_no_block_installed($courseid);
+block_mt_send_to_dashboard_if_no_block_installed($courseid);
 
 $userinformation = $DB->get_record ( 'user', array (
     'id' => $userid
