@@ -122,7 +122,7 @@ if ($DB->record_exists('block_mt_awards_count_all', $params)) {
 
             $cell->attributes['title'] = $titletext;
             if ($currentmonthresult && $currentmonthresult->awardid) {
-                $cell->text = get_award_name($currentmonthresult->awardid);
+                $cell->text = block_mt_get_award_name($currentmonthresult->awardid);
             } else {
                 $cell->text = null;
             }

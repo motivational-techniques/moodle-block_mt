@@ -32,7 +32,7 @@ require_once($CFG->dirroot . "/blocks/mt/includes/determine_rank_name.php");
  * @param integer $awardid
  * @return string
  */
-function get_award_name($awardid) {
+function block_mt_get_award_name($awardid) {
     switch ($awardid) {
         case GOLD_AWARD_ID:
             $currentaward = get_string('mt_awards:gold', 'block_mt');

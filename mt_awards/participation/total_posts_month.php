@@ -95,7 +95,7 @@ if ($DB->record_exists('block_mt_awards_user', $params)) {
         }
         $tablerow = new html_table_row(array(
             $studentname,
-            get_award_name($student->awardid)
+            block_mt_get_award_name($student->awardid)
         ));
         $tablerow->cells[1]->attributes['class'] = 'gradeColumn';
         $tablerow->cells[1]->attributes['display-progress'] = '';

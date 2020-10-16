@@ -70,7 +70,7 @@ foreach ($awards as $id => $awards) {
         continue;
     }
     $tablerow = new html_table_row(array(
-        get_award_name($awards->awardid),
+        block_mt_get_award_name($awards->awardid),
         $awards->count
     ));
     $tablerow->cells[1]->attributes['class'] = 'gradeColumn';
@@ -115,7 +115,7 @@ if ($DB->record_exists_sql($sql, $params)) {
         }
         $tablerow = new html_table_row(array(
             $studentdata->award_name,
-            get_award_name($studentdata->awardid)
+            block_mt_get_award_name($studentdata->awardid)
         ));
         $tablerow->cells[1]->attributes['class'] = 'gradeColumn';
         $table->data[] = $tablerow;

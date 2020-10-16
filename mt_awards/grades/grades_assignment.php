@@ -90,7 +90,7 @@ if ($DB->record_exists('block_mt_awards_user', $params)) {
         $tablerow = new html_table_row(array(
             $studentname,
             display_active_flag($student->active),
-            get_award_name($student->awardid)
+            block_mt_get_award_name($student->awardid)
         ));
         $tablerow->cells[1]->attributes['class'] = 'activeColumn';
         $tablerow->cells[2]->attributes['class'] = 'gradeColumn';
