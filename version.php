@@ -33,4 +33,4 @@ $plugin->cron = 60;
 
 $plugin->maturity = MATURITY_BETA;
 
-$plugin->released = 'v3.4-r1.0.0-5000';
+$plugin->release = 'v3.4-r1.0.0-500';
