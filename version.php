@@ -26,11 +26,11 @@
 defined('MOODLE_INTERNAL') || die();
 
 $plugin->component = 'block_mt';
-$plugin->version = 2020071008; // YYYYMMDDHH (year, month, day, 24-hr time).
+$plugin->version = 2020101608; // YYYYMMDDHH (year, month, day, 24-hr time).
 $plugin->requires = 2017111300; // YYYYMMDDHH (This is a Moodle 3.4, 13 November 2017 release).
 
 $plugin->cron = 60;
 
 $plugin->maturity = MATURITY_BETA;
 
-$plugin->released = 'v3.4-r1.0.0-450';
+$plugin->released = 'v3.4-r1.0.0-5000';
