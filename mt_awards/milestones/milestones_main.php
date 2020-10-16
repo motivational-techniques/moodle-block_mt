@@ -55,7 +55,7 @@ $parameters = array(
 $results = $DB->get_records('block_mt_p_timeline', $parameters);
 if (count((array) $results) > 0) {
     foreach ($results as $id => $results) {
-        $milestonename = get_milestone_name_by_id($results->id);
+        $milestonename = block_mt_get_milestone_name_by_id($results->id);
 
         $urlparams = array(
             'courseid' => $courseid,

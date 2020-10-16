@@ -265,7 +265,7 @@ function add_update_milestone_ranking($milestone, $userid, $courseid) {
 function get_milestone_rankings($milestone, $courseid) {
     global $CFG, $DB;
 
-    $milestone->name = get_milestone_name($milestone->id, $milestone->instance, $courseid);
+    $milestone->name = block_mt_get_milestone_name($milestone->id, $milestone->instance, $courseid);
     switch($CFG->dbtype) {
         case DB_TYPE_MARIA :
         case DB_TYPE_MYSQL :
@@ -302,7 +302,7 @@ function get_milestone_rankings($milestone, $courseid) {
 function get_milestone_rankings_active($milestone, $courseid) {
     global $CFG, $DB;
 
-    $milestone->name = get_milestone_name($milestone->id, $milestone->instance, $courseid);
+    $milestone->name = block_mt_get_milestone_name($milestone->id, $milestone->instance, $courseid);
     switch($CFG->dbtype) {
         case DB_TYPE_MARIA :
         case DB_TYPE_MYSQL :

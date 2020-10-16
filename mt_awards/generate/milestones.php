@@ -42,8 +42,8 @@ function generate_awards_milestones($courseid) {
             $completeddays = $ranking->milestone_time / (60 * 60 * 24);
 
             $milestone->id = $milestone->milestone;
-            $milestone->instance = get_milestone_instance($milestone->id);
-            $milestone->name = get_milestone_name($milestone->id, $milestone->instance, $courseid);
+            $milestone->instance = block_mt_get_milestone_instance($milestone->id);
+            $milestone->name = block_mt_get_milestone_name($milestone->id, $milestone->instance, $courseid);
 
             $awardname = get_string('mt_awards:generate_award_milestone_award_name', 'block_mt', $milestone);
             $awardid = determine_award($courseid, $completeddays);

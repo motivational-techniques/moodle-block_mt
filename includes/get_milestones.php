@@ -33,7 +33,7 @@ require_once($CFG->dirroot . "/blocks/mt/includes/get_id.php");
  * @param integer $id
  * @return integer
  */
-function get_milestone_module($id) {
+function block_mt_get_milestone_module($id) {
     global $DB;
     $parameters = array(
         'id' => $id
@@ -47,7 +47,7 @@ function get_milestone_module($id) {
  * @param integer $id
  * @return integer
  */
-function get_milestone_instance($id) {
+function block_mt_get_milestone_instance($id) {
     global $DB;
     $parameters = array(
         'id' => $id
@@ -63,7 +63,7 @@ function get_milestone_instance($id) {
  * @param integer $courseid
  * @return integer
  */
-function get_milestone_id($module, $instance, $courseid) {
+function block_mt_get_milestone_id($module, $instance, $courseid) {
     global $DB;
     $parameters = array(
         'course' => $courseid,
@@ -81,7 +81,7 @@ function get_milestone_id($module, $instance, $courseid) {
  * @param integer $courseid
  * @return integer
  */
-function get_milestone_name($id, $instance, $courseid) {
+function block_mt_get_milestone_name($id, $instance, $courseid) {
     global $DB;
 
     $quizid = get_quiz_id();
@@ -113,14 +113,14 @@ function get_milestone_name($id, $instance, $courseid) {
  * @param integer $id
  * @return string
  */
-function get_milestone_name_by_id($id) {
+function block_mt_get_milestone_name_by_id($id) {
     global $DB;
 
     $quizid = get_quiz_id();
     $assignmentid = get_assign_id();
 
-    $instance = get_milestone_instance($id);
-    $moduleid = get_milestone_module($id);
+    $instance = block_mt_get_milestone_instance($id);
+    $moduleid = block_mt_get_milestone_module($id);
 
     $parameters = array(
         'id' => $instance

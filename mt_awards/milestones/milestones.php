@@ -33,7 +33,7 @@ $active = optional_param('active', 'true', PARAM_STRINGID);
 
 global $DB;
 
-$milestonename = get_milestone_name_by_id($instanceid);
+$milestonename = block_mt_get_milestone_name_by_id($instanceid);
 
 $milestone = new stdClass();
 $milestone->id = $instanceid;

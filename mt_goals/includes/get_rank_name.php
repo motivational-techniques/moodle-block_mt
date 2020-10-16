@@ -78,7 +78,7 @@ function block_mt_get_rank_name($param) {
  * @param string $id
  * @return string
  */
-function get_milestone_module($id) {
+function block_mt_get_milestone_module($id) {
     global $DB;
 
     $parameters = array (
@@ -91,7 +91,7 @@ function get_milestone_module($id) {
  * @param string $id
  * @return string
  */
-function get_milestone_instance($id) {
+function block_mt_get_milestone_instance($id) {
     global $DB;
 
     $parameters = array (
@@ -107,7 +107,7 @@ function get_milestone_instance($id) {
  * @param string $courseid
  * @return string
  */
-function get_milestone_id($module, $instance, $courseid) {
+function block_mt_get_milestone_id($module, $instance, $courseid) {
     global $DB;
     $sql = "SELECT id
             FROM {mt_p_timeline}
@@ -128,7 +128,7 @@ function get_milestone_id($module, $instance, $courseid) {
  * @param string $courseid
  * @return string
  */
-function get_milestone_name($id, $instance, $courseid) {
+function block_mt_get_milestone_name($id, $instance, $courseid) {
     global $DB;
 
     $quizid = get_quiz_id();
@@ -164,14 +164,14 @@ function get_milestone_name($id, $instance, $courseid) {
  * @param string $id
  * @return string
  */
-function get_milestone_name_by_id($id) {
+function block_mt_get_milestone_name_by_id($id) {
     global $DB;
 
     $quizid = get_quiz_id();
     $assignmentid = get_assign_id();
 
-    $instance = get_milestone_instance($id);
-    $moduleid = get_milestone_module($id);
+    $instance = block_mt_get_milestone_instance($id);
+    $moduleid = block_mt_get_milestone_module($id);
 
     if ($moduleid == $quizid) {
         $sql = "SELECT name
