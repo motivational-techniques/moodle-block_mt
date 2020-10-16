@@ -33,7 +33,7 @@ defined('MOODLE_INTERNAL') || die();
  * @param string $stringname
  * @return string
  */
-function determine_overall_or_period_rankname($param, $paramrankname, $stringname) {
+function block_mt_determine_overall_or_period_rankname($param, $paramrankname, $stringname) {
     if ($stringname == 'rank') {
         $overallrankname = 'mt_rankings:rank_name_overall';
     } else if ($stringname == 'award') {
@@ -45,9 +45,9 @@ function determine_overall_or_period_rankname($param, $paramrankname, $stringnam
     }
 
     if ($param->period_type == RANK_PERIOD_OVERALL) {
-        $returnrankname = format_rank_name($paramrankname, get_string($overallrankname, 'block_mt'));
+        $returnrankname = block_mt_format_rank_name($paramrankname, get_string($overallrankname, 'block_mt'));
     } else {
-        $returnrankname = format_rank_name($paramrankname, DateTime::createFromFormat('Y-n-d', $param->period)->format('F Y'));
+        $returnrankname = block_mt_format_rank_name($paramrankname, DateTime::createFromFormat('Y-n-d', $param->period)->format('F Y'));
     }
     return $returnrankname;
 }
@@ -59,7 +59,7 @@ function determine_overall_or_period_rankname($param, $paramrankname, $stringnam
  * @param array $parameter
  * @return string
  */
-function format_rank_name($rankname, $parameter) {
+function block_mt_format_rank_name($rankname, $parameter) {
     $ranknameandparam = new stdClass ();
     $ranknameandparam->rankname = $rankname;
     $ranknameandparam->parameter = $parameter;

@@ -63,11 +63,11 @@ function block_mt_get_rank_name($param) {
             break;
         case '3':
             $rankname = get_string('mt_awards:award_name_online_time', 'block_mt');
-            $rankname = determine_overall_or_period_rankname($param->period_type, $rankname, 'award');
+            $rankname = block_mt_determine_overall_or_period_rankname($param->period_type, $rankname, 'award');
             break;
         case '4':
             $rankname = get_string('mt_awards:award_name_num_posts', 'block_mt');
-            $rankname = determine_overall_or_period_rankname($param->period_type, $rankname, 'award');
+            $rankname = block_mt_determine_overall_or_period_rankname($param->period_type, $rankname, 'award');
             break;
         default:
             break;

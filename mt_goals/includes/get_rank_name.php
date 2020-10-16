@@ -38,19 +38,19 @@ function block_mt_get_rank_name($param) {
             break;
         case RANK_TYPE_ONLINE_TIME :
             $rankname = get_string ( 'mt_goals:onlinetime', 'block_mt_goals' );
-            $rankname = determine_overall_or_period_rankname($param->period_type, $rankname, 'goal');
+            $rankname = block_mt_determine_overall_or_period_rankname($param->period_type, $rankname, 'goal');
             break;
         case RANK_TYPE_NUMBER_POSTS :
             $rankname = get_string ( 'mt_goals:numposts', 'block_mt_goals' );
-            $rankname = determine_overall_or_period_rankname($param->period_type, $rankname, 'goal');
+            $rankname = block_mt_determine_overall_or_period_rankname($param->period_type, $rankname, 'goal');
             break;
         case RANK_TYPE_WEEKLY_POSTS :
             $rankname = get_string ( 'mt_goals:weeklyposts', 'block_mt_goals' );
-            $rankname = determine_overall_or_period_rankname($param->period_type, $rankname, 'goal');
+            $rankname = block_mt_determine_overall_or_period_rankname($param->period_type, $rankname, 'goal');
             break;
         case RANK_TYPE_POST_RATING :
             $rankname = get_string ( 'mt_goals:averagepostrating', 'block_mt_goals' );
-            $rankname = determine_overall_or_period_rankname($param->period_type, $rankname, 'goal');
+            $rankname = block_mt_determine_overall_or_period_rankname($param->period_type, $rankname, 'goal');
             break;
         case RANK_TYPE_MILESTONE :
             $rankname = get_string ( 'mt_goals:timemilestone', 'block_mt_goals' );
@@ -65,7 +65,7 @@ function block_mt_get_rank_name($param) {
             break;
         case RANK_TYPE_ACHIEVEMENT :
             $rankname = get_string ( 'mt_goals:achievements', 'block_mt_goals' );
-            $rankname = determine_overall_or_period_rankname($param->period_type, $rankname, 'goal');
+            $rankname = block_mt_determine_overall_or_period_rankname($param->period_type, $rankname, 'goal');
             break;
         default :
             break;
