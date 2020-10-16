@@ -537,12 +537,12 @@ function add_update_online_time_by_user($userid, $period, $courseid, $onlinetime
     $recordcount = $DB->count_records('block_mt_ranks_onl_time', $parameters);
     if ($recordcount < 1) {
         $parameters ['onlinetime'] = $onlinetime;
-        $parameters ['active'] = is_active($userid, $courseid);
+        $parameters ['active'] = block_mt_is_active($userid, $courseid);
         $DB->insert_record ( 'block_mt_ranks_onl_time', $parameters );
     } else {
         $parameters ['id'] = $DB->get_field ( 'block_mt_ranks_onl_time', 'id', $parameters );
         $parameters ['onlinetime'] = $onlinetime;
-        $parameters ['active'] = is_active($userid, $courseid);
+        $parameters ['active'] = block_mt_is_active($userid, $courseid);
         $DB->update_record ( 'block_mt_ranks_onl_time', $parameters );
     }
 }

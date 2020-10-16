@@ -86,7 +86,7 @@ if ($DB->record_exists_sql ( $sql, $params )) {
     $studentlist = $DB->get_records_sql ( $sql, $params );
     $i = 1;
     foreach ($studentlist as $student) {
-        $student->active = is_active($student->userid, $courseid);
+        $student->active = block_mt_is_active($student->userid, $courseid);
         if (display_anonymous ( $student->userid, $courseid)) {
             $studentname = get_string ( 'mt_rankings:grade_quiz_anonymous', 'block_mt');
         } else {

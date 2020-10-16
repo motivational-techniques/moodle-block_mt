@@ -46,9 +46,9 @@ function generate_awards_achievements($paramcourseid) {
 function generate_awards_achievements_overall($paramcourseid) {
     global $DB, $CFG;
 
-    $goldawardweight = get_awards_settingS('mt_awards:achievements_gold_weight_value', $paramcourseid);
-    $silverawardweight = get_awards_settingS('mt_awards:achievements_silver_weight_value', $paramcourseid);
-    $bronzeawardweight = get_awards_settingS('mt_awards:achievements_bronze_weight_value', $paramcourseid);
+    $goldawardweight = block_mt_get_awards_settings('mt_awards:achievements_gold_weight_value', $paramcourseid);
+    $silverawardweight = block_mt_get_awards_settings('mt_awards:achievements_silver_weight_value', $paramcourseid);
+    $bronzeawardweight = block_mt_get_awards_settings('mt_awards:achievements_bronze_weight_value', $paramcourseid);
 
     $sql = "SELECT DISTINCT userid
         FROM {block_mt_awards_user}

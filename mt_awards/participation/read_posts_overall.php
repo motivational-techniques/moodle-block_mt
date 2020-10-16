@@ -39,9 +39,9 @@ require($CFG->dirroot . '/blocks/mt/mt_awards/includes/includes.php');
 require_once($CFG->dirroot . '/blocks/mt/includes/configuration_settings.php');
 
 $counts = new stdClass();
-$counts->gold = get_awards_settings('mt_awards:read_posts_gold_weight_value', $courseid);
-$counts->silver = get_awards_settings('mt_awards:read_posts_silver_weight_value', $courseid);
-$counts->bronze = get_awards_settings('mt_awards:read_posts_bronze_weight_value', $courseid);
+$counts->gold = block_mt_get_awards_settings('mt_awards:read_posts_gold_weight_value', $courseid);
+$counts->silver = block_mt_get_awards_settings('mt_awards:read_posts_silver_weight_value', $courseid);
+$counts->bronze = block_mt_get_awards_settings('mt_awards:read_posts_bronze_weight_value', $courseid);
 
 echo html_writer::tag('h2', get_string('mt_awards:read_posts_overall_desc', 'block_mt'));
 echo html_writer::tag('h4', get_string('mt_awards:read_posts_overall_calc', 'block_mt', $counts));
@@ -90,7 +90,7 @@ if ($DB->record_exists('block_mt_awards_count_all', $params)) {
         if ($studentlist->awardtotal == 0) {
             continue;
         }
-        $studentisactive = is_active($studentlist->userid, $courseid);
+        $studentisactive = block_mt_is_active($studentlist->userid, $courseid);
         if (display_anonymous($studentlist->userid, $courseid)) {
             $studentname = get_string('mt_awards:read_posts_overall_anonymous', 'block_mt');
         } else {
@@ -98,7 +98,7 @@ if ($DB->record_exists('block_mt_awards_count_all', $params)) {
         }
         $row = array(
             $studentname,
-            display_active_flag($studentisactive),
+            block_mt_display_active_flag($studentisactive),
             $studentlist->awardtotal
         );
         $previousmonths = block_mt_get_current_date();

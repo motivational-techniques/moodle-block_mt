@@ -39,9 +39,9 @@ require($CFG->dirroot . '/blocks/mt/mt_awards/includes/includes.php');
 require_once($CFG->dirroot . '/blocks/mt/includes/configuration_settings.php');
 
 $counts = new stdClass();
-$counts->gold = get_awards_settings('mt_awards:rating_posts_gold_count_value', $courseid);
-$counts->silver = get_awards_settings('mt_awards:rating_posts_silver_count_value', $courseid);
-$counts->bronze = get_awards_settings('mt_awards:rating_posts_bronze_count_value', $courseid);
+$counts->gold = block_mt_get_awards_settings('mt_awards:rating_posts_gold_count_value', $courseid);
+$counts->silver = block_mt_get_awards_settings('mt_awards:rating_posts_silver_count_value', $courseid);
+$counts->bronze = block_mt_get_awards_settings('mt_awards:rating_posts_bronze_count_value', $courseid);
 
 echo html_writer::tag('h2', get_string('mt_awards:rating_posts_month_desc', 'block_mt'));
 echo html_writer::tag('h4', get_string('mt_awards:rating_posts_month_calc', 'block_mt', $counts));
@@ -72,7 +72,7 @@ $params = array(
 if ($DB->record_exists('block_mt_awards_user', $params)) {
     $studentdata = $DB->get_records('block_mt_awards_user', $params, 'awardid');
     foreach ($studentdata as $student) {
-        $student->active = is_active($student->userid, $courseid);
+        $student->active = block_mt_is_active($student->userid, $courseid);
         if (display_anonymous($student->userid, $courseid)) {
             $studentname = get_string('mt_awards:rating_posts_month_anonymous', 'block_mt');
         } else {

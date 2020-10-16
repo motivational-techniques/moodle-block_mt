@@ -31,7 +31,7 @@ defined('MOODLE_INTERNAL') || die();
  * @param integer $courseid
  * @return integer
  */
-function get_awards_settings($fieldvalue, $courseid) {
+function block_mt_get_awards_settings($fieldvalue, $courseid) {
     global $DB;
 
     $parameters = array(
@@ -54,7 +54,7 @@ function get_awards_settings($fieldvalue, $courseid) {
  * @param integer $value
  * @return null
  */
-function update_awards_settings($fieldvalue, $courseid, $value) {
+function block_mt_update_awards_settings($fieldvalue, $courseid, $value) {
     global $DB;
 
     $parameters = array(

@@ -78,7 +78,7 @@ if ($DB->record_exists('block_mt_ranks_milestones', $params)) {
     $studentlist = $DB->get_records_sql($sql, $params);
     $i = 1;
     foreach ($studentlist as $student) {
-        $student->active = is_active($student->userid, $courseid);
+        $student->active = block_mt_is_active($student->userid, $courseid);
 
         if (display_anonymous ( $student->userid, $courseid )) {
             $studentname = get_string ( 'mt_rankings:milestone_pace_anonymous', 'block_mt' );
@@ -89,7 +89,7 @@ if ($DB->record_exists('block_mt_ranks_milestones', $params)) {
         $tablerow = new html_table_row ( array (
             $i,
             $studentname,
-            display_active_flag($student->active),
+            block_mt_display_active_flag($student->active),
             number_format($student->milestone_time / (60 * 60 * 24), 2 )
         ) );
         $tablerow->cells [2]->attributes ['class'] = 'activeColumn';

@@ -47,14 +47,14 @@ function generate_awards_number_posts_monthly($paramcourseid) {
     global $DB;
     $courseid = $paramcourseid;
 
-    $goldaward = get_awards_settings('mt_awards:num_posts_gold_count_value', $courseid);
-    $silveraward = get_awards_settings('mt_awards:num_posts_silver_count_value', $courseid);
-    $bronzeaward = get_awards_settings('mt_awards:num_posts_bronze_count_value', $courseid);
+    $goldaward = block_mt_get_awards_settings('mt_awards:num_posts_gold_count_value', $courseid);
+    $silveraward = block_mt_get_awards_settings('mt_awards:num_posts_silver_count_value', $courseid);
+    $bronzeaward = block_mt_get_awards_settings('mt_awards:num_posts_bronze_count_value', $courseid);
 
     $awardcount = new stdClass();
-    $awardcount->gold = get_awards_settings('mt_awards:num_posts_gold_count_value', $courseid);
-    $awardcount->silver = get_awards_settings('mt_awards:num_posts_silver_count_value', $courseid);
-    $awardcount->bronze = get_awards_settings('mt_awards:num_posts_bronze_count_value', $courseid);
+    $awardcount->gold = block_mt_get_awards_settings('mt_awards:num_posts_gold_count_value', $courseid);
+    $awardcount->silver = block_mt_get_awards_settings('mt_awards:num_posts_silver_count_value', $courseid);
+    $awardcount->bronze = block_mt_get_awards_settings('mt_awards:num_posts_bronze_count_value', $courseid);
 
     $periods = get_periods_number_posts($courseid);
     foreach ($periods as $period) {
@@ -107,9 +107,9 @@ function generate_number_posts_overall_count($courseid) {
     global $DB;
 
     $awardweight = new stdClass();
-    $awardweight->gold = get_awards_settings('mt_awards:num_posts_gold_weight_value', $courseid);
-    $awardweight->silver = get_awards_settings('mt_awards:num_posts_silver_weight_value', $courseid);
-    $awardweight->bronze = get_awards_settings('mt_awards:num_posts_bronze_weight_value', $courseid);
+    $awardweight->gold = block_mt_get_awards_settings('mt_awards:num_posts_gold_weight_value', $courseid);
+    $awardweight->silver = block_mt_get_awards_settings('mt_awards:num_posts_silver_weight_value', $courseid);
+    $awardweight->bronze = block_mt_get_awards_settings('mt_awards:num_posts_bronze_weight_value', $courseid);
 
     $sql = "SELECT userid
         FROM {block_mt_awards_user}
@@ -163,14 +163,14 @@ function generate_awards_read_posts_monthly($paramcourseid) {
     global $DB;
     $courseid = $paramcourseid;
 
-    $goldaward = get_awards_settings('mt_awards:read_posts_gold_count_value', $courseid);
-    $silveraward = get_awards_settings('mt_awards:read_posts_silver_count_value', $courseid);
-    $bronzeaward = get_awards_settings('mt_awards:read_posts_bronze_count_value', $courseid);
+    $goldaward = block_mt_get_awards_settings('mt_awards:read_posts_gold_count_value', $courseid);
+    $silveraward = block_mt_get_awards_settings('mt_awards:read_posts_silver_count_value', $courseid);
+    $bronzeaward = block_mt_get_awards_settings('mt_awards:read_posts_bronze_count_value', $courseid);
 
     $awardcount = new stdClass();
-    $awardcount->gold = get_awards_settings('mt_awards:read_posts_gold_count_value', $courseid);
-    $awardcount->silver = get_awards_settings('mt_awards:read_posts_silver_count_value', $courseid);
-    $awardcount->bronze = get_awards_settings('mt_awards:read_posts_bronze_count_value', $courseid);
+    $awardcount->gold = block_mt_get_awards_settings('mt_awards:read_posts_gold_count_value', $courseid);
+    $awardcount->silver = block_mt_get_awards_settings('mt_awards:read_posts_silver_count_value', $courseid);
+    $awardcount->bronze = block_mt_get_awards_settings('mt_awards:read_posts_bronze_count_value', $courseid);
 
     $periods = get_periods_read_posts($courseid);
     foreach ($periods as $period) {
@@ -225,9 +225,9 @@ function generate_read_posts_overall_count($courseid) {
     global $DB;
 
     $awardweight = new stdClass();
-    $awardweight->gold = get_awards_settings('mt_awards:read_posts_gold_weight_value', $courseid);
-    $awardweight->silver = get_awards_settings('mt_awards:read_posts_silver_weight_value', $courseid);
-    $awardweight->bronze = get_awards_settings('mt_awards:read_posts_bronze_weight_value', $courseid);
+    $awardweight->gold = block_mt_get_awards_settings('mt_awards:read_posts_gold_weight_value', $courseid);
+    $awardweight->silver = block_mt_get_awards_settings('mt_awards:read_posts_silver_weight_value', $courseid);
+    $awardweight->bronze = block_mt_get_awards_settings('mt_awards:read_posts_bronze_weight_value', $courseid);
 
     $sql = "SELECT userid
         FROM {block_mt_awards_user}
@@ -286,14 +286,14 @@ function generate_awards_rating_posts_monthly($paramcourseid) {
     global $DB;
     $courseid = $paramcourseid;
 
-    $goldaward = get_awards_settings('mt_awards:rating_posts_gold_count_value', $courseid);
-    $silveraward = get_awards_settings('mt_awards:rating_posts_silver_count_value', $courseid);
-    $bronzeaward = get_awards_settings('mt_awards:rating_posts_bronze_count_value', $courseid);
+    $goldaward = block_mt_get_awards_settings('mt_awards:rating_posts_gold_count_value', $courseid);
+    $silveraward = block_mt_get_awards_settings('mt_awards:rating_posts_silver_count_value', $courseid);
+    $bronzeaward = block_mt_get_awards_settings('mt_awards:rating_posts_bronze_count_value', $courseid);
 
     $awardcount = new stdClass();
-    $awardcount->gold = get_awards_settings('mt_awards:rating_posts_gold_count_value', $courseid);
-    $awardcount->silver = get_awards_settings('mt_awards:rating_posts_silver_count_value', $courseid);
-    $awardcount->bronze = get_awards_settings('mt_awards:rating_posts_bronze_count_value', $courseid);
+    $awardcount->gold = block_mt_get_awards_settings('mt_awards:rating_posts_gold_count_value', $courseid);
+    $awardcount->silver = block_mt_get_awards_settings('mt_awards:rating_posts_silver_count_value', $courseid);
+    $awardcount->bronze = block_mt_get_awards_settings('mt_awards:rating_posts_bronze_count_value', $courseid);
 
     $periods = get_periods_rating_posts($courseid);
     foreach ($periods as $period) {
@@ -348,9 +348,9 @@ function generate_rating_posts_overall_count($courseid) {
     global $DB;
 
     $awardweight = new stdClass();
-    $awardweight->gold = get_awards_settings('mt_awards:rating_posts_gold_weight_value', $courseid);
-    $awardweight->silver = get_awards_settings('mt_awards:rating_posts_silver_weight_value', $courseid);
-    $awardweight->bronze = get_awards_settings('mt_awards:rating_posts_bronze_weight_value', $courseid);
+    $awardweight->gold = block_mt_get_awards_settings('mt_awards:rating_posts_gold_weight_value', $courseid);
+    $awardweight->silver = block_mt_get_awards_settings('mt_awards:rating_posts_silver_weight_value', $courseid);
+    $awardweight->bronze = block_mt_get_awards_settings('mt_awards:rating_posts_bronze_weight_value', $courseid);
 
     $sql = "SELECT userid
         FROM {block_mt_awards_user}

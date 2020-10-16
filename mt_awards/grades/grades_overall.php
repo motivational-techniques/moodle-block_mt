@@ -41,9 +41,9 @@ require_once($CFG->dirroot . '/blocks/mt/includes/configuration_settings.php');
 require_once($CFG->dirroot . '/blocks/mt/mt_awards/includes/determine_next_level_award.php');
 
 $counts = new stdClass();
-$counts->gold = get_awards_settings('mt_awards:grades_gold_count_value', $courseid);
-$counts->silver = get_awards_settings('mt_awards:grades_silver_count_value', $courseid);
-$counts->bronze = get_awards_settings('mt_awards:grades_bronze_count_value', $courseid);
+$counts->gold = block_mt_get_awards_settings('mt_awards:grades_gold_count_value', $courseid);
+$counts->silver = block_mt_get_awards_settings('mt_awards:grades_silver_count_value', $courseid);
+$counts->bronze = block_mt_get_awards_settings('mt_awards:grades_bronze_count_value', $courseid);
 
 $nextlevel = determine_next_level_grades_overall($courseid, $userid);
 
@@ -92,7 +92,7 @@ $params = array(
 if ($DB->record_exists('block_mt_awards_user', $params)) {
     $studentlist = $DB->get_records('block_mt_awards_user', $params, 'awardid');
     foreach ($studentlist as $student) {
-        $student->active = is_active($student->userid, $courseid);
+        $student->active = block_mt_is_active($student->userid, $courseid);
         if (display_anonymous($student->userid, $courseid)) {
             $studentname = get_string('mt_awards:grade_overall_anonymous', 'block_mt');
         } else {
@@ -100,7 +100,7 @@ if ($DB->record_exists('block_mt_awards_user', $params)) {
         }
         $tablerow = new html_table_row(array(
             $studentname,
-            display_active_flag($student->active),
+            block_mt_display_active_flag($student->active),
             block_mt_get_award_name($student->awardid)
         ));
         $tablerow->cells[1]->attributes['class'] = 'activeColumn';

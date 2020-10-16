@@ -82,7 +82,7 @@ if ($DB->record_exists('block_mt_ranks_achiev', $params)) {
     $studentdata = $DB->get_records('block_mt_ranks_achiev', $params, 'total desc, gold desc, silver desc, bronze desc');
         $i = 1;
     foreach ($studentdata as $student) {
-        $student->active = is_active($student->userid, $courseid);
+        $student->active = block_mt_is_active($student->userid, $courseid);
         if (display_anonymous ( $student->userid, $courseid )) {
             $studentname = get_string ( 'mt_rankings:total_awards_anonymous', 'block_mt' );
         } else {

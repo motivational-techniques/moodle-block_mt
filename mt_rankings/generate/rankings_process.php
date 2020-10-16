@@ -48,12 +48,12 @@ function ranks_process_entry($param) {
     $recordcound = $DB->count_records ( 'block_mt_ranks_user', $parameters );
     if ($recordcound < 1) {
         $parameters ['rank'] = $param->rank;
-        $parameters ['active'] = is_active($param->userid, $param->courseid);
+        $parameters ['active'] = block_mt_is_active($param->userid, $param->courseid);
         $DB->insert_record ( 'block_mt_ranks_user', $param, true, false );
     } else {
         $parameters ['id'] = $DB->get_field ( 'block_mt_ranks_user', 'id', $parameters );
         $parameters ['rank'] = $param->rank;
-        $parameters ['active'] = is_active($param->userid, $param->courseid);
+        $parameters ['active'] = block_mt_is_active($param->userid, $param->courseid);
         $DB->update_record('block_mt_ranks_user', $parameters, false);
     }
 }
@@ -81,12 +81,12 @@ function active_ranks_process_entry($param) {
     $recordcound = $DB->count_records('block_mt_ranks_user', $parameters);
     if ($recordcound < 1) {
         $parameters ['rank_active'] = $param->rankactive;
-        $parameters ['active'] = is_active($param->userid, $param->courseid);
+        $parameters ['active'] = block_mt_is_active($param->userid, $param->courseid);
         $DB->insert_record ( 'block_mt_ranks_user', $param, true, false );
     } else {
         $parameters ['id'] = $DB->get_field('block_mt_ranks_user', 'id', $parameters);
         $parameters ['rank_active'] = $param->rankactive;
-        $parameters ['active'] = is_active($param->userid, $param->courseid);
+        $parameters ['active'] = block_mt_is_active($param->userid, $param->courseid);
         $DB->update_record('block_mt_ranks_user', $parameters, false);
     }
 }

@@ -47,9 +47,9 @@ function determine_next_level_total_posts_num($userid, $courseid, $period) {
         $numberofposts = 0;
     }
 
-    $goldaward = get_awards_settings('mt_awards:num_posts_gold_count_value', $courseid);
-    $silveraward = get_awards_settings('mt_awards:num_posts_silver_count_value', $courseid);
-    $bronzeaward = get_awards_settings('mt_awards:num_posts_bronze_count_value', $courseid);
+    $goldaward = block_mt_get_awards_settings('mt_awards:num_posts_gold_count_value', $courseid);
+    $silveraward = block_mt_get_awards_settings('mt_awards:num_posts_silver_count_value', $courseid);
+    $bronzeaward = block_mt_get_awards_settings('mt_awards:num_posts_bronze_count_value', $courseid);
 
     $togetbronze = $bronzeaward - $numberofposts;
     $togetsilver = $silveraward - $numberofposts;
@@ -111,9 +111,9 @@ function determine_next_level_read_posts_num($userid, $courseid, $period) {
     } else {
         $percentread = 0;
     }
-    $goldaward = get_awards_settings('mt_awards:read_posts_gold_count_value', $courseid);
-    $silveraward = get_awards_settings('mt_awards:read_posts_silver_count_value', $courseid);
-    $bronzeaward = get_awards_settings('mt_awards:read_posts_bronze_count_value', $courseid);
+    $goldaward = block_mt_get_awards_settings('mt_awards:read_posts_gold_count_value', $courseid);
+    $silveraward = block_mt_get_awards_settings('mt_awards:read_posts_silver_count_value', $courseid);
+    $bronzeaward = block_mt_get_awards_settings('mt_awards:read_posts_bronze_count_value', $courseid);
 
     $togetbronze = $bronzeaward;
     $togetsilver = $silveraward;
@@ -196,9 +196,9 @@ function determine_next_level_grades_overall($courseid, $userid) {
         $finalgrade = 0;
     }
 
-    $goldaward = get_awards_settings('mt_awards:grades_gold_count_value', $courseid);
-    $silveraward = get_awards_settings('mt_awards:grades_silver_count_value', $courseid);
-    $bronzeaward = get_awards_settings('mt_awards:grades_bronze_count_value', $courseid);
+    $goldaward = block_mt_get_awards_settings('mt_awards:grades_gold_count_value', $courseid);
+    $silveraward = block_mt_get_awards_settings('mt_awards:grades_silver_count_value', $courseid);
+    $bronzeaward = block_mt_get_awards_settings('mt_awards:grades_bronze_count_value', $courseid);
 
     $togetbronze = $bronzeaward;
     $togetsilver = $silveraward;

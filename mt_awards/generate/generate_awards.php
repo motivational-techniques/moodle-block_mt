@@ -89,9 +89,9 @@ function awards_process_entry($param) {
 function awards_process_course($paramcourseid, $paramitemid, $paramawardname, $paramperiod, $paramperiodtype) {
     global $DB;
 
-    $goldaward = get_awards_settings('mt_awards:grades_gold_count_value', $paramcourseid);
-    $silveraward = get_awards_settings('mt_awards:grades_silver_count_value', $paramcourseid);
-    $bronzeaward = get_awards_settings('mt_awards:grades_bronze_count_value', $paramcourseid);
+    $goldaward = block_mt_get_awards_settings('mt_awards:grades_gold_count_value', $paramcourseid);
+    $silveraward = block_mt_get_awards_settings('mt_awards:grades_silver_count_value', $paramcourseid);
+    $bronzeaward = block_mt_get_awards_settings('mt_awards:grades_bronze_count_value', $paramcourseid);
 
     $sql = 'SELECT * from {grade_grades} where itemid=:itemid';
 

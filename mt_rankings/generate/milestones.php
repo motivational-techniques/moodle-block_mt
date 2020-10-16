@@ -246,12 +246,12 @@ function add_update_milestone_ranking($milestone, $userid, $courseid) {
     $recordcount = $DB->count_records ('block_mt_ranks_milestones', $parameters);
     if ($recordcount < 1) {
         $parameters ['milestone_time'] = $milestone->time;
-        $parameters ['active'] = is_active($userid, $courseid);
+        $parameters ['active'] = block_mt_is_active($userid, $courseid);
         $DB->insert_record ( 'block_mt_ranks_milestones', $parameters );
     } else {
         $parameters ['id'] = $DB->get_field ('block_mt_ranks_milestones', 'id', $parameters);
         $parameters ['milestone_time'] = $milestone->time;
-        $parameters ['active'] = is_active($userid, $courseid);
+        $parameters ['active'] = block_mt_is_active($userid, $courseid);
         $DB->update_record ( 'block_mt_ranks_milestones', $parameters );
     }
 }

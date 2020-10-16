@@ -81,7 +81,7 @@ $params = array(
 if ($DB->record_exists('block_mt_awards_user', $params)) {
     $studentdata = $DB->get_records('block_mt_awards_user', $params, 'awardid asc');
     foreach ($studentdata as $id => $student) {
-        $student->active = is_active($student->userid, $courseid);
+        $student->active = block_mt_is_active($student->userid, $courseid);
         if (display_anonymous($student->userid, $courseid)) {
             $studentname = get_string('mt_awards:time_online_month_anonymous', 'block_mt');
         } else {

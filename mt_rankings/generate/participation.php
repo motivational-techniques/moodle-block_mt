@@ -563,12 +563,12 @@ function add_update_number_posts_monthly($numberposts, $userid, $period, $course
         $recordcount = $DB->count_records ( 'block_mt_ranks_num_posts', $parameters );
         if ($recordcount < 1) {
             $parameters ['num_posts'] = $numberposts;
-            $parameters ['active'] = is_active($userid, $courseid);
+            $parameters ['active'] = block_mt_is_active($userid, $courseid);
             $DB->insert_record ( 'block_mt_ranks_num_posts', $parameters );
         } else {
             $parameters ['id'] = $DB->get_field ( 'block_mt_ranks_num_posts', 'id', $parameters );
             $parameters ['num_posts'] = $numberposts;
-            $parameters ['active'] = is_active($userid, $courseid);
+            $parameters ['active'] = block_mt_is_active($userid, $courseid);
             $DB->update_record ( 'block_mt_ranks_num_posts', $parameters );
         }
     }
@@ -596,14 +596,14 @@ function add_update_read_posts_overall($numberposts, $percentageread, $readposts
             $parameters ['percent_read'] = $percentageread;
             $parameters ['num_posts'] = $numberposts;
             $parameters ['num_read'] = $readposts;
-            $parameters ['active'] = is_active($userid, $courseid);
+            $parameters ['active'] = block_mt_is_active($userid, $courseid);
             $DB->insert_record ( 'block_mt_ranks_read_posts', $parameters );
         } else {
             $parameters ['id'] = $DB->get_field ( 'block_mt_ranks_read_posts', 'id', $parameters );
             $parameters ['percent_read'] = $percentageread;
             $parameters ['num_posts'] = $numberposts;
             $parameters ['num_read'] = $readposts;
-            $parameters ['active'] = is_active($userid, $courseid);
+            $parameters ['active'] = block_mt_is_active($userid, $courseid);
             $DB->update_record ( 'block_mt_ranks_read_posts', $parameters );
         }
     }
@@ -632,14 +632,14 @@ function add_update_read_posts_monthly($numberposts, $percentageread, $readposts
             $parameters ['percent_read'] = $percentageread;
             $parameters ['num_posts'] = $numberposts;
             $parameters ['num_read'] = $readposts;
-            $parameters ['active'] = is_active($userid, $courseid);
+            $parameters ['active'] = block_mt_is_active($userid, $courseid);
             $DB->insert_record ( 'block_mt_ranks_read_posts', $parameters );
         } else {
             $parameters ['id'] = $DB->get_field ( 'block_mt_ranks_read_posts', 'id', $parameters );
             $parameters ['percent_read'] = $percentageread;
             $parameters ['num_posts'] = $numberposts;
             $parameters ['num_read'] = $readposts;
-            $parameters ['active'] = is_active($userid, $courseid);
+            $parameters ['active'] = block_mt_is_active($userid, $courseid);
             $DB->update_record ( 'block_mt_ranks_read_posts', $parameters );
         }
     }
@@ -664,12 +664,12 @@ function add_update_rating_posts_monthly($ratingpercent, $period, $courseid, $us
         $recordcount = $DB->count_records ( 'block_mt_ranks_rating_posts', $parameters );
         if ($recordcount < 1) {
             $parameters ['rating_percent'] = $ratingpercent;
-            $parameters ['active'] = is_active($userid, $courseid);
+            $parameters ['active'] = block_mt_is_active($userid, $courseid);
             $DB->insert_record ( 'block_mt_ranks_rating_posts', $parameters );
         } else {
             $parameters ['id'] = $DB->get_field ( 'block_mt_ranks_rating_posts', 'id', $parameters );
             $parameters ['rating_percent'] = $ratingpercent;
-            $parameters ['active'] = is_active($userid, $courseid);
+            $parameters ['active'] = block_mt_is_active($userid, $courseid);
             $DB->update_record ( 'block_mt_ranks_rating_posts', $parameters );
         }
     }
@@ -693,12 +693,12 @@ function add_update_rating_posts_overall($ratingpercent, $courseid, $userid) {
         $recordcount = $DB->count_records ( 'block_mt_ranks_rating_posts', $parameters );
         if ($recordcount < 1) {
             $parameters ['rating_percent'] = $ratingpercent;
-            $parameters ['active'] = is_active($userid, $courseid);
+            $parameters ['active'] = block_mt_is_active($userid, $courseid);
             $DB->insert_record ( 'block_mt_ranks_rating_posts', $parameters );
         } else {
             $parameters ['id'] = $DB->get_field ( 'block_mt_ranks_rating_posts', 'id', $parameters );
             $parameters ['rating_percent'] = $ratingpercent;
-            $parameters ['active'] = is_active($userid, $courseid);
+            $parameters ['active'] = block_mt_is_active($userid, $courseid);
             $DB->update_record ( 'block_mt_ranks_rating_posts', $parameters );
         }
     }

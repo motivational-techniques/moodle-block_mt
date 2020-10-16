@@ -30,7 +30,7 @@ defined('MOODLE_INTERNAL') || die();
  * @param array $paramactive
  * @return string
  */
-function display_active_flag($paramactive) {
+function block_mt_display_active_flag($paramactive) {
     if ($paramactive == '1') {
         return 'x';
     } else {
@@ -44,7 +44,7 @@ function display_active_flag($paramactive) {
  * @param string $courseid
  * @return boolean
  */
-function is_active($userid, $courseid) {
+function block_mt_is_active($userid, $courseid) {
     global $DB;
 
     $params = array(

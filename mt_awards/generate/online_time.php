@@ -140,9 +140,9 @@ function generate_awards_online_time_overall($paramcourseid) {
 function generate_online_time_overall_count($courseid) {
     global $DB;
 
-    $goldawardweight = get_awards_settingS('mt_awards:time_online_gold_weight_value', $courseid);
-    $silverawardweight = get_awards_settingS('mt_awards:time_online_silver_weight_value', $courseid);
-    $bronzeawardweight = get_awards_settingS('mt_awards:time_online_bronze_weight_value', $courseid);
+    $goldawardweight = block_mt_get_awards_settings('mt_awards:time_online_gold_weight_value', $courseid);
+    $silverawardweight = block_mt_get_awards_settings('mt_awards:time_online_silver_weight_value', $courseid);
+    $bronzeawardweight = block_mt_get_awards_settings('mt_awards:time_online_bronze_weight_value', $courseid);
 
     $sql = "SELECT userid
         FROM {block_mt_awards_user}

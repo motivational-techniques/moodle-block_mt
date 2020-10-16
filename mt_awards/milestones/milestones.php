@@ -50,9 +50,9 @@ $logmtpage = true;
 require($CFG->dirroot . '/blocks/mt/mt_awards/includes/includes.php');
 require_once($CFG->dirroot . '/blocks/mt/includes/configuration_settings.php');
 
-$goldaward = get_awards_settings('mt_awards:milestones_gold_days_value', $courseid);
-$silveraward = get_awards_settings('mt_awards:milestones_silver_days_value', $courseid);
-$bronzeaward = get_awards_settings('mt_awards:milestones_bronze_days_value', $courseid);
+$goldaward = block_mt_get_awards_settings('mt_awards:milestones_gold_days_value', $courseid);
+$silveraward = block_mt_get_awards_settings('mt_awards:milestones_silver_days_value', $courseid);
+$bronzeaward = block_mt_get_awards_settings('mt_awards:milestones_bronze_days_value', $courseid);
 
 $weights = new stdClass();
 $weights->gold = $goldaward;
@@ -90,7 +90,7 @@ $params = array (
 if ($DB->record_exists('block_mt_ranks_milestones', $params)) {
     $studentlist = $DB->get_records('block_mt_ranks_milestones', $params, 'milestone_time asc');
     foreach ($studentlist as $student) {
-        $student->active = is_active($student->userid, $courseid);
+        $student->active = block_mt_is_active($student->userid, $courseid);
         if (display_anonymous ( $student->userid, $courseid )) {
             $studentname = get_string ('mt_rankings:milestone_time_anonymous', 'block_mt');
         } else {

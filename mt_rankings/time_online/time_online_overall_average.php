@@ -192,7 +192,7 @@ if ($DB->record_exists_sql($sql, $params)) {
         $row = array (
             $i,
             $studentname,
-            display_active_flag($student->active),
+            block_mt_display_active_flag($student->active),
             number_format($averagetimehours, 2)
         );
 

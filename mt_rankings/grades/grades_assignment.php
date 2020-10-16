@@ -86,7 +86,7 @@ if ($DB->record_exists_sql ( $sql, $params )) {
     $studentlist = $DB->get_records_sql ( $sql, $params );
     $i = 1;
     foreach ($studentlist as $student) {
-        $student->active = is_active($student->userid, $courseid);
+        $student->active = block_mt_is_active($student->userid, $courseid);
         if (display_anonymous ( $student->userid, $courseid )) {
             $studentname = get_string ( 'mt_rankings:grade_assign_anonymous', 'block_mt' );
         } else {
@@ -96,7 +96,7 @@ if ($DB->record_exists_sql ( $sql, $params )) {
         $tablerow = new html_table_row ( array (
             $i,
             $studentname,
-            display_active_flag($student->active),
+            block_mt_display_active_flag($student->active),
             number_format($student->finalgrade, 2)
         ) );
         $tablerow->cells [2]->attributes ['class'] = 'activeColumn';

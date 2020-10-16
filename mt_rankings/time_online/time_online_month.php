@@ -73,7 +73,7 @@ if ($DB->record_exists ( 'block_mt_ranks_onl_time', $params )) {
     $studentdata = $DB->get_records ( 'block_mt_ranks_onl_time', $params, 'onlinetime desc' );
     $i = 1;
     foreach ($studentdata as $student) {
-        $student->active = is_active($student->userid, $courseid);
+        $student->active = block_mt_is_active($student->userid, $courseid);
         if (display_anonymous ( $student->userid, $courseid )) {
             $studentname = get_string ( 'mt_rankings:grade_quiz_anonymous', 'block_mt' );
         } else {
@@ -84,7 +84,7 @@ if ($DB->record_exists ( 'block_mt_ranks_onl_time', $params )) {
         $tablerow = new html_table_row (array(
             $i,
             $studentname,
-            display_active_flag($student->active),
+            block_mt_display_active_flag($student->active),
             number_format($timehours, 2 )
         ));
         $tablerow->cells [2]->attributes ['class'] = 'gradeColumn';

@@ -39,14 +39,14 @@ require($CFG->dirroot . '/blocks/mt/mt_awards/includes/includes.php');
 require_once($CFG->dirroot . '/blocks/mt/includes/configuration_settings.php');
 
 $counts = new stdClass();
-$counts->gold = get_awards_settings('mt_awards:num_posts_gold_count_value', $courseid);
-$counts->silver = get_awards_settings('mt_awards:num_posts_silver_count_value', $courseid);
-$counts->bronze = get_awards_settings('mt_awards:num_posts_bronze_count_value', $courseid);
+$counts->gold = block_mt_get_awards_settings('mt_awards:num_posts_gold_count_value', $courseid);
+$counts->silver = block_mt_get_awards_settings('mt_awards:num_posts_silver_count_value', $courseid);
+$counts->bronze = block_mt_get_awards_settings('mt_awards:num_posts_bronze_count_value', $courseid);
 
 $weights = new stdClass();
-$weights->gold = get_awards_settings('mt_awards:num_posts_gold_weight_value', $courseid);
-$weights->silver = get_awards_settings('mt_awards:num_posts_silver_weight_value', $courseid);
-$weights->bronze = get_awards_settings('mt_awards:num_posts_bronze_weight_value', $courseid);
+$weights->gold = block_mt_get_awards_settings('mt_awards:num_posts_gold_weight_value', $courseid);
+$weights->silver = block_mt_get_awards_settings('mt_awards:num_posts_silver_weight_value', $courseid);
+$weights->bronze = block_mt_get_awards_settings('mt_awards:num_posts_bronze_weight_value', $courseid);
 
 echo html_writer::tag('h2', get_string('mt_awards:total_posts_overall_desc', 'block_mt'));
 echo html_writer::tag('h4', get_string('mt_awards:total_posts_overall_calc', 'block_mt', $weights));
@@ -93,7 +93,7 @@ $params = array(
 if ($DB->record_exists('block_mt_awards_count_all', $params)) {
     $studentlist = $DB->get_records('block_mt_awards_count_all', $params, 'awardtotal desc');
     foreach ($studentlist as $id => $studentlist) {
-        $studentisactive = is_active($studentlist->userid, $courseid);
+        $studentisactive = block_mt_is_active($studentlist->userid, $courseid);
 
         if (display_anonymous($studentlist->userid, $courseid)) {
             $studentname = get_string('mt_awards:total_posts_overall_anonymous', 'block_mt');
@@ -103,7 +103,7 @@ if ($DB->record_exists('block_mt_awards_count_all', $params)) {
         }
         $row = array(
             $studentname,
-            display_active_flag($studentisactive),
+            block_mt_display_active_flag($studentisactive),
             $studentlist->awardtotal
         );
         $previousmonths = block_mt_get_current_date();

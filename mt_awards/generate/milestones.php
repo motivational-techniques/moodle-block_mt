@@ -110,9 +110,9 @@ function get_milestone_rankings_by_milestone($courseid, $milestoneid) {
  * @return string
  */
 function determine_award($courseid, $completeddays) {
-    $goldaward = get_awards_settings('mt_awards:milestones_gold_days_value', $courseid);
-    $silveraward = get_awards_settings('mt_awards:milestones_silver_days_value', $courseid);
-    $bronzeaward = get_awards_settings('mt_awards:milestones_bronze_days_value', $courseid);
+    $goldaward = block_mt_get_awards_settings('mt_awards:milestones_gold_days_value', $courseid);
+    $silveraward = block_mt_get_awards_settings('mt_awards:milestones_silver_days_value', $courseid);
+    $bronzeaward = block_mt_get_awards_settings('mt_awards:milestones_bronze_days_value', $courseid);
     $awardid = NO_AWARD_ID;
 
     if ($completeddays < 0) {
