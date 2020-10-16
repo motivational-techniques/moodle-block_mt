@@ -49,8 +49,8 @@ $menuitem->url = '';
 $menuitem->text = '';
 $menuitem->rank = '';
 
-$quizid = get_quiz_id();
-$assignmentid = get_assign_id();
+$quizid = block_mt_get_quiz_id();
+$assignmentid = block_mt_get_assign_id();
 
 // Get Milestones.
 $parameters = array(

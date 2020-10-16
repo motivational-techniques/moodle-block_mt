@@ -28,7 +28,7 @@ defined('MOODLE_INTERNAL') || die();
  *
  * @return integer
  */
-function get_quiz_id() {
+function block_mt_get_quiz_id() {
     global $DB;
     $parameters = array (
             'name' => 'quiz'
@@ -41,7 +41,7 @@ function get_quiz_id() {
  *
  * @return integer
  */
-function get_assign_id() {
+function block_mt_get_assign_id() {
     global $DB;
     $parameters = array (
             'name' => 'assign'
@@ -55,7 +55,7 @@ function get_assign_id() {
  * @param string $courseid
  * @return string
  */
-function get_quiz_id_for_grade($iteminstance, $courseid) {
+function block_mt_get_quiz_id_for_grade($iteminstance, $courseid) {
     global $DB;
 
     $parameters = array (

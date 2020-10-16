@@ -340,8 +340,8 @@ function get_milestone_rankings_active($milestone, $courseid) {
  * @return array
  */
 function get_finish_times($module, $milestone, $userid) {
-    $quizid = get_quiz_id();
-    $assignmentid = get_assign_id();
+    $quizid = block_mt_get_quiz_id();
+    $assignmentid = block_mt_get_assign_id();
     $finishtimes = null;
 
     if ($quizid == $module) {

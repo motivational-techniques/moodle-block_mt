@@ -131,8 +131,8 @@ function block_mt_get_milestone_id($module, $instance, $courseid) {
 function block_mt_get_milestone_name($id, $instance, $courseid) {
     global $DB;
 
-    $quizid = get_quiz_id();
-    $assignmentid = get_assign_id();
+    $quizid = block_mt_get_quiz_id();
+    $assignmentid = block_mt_get_assign_id();
 
     // Get module id.
     $sql = "SELECT module
@@ -167,8 +167,8 @@ function block_mt_get_milestone_name($id, $instance, $courseid) {
 function block_mt_get_milestone_name_by_id($id) {
     global $DB;
 
-    $quizid = get_quiz_id();
-    $assignmentid = get_assign_id();
+    $quizid = block_mt_get_quiz_id();
+    $assignmentid = block_mt_get_assign_id();
 
     $instance = block_mt_get_milestone_instance($id);
     $moduleid = block_mt_get_milestone_module($id);
