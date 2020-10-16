@@ -65,13 +65,13 @@ class block_mt extends block_list {
         $this->content->items = array ();
         $this->content->icons = array (); // Not used, but needed to prevent error from blocks/moodleblock.class.php line 712.
 
-        $this->content->items[] = display_item_and_icon($courseid, 'awards', '/blocks/mt/mt_awards/main_awards.php',
+        $this->content->items[] = block_mt_display_item_and_icon($courseid, 'awards', '/blocks/mt/mt_awards/main_awards.php',
             'mt:awards', '../pix/t/go.svg');
 
-        $this->content->items[] = display_item_and_icon($courseid, 'goals', '/blocks/mt/mt_goals/main_goals.php',
+        $this->content->items[] = block_mt_display_item_and_icon($courseid, 'goals', '/blocks/mt/mt_goals/main_goals.php',
             'mt:goals', '../pix/i/hide.svg');
 
-        $this->content->items[] = display_item_and_icon($courseid, 'p_annotation', '/blocks/mt/mt_p_annotation/draw_chart.php',
+        $this->content->items[] = block_mt_display_item_and_icon($courseid, 'p_annotation', '/blocks/mt/mt_p_annotation/draw_chart.php',
             'mt:p_annotation', '../pix/t/markasread.svg');
 
         if (get_module_display($courseid, 'p_annotation')) {
@@ -98,16 +98,16 @@ class block_mt extends block_list {
             $this->page->requires->js_init_call('getSessionInfo', $params);
         }
 
-        $this->content->items[] = display_item_and_icon($courseid, 'p_timeline', '/blocks/mt/mt_p_timeline/draw_chart.php',
+        $this->content->items[] = block_mt_display_item_and_icon($courseid, 'p_timeline', '/blocks/mt/mt_p_timeline/draw_chart.php',
             'mt:p_timeline', '../pix/i/siteevent.svg');
 
-        $this->content->items[] = display_item_and_icon($courseid, 'rankings', '/blocks/mt/mt_rankings/main_rankings.php',
+        $this->content->items[] = block_mt_display_item_and_icon($courseid, 'rankings', '/blocks/mt/mt_rankings/main_rankings.php',
             'mt:rankings', '../pix/i/scales.svg');
 
         // Insert blank line to separate the admin/options link.
         $this->content->items[] = html_writer::empty_tag('br');
 
-        $this->content->items[] = display_option_item_and_icon($courseid, $USER->id);
+        $this->content->items[] = block_mt_display_option_item_and_icon($courseid, $USER->id);
 
         return $this->content;
     }

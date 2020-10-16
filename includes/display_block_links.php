@@ -36,7 +36,7 @@ defined('MOODLE_INTERNAL') || die();
  * @param string $iconurl
  * @return string
  */
-function display_item_and_icon($courseid, $module, $url, $textstring, $iconurl) {
+function block_mt_display_item_and_icon($courseid, $module, $url, $textstring, $iconurl) {
     $querystring = array (
             'courseid' => $courseid
     );
@@ -60,7 +60,7 @@ function display_item_and_icon($courseid, $module, $url, $textstring, $iconurl) 
  * @param string $userid
  * @return string
  */
-function display_option_item_and_icon($courseid, $userid) {
+function block_mt_display_option_item_and_icon($courseid, $userid) {
     $querystring = array (
             'courseid' => $courseid
     );
