@@ -33,7 +33,7 @@ require_once($CFG->dirroot . "/blocks/mt/includes/determine_rank_name.php");
  * @param array $param
  * @return string
  */
-function get_rank_name($param) {
+function block_mt_get_rank_name($param) {
 
     switch ($param->rank_type_id) {
         case '1':

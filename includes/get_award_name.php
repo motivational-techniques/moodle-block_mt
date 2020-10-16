@@ -55,7 +55,7 @@ function get_award_name($awardid) {
  * @param array $param
  * @return string
  */
-function get_rank_name($param) {
+function block_mt_get_rank_name($param) {
 
     switch ($param->awardid) {
         case '1':

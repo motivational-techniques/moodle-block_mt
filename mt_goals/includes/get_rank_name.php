@@ -31,7 +31,7 @@ require_once($CFG->dirroot . "/blocks/mt/includes/get_id.php");
  * @param array $param
  * @return string
  */
-function get_rank_name($param) {
+function block_mt_get_rank_name($param) {
     switch ($param->rank_type_id) {
         case RANK_TYPE_GRADES :
             $rankname = get_string ( 'mt_goals:grades', 'block_mt_goals' , $param->rankname);

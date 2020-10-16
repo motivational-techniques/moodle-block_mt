@@ -100,7 +100,7 @@ if ($DB->record_exists('block_mt_ranks_user', $params)) {
         );
         $button = display_button($urlparams, $linkparams);
         $tablerow = new html_table_row(array(
-            get_rank_name($rankings),
+            block_mt_get_rank_name($rankings),
             $rankings->rank,
             $goalranking,
             $status,
