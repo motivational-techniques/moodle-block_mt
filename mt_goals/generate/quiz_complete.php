@@ -56,7 +56,7 @@ function quiz_complete_process_entry($param) {
 function generate_goal_quiz_complete($courseid) {
     global $DB;
 
-    $quizlist = get_quiz_list($courseid);
+    $quizlist = block_mt_get_quiz_list($courseid);
     foreach ($quizlist as $quizitem) {
         $parameters = array (
                 'itemid' => $quizitem->iteminstance,

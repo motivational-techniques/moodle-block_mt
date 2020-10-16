@@ -63,7 +63,7 @@ $table->size = array (
 );
 $table->id = "myTable";
 
-$quizlist = get_quiz_list($courseid);
+$quizlist = block_mt_get_quiz_list($courseid);
 if (count ( ( array ) $quizlist ) > 0) {
     $currentday = date_timestamp_get(date_create () );
     foreach ($quizlist as $quiz) {

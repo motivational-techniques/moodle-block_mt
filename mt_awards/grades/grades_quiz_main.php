@@ -45,7 +45,7 @@ $counts->bronze = get_awards_settings ( 'mt_awards:grades_bronze_count_value', $
 
 echo html_writer::tag ( 'h2', get_string ( 'mt_awards:grade_quiz_calc', 'block_mt', $counts ) );
 
-$quizlist = get_quiz_list($courseid);
+$quizlist = block_mt_get_quiz_list($courseid);
 
 $menuitem = new stdClass();
 $menuitem->url = '';

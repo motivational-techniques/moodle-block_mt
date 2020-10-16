@@ -49,7 +49,7 @@ function generate_ranks_assignments($courseid, $userranking) {
  */
 function generate_ranks_quizzes($courseid, $userranking) {
     global $DB;
-    $quizlist = get_quiz_list($courseid);
+    $quizlist = block_mt_get_quiz_list($courseid);
     foreach ($quizlist as $quiz) {
         $userranking->rankname = $DB->get_record('grade_items',
             array(

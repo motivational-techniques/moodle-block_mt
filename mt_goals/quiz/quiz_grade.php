@@ -62,7 +62,7 @@ $table->size = array (
 );
 $table->id = "myTable";
 
-$quizlist = get_quiz_list($courseid);
+$quizlist = block_mt_get_quiz_list($courseid);
 if (count((array) $quizlist ) > 0) {
     foreach ($quizlist as $quiz) {
         $quizfinalgrade = get_quiz_final_grade($quiz->id, $userid);

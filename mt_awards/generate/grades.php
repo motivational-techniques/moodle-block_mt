@@ -49,7 +49,7 @@ function generate_awards_assignment($paramcourseid) {
 function generate_awards_quiz($paramcourseid) {
     mtrace(get_string('mt:cron_awards_quiz', 'block_mt'));
 
-    $quizlist = get_quiz_list($paramcourseid);
+    $quizlist = block_mt_get_quiz_list($paramcourseid);
     foreach ($quizlist as $quiz) {
         awards_process_course($paramcourseid, $quiz->id, get_grade_award_name($quiz->itemname),
             get_current_period(), RANK_PERIOD_INDIVIDUAL);
