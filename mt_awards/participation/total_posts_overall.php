@@ -64,7 +64,7 @@ $tableheader = array(
     get_string('mt_awards:total_posts_overall_total', 'block_mt')
 );
 
-$table->head = generate_table_header_months($tableheader);
+$table->head = block_mt_generate_table_header_months($tableheader);
 
 $table->size = array(
     '100',
