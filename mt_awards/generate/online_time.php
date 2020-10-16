@@ -167,7 +167,7 @@ function generate_online_time_overall_count($courseid) {
 
         foreach ($awardlist as $award) {
             $awardperiod = date_create($award->period);
-            $currentdate = get_current_date();
+            $currentdate = block_mt_get_current_date();
             $interval = date_diff($currentdate, $awardperiod);
             // Only take the last year.
             if ($interval->format('%y') < 1) {

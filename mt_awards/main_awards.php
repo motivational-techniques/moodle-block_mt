@@ -95,7 +95,7 @@ display_without_award ( $linkparameters, $awardsparameters );
 
 
 $awardsparameters->awardname = get_string ( 'mt_awards:main_awards_time_online_current_period', 'block_mt',
-        get_current_period_year_month() );
+        block_mt_get_current_period_year_month() );
 $linkparameters->url = 'time_online/time_online_month.php';
 $linkparameters->text = get_string ( 'mt_awards:main_awards_time_online_current_month', 'block_mt' );
 display_with_award ( $linkparameters, $awardsparameters );
@@ -110,7 +110,7 @@ $linkparameters->text = get_string ( 'mt_awards:main_awards_posts_submitted_mont
 display_without_award ( $linkparameters, $awardsparameters );
 
 $awardsparameters->awardname = get_string ( 'mt_awards:main_awards_number_posts', 'block_mt',
-        get_current_period_year_month() );
+        block_mt_get_current_period_year_month() );
 $linkparameters->url = 'participation/total_posts_month.php';
 $linkparameters->text = get_string ( 'mt_awards:main_awards_posts_submitted_this_month', 'block_mt' );
 display_with_award ( $linkparameters, $awardsparameters );
@@ -121,7 +121,7 @@ $linkparameters->text = get_string ( 'mt_awards:main_awards_post_rating_month', 
 display_without_award ( $linkparameters, $awardsparameters );
 
 $awardsparameters->awardname = get_string ( 'mt_awards:main_awards_rating_posts', 'block_mt',
-        get_current_period_year_month() );
+        block_mt_get_current_period_year_month() );
 $linkparameters->url = 'participation/rating_posts_month.php';
 $linkparameters->text = get_string ( 'mt_awards:main_awards_average_post_rating_month', 'block_mt' );
 display_with_award ( $linkparameters, $awardsparameters );
@@ -133,7 +133,7 @@ $linkparameters->text = get_string ( 'mt_awards:main_awards_read_all_posts_month
 display_without_award ( $linkparameters, $awardsparameters );
 
 $awardsparameters->awardname = get_string ( 'mt_awards:main_awards_read_posts', 'block_mt',
-        get_current_period_year_month() );
+        block_mt_get_current_period_year_month() );
 $linkparameters->url = 'participation/read_posts_month.php';
 $linkparameters->text = get_string ( 'mt_awards:main_awards_read_all_posts_this_month', 'block_mt' );
 display_with_award ( $linkparameters, $awardsparameters );

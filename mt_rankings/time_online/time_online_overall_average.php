@@ -170,8 +170,8 @@ if ($active == 'false') {
     }
 }
 
-$currentperiod = date_format(get_current_date(), 'Y-n-d');
-$startperiod = date_format(get_start_date(), 'Y-n-d');
+$currentperiod = date_format(block_mt_get_current_date(), 'Y-n-d');
+$startperiod = date_format(block_mt_get_start_date(), 'Y-n-d');
 
 $params = array (
         'period' => $startperiod,
@@ -201,7 +201,7 @@ if ($DB->record_exists_sql($sql, $params)) {
         $averagetime->num_months = $student->num_months;
         $titletext = get_string ( 'mt_rankings:time_online_average_title_average', 'block_mt', $averagetime );
 
-        $previousmonths = get_current_date();
+        $previousmonths = block_mt_get_current_date();
         $parameters = array (
             'userid' => $student->userid,
             'courseid' => $courseid,

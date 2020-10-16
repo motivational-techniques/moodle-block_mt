@@ -68,7 +68,7 @@ $sql = "SELECT userid, period, courseid, rating_percent
         WHERE period=:period AND courseid=:courseid AND rating_percent > 0 AND period_type=:period_type
         ORDER BY rating_percent DESC";
 $params = array (
-        'period' => get_current_period(),
+        'period' => block_mt_get_current_period(),
         'courseid' => $courseid,
         'period_type' => RANK_PERIOD_MONTHLY
 );

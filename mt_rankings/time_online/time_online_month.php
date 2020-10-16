@@ -65,7 +65,7 @@ $table->id = "myTable";
 $table->attributes ['class'] = 'tablesorter-blue';
 
 $params = array (
-        'period' => get_current_period(),
+        'period' => block_mt_get_current_period(),
         'courseid' => $courseid,
         'period_type' => RANK_PERIOD_MONTHLY
 );

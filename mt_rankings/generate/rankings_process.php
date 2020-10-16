@@ -140,7 +140,7 @@ function ranks_process_course($paramuserranking, $paramitemid, $paramranktype, $
         if (($paramperiodtype == RANK_PERIOD_OVERALL) || ($paramuserranking->rank_type_id == RANK_TYPE_GRADES)) {
             $paramuserranking->period = null;
         } else {
-            $paramuserranking->period = get_current_period();
+            $paramuserranking->period = block_mt_get_current_period();
         }
         $paramuserranking->rank = $ranking->rank;
         $paramuserranking->userid = $ranking->userid;

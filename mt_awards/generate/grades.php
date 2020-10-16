@@ -36,7 +36,7 @@ function generate_awards_assignment($paramcourseid) {
     $assignmentlist = get_assignment_list($paramcourseid);
     foreach ($assignmentlist as $assignment) {
         awards_process_course($paramcourseid, $assignment->id, get_grade_award_name($assignment->itemname),
-            get_current_period(), RANK_PERIOD_INDIVIDUAL);
+            block_mt_get_current_period(), RANK_PERIOD_INDIVIDUAL);
     }
 }
 
@@ -52,7 +52,7 @@ function generate_awards_quiz($paramcourseid) {
     $quizlist = block_mt_get_quiz_list($paramcourseid);
     foreach ($quizlist as $quiz) {
         awards_process_course($paramcourseid, $quiz->id, get_grade_award_name($quiz->itemname),
-            get_current_period(), RANK_PERIOD_INDIVIDUAL);
+            block_mt_get_current_period(), RANK_PERIOD_INDIVIDUAL);
     }
 }
 
@@ -71,5 +71,5 @@ function generate_awards_overall_grade($paramcourseid) {
         'courseid' => $paramcourseid,
         'itemtype' => 'course'
     ));
-    awards_process_course($paramcourseid, $finalgradedataid, 'Overall Grade', get_current_period(), RANK_PERIOD_OVERALL);
+    awards_process_course($paramcourseid, $finalgradedataid, 'Overall Grade', block_mt_get_current_period(), RANK_PERIOD_OVERALL);
 }

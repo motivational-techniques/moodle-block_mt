@@ -36,7 +36,7 @@ function update_last_period_run_awards($courseid, $ranktypeid, $period) {
     global $DB;
 
     if (! isset($period)) {
-        $period = get_current_period();
+        $period = block_mt_get_current_period();
     }
     $recordcount = $DB->count_records('block_mt_awards_last_period',
         array(

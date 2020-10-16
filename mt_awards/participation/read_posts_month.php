@@ -40,7 +40,7 @@ require_once($CFG->dirroot . '/blocks/mt/mt_awards/includes/determine_next_level
 require_once($CFG->dirroot . '/blocks/mt/includes/configuration_settings.php');
 require_once($CFG->dirroot . '/blocks/mt/mt_awards/includes/progress_graph.php');
 
-$nextlevel = determine_next_level_read_posts_num($userid, $courseid, get_current_period());
+$nextlevel = determine_next_level_read_posts_num($userid, $courseid, block_mt_get_current_period());
 
 $counts = new stdClass();
 $counts->gold = get_awards_settings('mt_awards:read_posts_gold_count_value', $courseid);

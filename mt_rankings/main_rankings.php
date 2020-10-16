@@ -57,7 +57,7 @@ $linkparams->text = '';
 $rankingsparams = new stdClass();
 $rankingsparams->userid = $userid;
 $rankingsparams->courseid = $courseid;
-$rankingsparams->period = get_current_period();
+$rankingsparams->period = block_mt_get_current_period();
 $rankingsparams->gradeid = '';
 $rankingsparams->ranktype = '';
 

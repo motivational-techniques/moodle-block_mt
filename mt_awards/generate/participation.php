@@ -431,7 +431,7 @@ function generate_awards_read_posts($paramcourseid) {
 function calculate_award_total($awardlist, $awardtotal, $awardweight) {
     foreach ($awardlist as $awardentry) {
         $awardperiod = date_create($awardentry->period);
-        $currentdate = get_current_date();
+        $currentdate = block_mt_get_current_date();
         $interval = date_diff($currentdate, $awardperiod);
         // Only take the last year.
         if ($interval->format('%y') < 1) {

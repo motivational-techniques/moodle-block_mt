@@ -31,7 +31,7 @@ defined('MOODLE_INTERNAL') || die();
  * @return string
  */
 function generate_table_header_months($tableheader) {
-    $previousmonths = get_current_date();
+    $previousmonths = block_mt_get_current_date();
     for ($monthcounter = 12; $monthcounter > 0; $monthcounter --) {
         $tableheader[] = $previousmonths->format('F Y');
         $previousmonths->modify('previous month');

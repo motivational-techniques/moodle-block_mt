@@ -63,7 +63,7 @@ $table->size = array(
 $table->id = "myTable";
 $table->attributes['class'] = 'tablesorter-blue';
 
-$awardname = get_string('mt_awards:rating_posts_month_award_name', 'block_mt', get_current_period_year_month());
+$awardname = get_string('mt_awards:rating_posts_month_award_name', 'block_mt', block_mt_get_current_period_year_month());
 
 $params = array(
     'award_name' => $awardname,

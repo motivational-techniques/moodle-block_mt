@@ -29,7 +29,7 @@ defined ( 'MOODLE_INTERNAL' ) || die ();
  * get current period
  * @return string
  */
-function get_current_period() {
+function block_mt_get_current_period() {
     $period = new stdClass();
     $period->year = date("Y");
     $period->month = date("n");
@@ -41,7 +41,7 @@ function get_current_period() {
  * get current period year month
  * @return string
  */
-function get_current_period_year_month() {
+function block_mt_get_current_period_year_month() {
     $period = new stdClass();
     $period->year = date("Y");
     $period->month = date("n");
@@ -53,7 +53,7 @@ function get_current_period_year_month() {
  * get current date
  * @return DateTime
  */
-function get_current_date() {
+function block_mt_get_current_date() {
     return date_create(date("Y") . '-' . date("n") . '-01');
 }
 
@@ -61,6 +61,6 @@ function get_current_date() {
  * get current start date
  * @return DateTime
  */
-function get_start_date() {
+function block_mt_get_start_date() {
     return date_create((date("Y") - 1) . '-' . date("n") . '-01');
 }

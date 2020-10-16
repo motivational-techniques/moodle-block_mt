@@ -107,7 +107,7 @@ if ($DB->record_exists('block_mt_awards_count_all', $params)) {
             display_active_flag($studentisactive),
             $studentlist->awardtotal
         );
-        $previousmonths = get_current_date();
+        $previousmonths = block_mt_get_current_date();
 
         $cell = new html_table_cell();
         $cell->attributes['class'] = 'gradeColumn';

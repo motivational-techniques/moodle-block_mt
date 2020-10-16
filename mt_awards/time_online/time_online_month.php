@@ -41,7 +41,7 @@ require_once($CFG->dirroot . '/blocks/mt/mt_awards/includes/progress_graph.php')
 require_once($CFG->dirroot . '/blocks/mt/includes/configuration_settings.php');
 require_once($CFG->dirroot . '/blocks/mt/mt_awards/includes/determine_next_level_award.php');
 
-$nextlevel = determine_next_level_time_online($courseid, get_current_period());
+$nextlevel = determine_next_level_time_online($courseid, block_mt_get_current_period());
 
 echo html_writer::tag('h2', get_string('mt_awards:time_online_month_desc', 'block_mt'));
 echo html_writer::tag('h4', get_string('mt_awards:time_online_month_calc', 'block_mt'));
