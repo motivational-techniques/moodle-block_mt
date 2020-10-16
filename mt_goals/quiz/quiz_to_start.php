@@ -102,7 +102,7 @@ if (count ( ( array ) $quizlist ) > 0) {
         $table->data [] = $tablerow;
     }
 } else {
-    $table->data[] = get_no_records_row('mt_goals:quiz_noquizzes');
+    $table->data[] = block_mt_get_no_records_row('mt_goals:quiz_noquizzes');
 }
 
 echo html_writer::table ( $table );

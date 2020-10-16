@@ -110,7 +110,7 @@ if ($DB->record_exists('block_mt_ranks_milestones', $params)) {
         }
     }
 } else {
-    $table->data[] = get_no_records_row('mt_rankings:no_records');
+    $table->data[] = block_mt_get_no_records_row('mt_rankings:no_records');
 }
 
 echo html_writer::table ( $table );

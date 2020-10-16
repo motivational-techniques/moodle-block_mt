@@ -70,7 +70,7 @@ if (count ( ( array ) $goaldata ) > 0) {
         $table->data [] = $tablerow;
     }
 } else {
-    $table->data[] = get_no_records_row('mt_goals:no_student_records');
+    $table->data[] = block_mt_get_no_records_row('mt_goals:no_student_records');
 }
 echo html_writer::table ( $table );
 echo $OUTPUT->footer();

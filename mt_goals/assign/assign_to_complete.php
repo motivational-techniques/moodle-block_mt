@@ -112,7 +112,7 @@ if (count ( ( array ) $assignlist ) > 0) {
         $table->data [] = $tablerow;
     }
 } else {
-    $table->data[] = get_no_records_row('mt_goals:assign_noassignments');
+    $table->data[] = block_mt_get_no_records_row('mt_goals:assign_noassignments');
 }
 echo html_writer::table ( $table );
 echo $OUTPUT->footer();

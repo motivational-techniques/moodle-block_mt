@@ -30,7 +30,7 @@ defined('MOODLE_INTERNAL') || die();
  * @param string $module
  * @return string
  */
-function get_no_records_row($module = 'mt_rankings:no_records') {
+function block_mt_get_no_records_row($module = 'mt_rankings:no_records') {
     $tablerow = new html_table_row ( array(
             get_string($module, 'block_mt' )
     ));

@@ -256,7 +256,7 @@ if ($DB->record_exists_sql($sql, $params)) {
         $table->data [] = $tablerow;
     }
 } else {
-    $table->data[] = get_no_records_row('mt_rankings:no_records');
+    $table->data[] = block_mt_get_no_records_row('mt_rankings:no_records');
 }
 echo html_writer::table ( $table );
 echo $OUTPUT->footer();
