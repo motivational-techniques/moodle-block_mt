@@ -48,7 +48,7 @@ class block_mt_base_testcase extends advanced_testcase {
     /**
      * test block is installed
      */
-    public function test_block_is_installed() {
+    public function test_block_mt_is_installed() {
         global $CFG;
 
         $course = $this->getDataGenerator()->create_course();
@@ -60,7 +60,7 @@ class block_mt_base_testcase extends advanced_testcase {
         $this->helper_enrol_users($users, $course->id);
 
         require_once($CFG->dirroot.'/blocks/mt/includes/block_is_installed.php');
-        $this->assertFalse(block_is_installed($course->id));
+        $this->assertFalse(block_mt_is_installed($course->id));
     }
 
     /**

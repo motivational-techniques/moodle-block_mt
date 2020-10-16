@@ -30,7 +30,7 @@ defined('MOODLE_INTERNAL') || die();
  * @param int $courseid The course id
  * @return boolean
  */
-function block_is_installed(&$courseid) {
+function block_mt_is_installed(&$courseid) {
     global $DB;
 
     // Get a list of courses for which this block is installed.
@@ -59,7 +59,7 @@ function block_is_installed(&$courseid) {
  */
 function send_to_dashboard_if_no_block_installed($courseid) {
     // Send user to dashboard if they passed a bad courseid.
-    if (! block_is_installed($courseid)) {
+    if (! block_mt_is_installed($courseid)) {
         redirect(new moodle_url('/my'));
     }
 }
