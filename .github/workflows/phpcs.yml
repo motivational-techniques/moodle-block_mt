@@ -16,4 +16,5 @@ jobs:
           uses: chekalsky/phpcs-action@v1
           with:
             enable_warnings: true
-            installed_paths: '${{ github.workspace }}/vendor/phpcompatibility/php-compatibility'
+            installed_paths: 'moodle-block_mt/mt_awards/'
+
