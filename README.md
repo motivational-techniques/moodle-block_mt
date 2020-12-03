@@ -1,4 +1,5 @@
 # MotTEC - Motivational Techniques #
+![PHP Linting](https://github.com/motivational-techniques/moodle-block_mt/workflows/PHP%20Linting/badge.svg)
 
 This block plugin provides 5 domain and content independent features that are
 designed to provide students more motivation in a course.
