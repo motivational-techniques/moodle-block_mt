@@ -4,6 +4,6 @@ name: php-codesniffer
   uses: pipeline-components/php-codesniffer@v0.12.3
   with:
     # Directory to check
-    directory: # optional, default is .
+    directory: .
     # Additional options
-    options: # optional, default is -s -p --colors --extensions=php
+    options: -s -p --colors --extensions=php
