@@ -72,7 +72,7 @@ function generate_active_users() {
             on {user_enrolments}.enrolid = {enrol}.id
             order by userid";
     }
-    if (isset ( get_config("block_mt", "ranks_inactive_time") )) {
+    if (null !== get_config("block_mt", "ranks_inactive_time")) {
         $inactivetime = get_config("block_mt", "ranks_inactive_time");
     } else {
         $inactivetime = intval ( get_string ( 'mt_rankings:settings_inactive_time_value', 'block_mt' ) );
