@@ -1,0 +1,1 @@
+phpcs /moodle-block_mt include_path=.:/php/includes /moodle-block_mt
