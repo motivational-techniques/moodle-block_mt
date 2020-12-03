@@ -76,7 +76,8 @@ if ($DB->record_exists('block_mt_awards_user', $params)) {
         if (display_anonymous($student->userid, $courseid)) {
             $studentname = get_string('mt_awards:rating_posts_month_anonymous', 'block_mt');
         } else {
-            $studentname = get_string('mt_awards:rating_posts_month_student_name', 'block_mt', block_mt_get_user_name($student->userid));
+            $studentname = get_string('mt_awards:rating_posts_month_student_name', 'block_mt',
+                block_mt_get_user_name($student->userid));
         }
         $tablerow = new html_table_row(array(
             $studentname,

@@ -71,8 +71,8 @@ class block_mt extends block_list {
         $this->content->items[] = block_mt_display_item_and_icon($courseid, 'goals', '/blocks/mt/mt_goals/main_goals.php',
             'mt:goals', '../pix/i/hide.svg');
 
-        $this->content->items[] = block_mt_display_item_and_icon($courseid, 'p_annotation', '/blocks/mt/mt_p_annotation/draw_chart.php',
-            'mt:p_annotation', '../pix/t/markasread.svg');
+        $this->content->items[] = block_mt_display_item_and_icon($courseid, 'p_annotation',
+            '/blocks/mt/mt_p_annotation/draw_chart.php', 'mt:p_annotation', '../pix/t/markasread.svg');
 
         if (block_mt_get_module_display($courseid, 'p_annotation')) {
             // Get the user selections for the activities for this course.

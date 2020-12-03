@@ -47,7 +47,8 @@ function block_mt_determine_overall_or_period_rankname($param, $paramrankname, $
     if ($param->period_type == RANK_PERIOD_OVERALL) {
         $returnrankname = block_mt_format_rank_name($paramrankname, get_string($overallrankname, 'block_mt'));
     } else {
-        $returnrankname = block_mt_format_rank_name($paramrankname, DateTime::createFromFormat('Y-n-d', $param->period)->format('F Y'));
+        $returnrankname = block_mt_format_rank_name($paramrankname, DateTime::createFromFormat('Y-n-d',
+            $param->period)->format('F Y'));
     }
     return $returnrankname;
 }
