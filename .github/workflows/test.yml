@@ -1,9 +1,0 @@
-name: php-codesniffer
-  # You may pin to the exact commit or the version. cc
-  # uses: pipeline-components/php-codesniffer@e3341450afba37fab4275b31f041646a26b2da9d
-  uses: pipeline-components/php-codesniffer@v0.12.3
-  with:
-    # Directory to check
-    directory: .
-    # Additional options
-    options: -s -p --colors --extensions=php
