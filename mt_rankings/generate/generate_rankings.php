@@ -98,7 +98,7 @@ function generate_active_users() {
 function clear_ranks() {
     global $DB, $CFG;
 
-    if (isset ( get_config("block_mt", "ranks_regenerate_all") )) {
+    if (null !== get_config("block_mt", "ranks_regenerate_all")) {
         if (get_config("block_mt", "ranks_regenerate_all") == 1) {
             mtrace(get_string('mt:cron_rankings_clearing', 'block_mt'));
             $sql = 'TRUNCATE TABLE {block_mt_ranks_last_per}';
