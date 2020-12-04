@@ -1,4 +1,4 @@
-name: CI
+name: stylelint
 
 on:
   push:
@@ -8,23 +8,11 @@ on:
     branches:
       - "**"
 
-env:
-  CI: true
-
 jobs:
-  lint:
-    name: Lint on Node.js ${{ matrix.node }} and ${{ matrix.os }}
-
-    runs-on: ${{ matrix.os }}
-
-    strategy:
-      matrix:
-        node: [12]
-        os: [ubuntu-latest]
+  linters:
+    name: stylelint
+    runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v2
-
-      - name: stylelint 
-        uses: actions-hub/stylelint@master
-        
+      - uses: actions/checkout@v1
+      - uses: actions-hub/stylelint@master
