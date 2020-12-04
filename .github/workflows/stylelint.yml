@@ -30,9 +30,6 @@ jobs:
         with:
           node-version: ${{ matrix.node }}
 
-      - name: Lint
-        run: npm run lint
-        
       - name: stylelint
         run: npm install stylelint-config-standard --save-dev
 
