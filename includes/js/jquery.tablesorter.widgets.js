@@ -121,7 +121,7 @@ ts.storage = function(table, key, value, options) {
 		} else {
 			date = new Date();
 			date.setTime(date.getTime() + (31536e+6)); // 365 days
-			document.cookie = key + '=' + (JSON.stringify(values)).replace(/\"/g,'\"') + '; expires=' + date.toGMTString() + '; path=/';
+			document.cookie = key + '=' + (JSON.stringify(values)).replace(/"/g, '\\"') + '; expires=' + date.toGMTString() + '; path=/';
 		}
 	} else {
 		return values && values[url] ? values[url][id] : '';
