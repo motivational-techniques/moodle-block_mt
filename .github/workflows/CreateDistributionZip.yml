@@ -9,7 +9,7 @@ jobs:
     - name: Create zip
       uses: papeloto/action-zip@v1
       with:
-        files: classes/ db/ includes/ lang/ mt_awards/ mt_goals/ mt_p_annotation/ mt_p_timeline/ mt_rankings/ ./*.php
+        files: classes/ db/ includes/ lang/ mt_awards/ mt_goals/ mt_p_annotation/ mt_p_timeline/ mt_rankings/ admin.php block_mt.php mt_admin.php mt_options.php options.php settings.php version.php
         dest: mt.zip
         recursive: true
 
