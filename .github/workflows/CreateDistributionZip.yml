@@ -17,6 +17,3 @@ jobs:
       with:
         name: mt
         path: ${{ github.workspace }}/mt.zip
-
-    - name: Display structure of downloaded files
-      run: ls -R        
