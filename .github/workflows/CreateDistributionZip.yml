@@ -14,7 +14,6 @@ jobs:
         directory: .
         type: zip
         exclusions: '*.git* .circleci/* .settings/* /documentation/* /tests/* *.json circleci/* *.yml* testing.txt Gruntfile.js'
-        
 
     - uses: actions/upload-artifact@v1
       with:
