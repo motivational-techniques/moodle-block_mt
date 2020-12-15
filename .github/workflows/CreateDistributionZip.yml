@@ -13,7 +13,7 @@ jobs:
         path: .
         directory: .
         type: zip
-        exclusions: '*.git* .circleci ./documentation/* ./tests/* *.json .circleci/* *.yml testing.txt Gruntfile.js'
+        exclusions: '*.git* .circleci /documentation/* /tests/* *.json circleci/* *.yml testing.txt Gruntfile.js'
         
     - name: Create zip
       uses: papeloto/action-zip@v1
