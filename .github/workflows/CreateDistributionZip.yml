@@ -6,6 +6,15 @@ jobs:
     steps:
     - uses: actions/checkout@master
 
+    - name: Archive Release
+      uses: thedoctor0/zip-release@master
+      with:
+        filename: 'mt-release.zip'
+        path: .
+        directory: .
+        type: zip
+        exclusions: '*.git* .circleci ./documentation ./tests'
+        
     - name: Create zip
       uses: papeloto/action-zip@v1
       with:
@@ -17,3 +26,10 @@ jobs:
       with:
         name: mt
         path: ${{ github.workspace }}/mt.zip
+
+    - uses: actions/upload-artifact@v1
+      with:
+        name: mt-release
+        path: ${{ github.workspace }}/mt-release.zip
+
+
