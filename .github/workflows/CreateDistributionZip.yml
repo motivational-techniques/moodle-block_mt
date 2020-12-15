@@ -9,27 +9,14 @@ jobs:
     - name: Archive Release
       uses: thedoctor0/zip-release@master
       with:
-        filename: 'mt-release.zip'
+        filename: 'mt.zip'
         path: .
         directory: .
         type: zip
         exclusions: '*.git* .circleci/* .settings/* /documentation/* /tests/* *.json circleci/* *.yml* testing.txt Gruntfile.js'
         
-    - name: Create zip
-      uses: papeloto/action-zip@v1
-      with:
-        files: classes/ db/ includes/ lang/ mt_awards/ mt_goals/ mt_p_annotation/ mt_p_timeline/ mt_rankings/ admin.php block_mt.php mt_admin.php mt_options.php options.php settings.php version.php
-        dest: mt.zip
-        recursive: true
 
     - uses: actions/upload-artifact@v1
       with:
         name: mt
         path: ${{ github.workspace }}/mt.zip
-
-    - uses: actions/upload-artifact@v1
-      with:
-        name: mt-release
-        path: ${{ github.workspace }}/mt-release.zip
-
-
