@@ -1,51 +1,44 @@
 language: php
 
-sudo: true
-
 addons:
-  firefox: 47.0.1
   postgresql: '9.4'
-  apt:
-    packages:
-      - openjdk-8-jre-headless
 
 services:
   - mysql
   - postgresql
-
+  - docker
+  
 cache:
   directories:
     - $HOME/.composer/cache
     - $HOME/.npm
 
 php:
-#   - 7.3
-#  - 7.2
   - 7.1
-#  - 7.0
-#   - 5.6
-#   - 5.4
+  - 7.2
+  - 7.3
 
 env:
   global:
-    # Copy/paste from XMLDBEditor should not be linted.
-    # Custom form elements are formatted according for formslib, which doesn't match Moodle's style.
     - IGNORE_PATHS=db/upgrade.php
-    # - COVERAGE=false
+    - MOODLE_BRANCH=MOODLE_34_STABLE
     - MOODLE_BRANCH=MOODLE_35_STABLE
+    - MOODLE_BRANCH=MOODLE_36_STABLE
     - MOODLE_BRANCH=MOODLE_37_STABLE
-  
+    - MOODLE_BRANCH=MOODLE_38_STABLE
+   
   matrix:
     - DB=mysqli
     - DB=pgsql
 
 before_install:
   - phpenv config-rm xdebug.ini
-  - nvm install 8.9
-  - nvm use 8.9
+  - nvm install 14.0
+  - nvm use 14.0
   - cd ../..
   - composer create-project -n --no-dev --prefer-dist blackboard-open-source/moodle-plugin-ci ci ^2
   - export PATH="$(cd ci/bin; pwd):$(cd ci/vendor/bin; pwd):$PATH"
+  - docker run -d -p 127.0.0.1:4444:4444 --net=host -v /dev/shm:/dev/shm selenium/standalone-firefox:3
 
 install:
   - moodle-plugin-ci install
