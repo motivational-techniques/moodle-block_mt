@@ -14,7 +14,7 @@ cache:
     - $HOME/.npm
 
 php:
-  - 7.1
+#  - 7.1
   - 7.2
   - 7.3
 
@@ -29,7 +29,7 @@ env:
    
   matrix:
     - DB=mysqli
-    - DB=pgsql
+#    - DB=pgsql
 
 before_install:
   - phpenv config-rm xdebug.ini
