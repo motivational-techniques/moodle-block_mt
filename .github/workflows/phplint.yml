@@ -12,19 +12,3 @@ jobs:
     steps:
         - uses: actions/checkout@v2
         - uses: michaelw90/PHP-Lint@master
-  phpmd-linter: 
-    name: PHPMD
-    runs-on: ubuntu-latest
-    steps:
-      - name: Check out code into the workspace
-        uses: actions/checkout@v2
-      - name: Run php check code with reviewdog
-        uses: GeneaLabs/action-reviewdog-phpmd@1.0.2
-        with:
-          github_token: ${{ github.token }}
-          # Report level for reviewdog [info,warning,error].
-          level: 'warning'
-          # github-pr-check,
-          reporter: 'github-check'
-          standard: 'cleancode,codesize,controversial,design,naming,unusedcode'
-          target_directory: './'
