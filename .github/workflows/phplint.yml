@@ -24,6 +24,6 @@ jobs:
           github_token: ${{ github.token }}
           # Report level for reviewdog [info,warning,error].
           level: 'warning'
-          reporter: 'github-pr-check'
+          reporter: 'github-pr-check,github-check'
           standard: 'cleancode,codesize,controversial,design,naming,unusedcode'
           target_directory: './'
