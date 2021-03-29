@@ -96,7 +96,7 @@ function block_mt_generate_active_users() {
  * Clear ranks
  */
 function block_mt_clear_ranks() {
-    global $DB, $CFG;
+    global $DB;
 
     if (null !== get_config("block_mt", "ranks_regenerate_all")) {
         if (get_config("block_mt", "ranks_regenerate_all") == 1) {

@@ -132,7 +132,7 @@ function awards_process_course($paramcourseid, $paramitemid, $paramawardname, $p
  * @return null
  */
 function clear_awards() {
-    global $DB, $CFG;
+    global $DB;
 
     if (null !== get_config("block_mt", "awards_regenerate_all")) {
         if (get_config("block_mt", "awards_regenerate_all") == 1) {

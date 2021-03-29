@@ -31,8 +31,6 @@ defined('MOODLE_INTERNAL') || die();
  * @return integer
  */
 function calculate_online_time($onlinetimedata) {
-    global $CFG;
-
     if (null !== get_config("block_mt", "ranks_onl_time")) {
         $onlinetimecutoff = get_config("block_mt", "ranks_onl_time") * 60;
     } else {

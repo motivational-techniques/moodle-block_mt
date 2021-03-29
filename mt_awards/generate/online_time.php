@@ -44,7 +44,7 @@ function generate_awards_online_time($paramcourseid) {
  * @return null
  */
 function generate_awards_online_time_monthly($paramcourseid) {
-    global $DB, $CFG;
+    global $DB;
 
     // Get unique period values.
     $parameters = array(
