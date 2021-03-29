@@ -47,7 +47,7 @@ require_once($CFG->dirroot . "/blocks/mt/includes/constants.php");
 /**
  * Generate active users based on last access time and whether users are enrolled in the course.
  */
-function generate_active_users() {
+function block_mt_generate_active_users() {
     global $DB, $CFG;
 
     $sql = "TRUNCATE TABLE {block_mt_active_users}";
@@ -179,7 +179,7 @@ function block_mt_generate_ranks() {
 $starttime = microtime ();
 mtrace(get_string('mt:cron_rankings_start', 'block_mt'));
 
-generate_active_users ();
+block_mt_generate_active_users ();
 
 block_mt_generate_ranks ();
 
