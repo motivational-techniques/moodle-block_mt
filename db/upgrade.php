@@ -30,8 +30,8 @@ defined('MOODLE_INTERNAL') || die();
  */
 function xmldb_block_mt_upgrade($oldversion) {
     global $DB;
-    
-    $currentversion = $plugin->version ;
+
+    $currentversion = $plugin->version;
 
     if ($oldversion < $currentversion) {
 
