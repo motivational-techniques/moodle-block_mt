@@ -171,7 +171,7 @@ function block_mt_generate_ranks() {
             block_mt_generate_ranks_ratings_posts_overall_active($coursedata->id, $userranking);
 
             mtrace(get_string('mt:cron_rankings_milestones', 'block_mt'));
-            block_mt_block_mt_generate_ranks_milestones_all ( $coursedata->id, $userranking );
+            block_mt_generate_ranks_milestones_all ( $coursedata->id, $userranking );
         }
     }
 }

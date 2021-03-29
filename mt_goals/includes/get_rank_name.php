@@ -57,9 +57,9 @@ function block_mt_get_rank_name($param) {
             if ($param->period_type == RANK_PERIOD_OVERALL) {
                 $rankname = get_string ( 'mt_goals:overall', 'block_mt_goals', $rankname );
             } else {
-                $milestoneid = get_milestone_id ( $param->gradeid, $param->period_type, $param->courseid );
+                $milestoneid = block_mt_get_milestone_id ( $param->gradeid, $param->period_type, $param->courseid );
 
-                $milestonename = get_milestone_name ( $milestoneid, $param->period_type, $param->courseid );
+                $milestonename = block_mt_get_milestone_name ( $milestoneid, $param->period_type, $param->courseid );
                 $rankname = $rankname . ' - ' . $milestonename;
             }
             break;

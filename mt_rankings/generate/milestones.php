@@ -30,7 +30,7 @@ defined('MOODLE_INTERNAL') || die();
  * @param integer $courseid
  * @param integer $userranking
  */
-function block_mt_block_mt_generate_ranks_milestones_pace_active($courseid, $userranking) {
+function block_mt_generate_ranks_milestones_pace_active($courseid, $userranking) {
     global $DB, $CFG;
     switch($CFG->dbtype) {
         case DB_TYPE_MARIA :
@@ -78,7 +78,7 @@ function block_mt_block_mt_generate_ranks_milestones_pace_active($courseid, $use
  * @param integer $courseid
  * @param integer $userranking
  */
-function block_mt_block_mt_generate_ranks_milestones_pace($courseid, $userranking) {
+function block_mt_generate_ranks_milestones_pace($courseid, $userranking) {
     global $DB, $CFG;
     switch($CFG->dbtype) {
         case DB_TYPE_MARIA :
@@ -149,23 +149,23 @@ function get_user_course_start_times($courseid) {
  * @param integer $courseid
  * @param integer $userranking
  */
-function block_mt_block_mt_generate_ranks_milestones_time($courseid, $userranking) {
+function block_mt_generate_ranks_milestones_time($courseid, $userranking) {
     $usertimes = get_user_course_start_times($courseid);
-    $milestones = get_milestones_for_course($courseid);
+    $milestones = block_mt_get_milestones_for_course($courseid);
 
     foreach ($milestones as $milestone) {
         foreach ($usertimes as $userid => $starttime) {
-            $finishtimes = get_finish_times($milestone->module, $milestone, $userid);
+            $finishtimes = block_mt_ get_finish_times($milestone->module, $milestone, $userid);
             if ($finishtimes != null) {
                 $milestone->time = abs($finishtimes->timefinish - $starttime);
                 if ($milestone->time <= 0) {
                     $milestone->time = 0;
                 } else {
-                    add_update_milestone_ranking($milestone, $userid, $courseid);
+                    block_mt_add_update_milestone_ranking($milestone, $userid, $courseid);
                 }
                 $usertimes [$userid] = $finishtimes->timefinish;
             }
-            $rankings = get_milestone_rankings($milestone, $courseid);
+            $rankings = block_mt_get_milestone_rankings($milestone, $courseid);
             foreach ($rankings as $ranking) {
                 $userranking->rank = $ranking->rank;
                 $userranking->userid = $ranking->userid;
@@ -184,23 +184,23 @@ function block_mt_block_mt_generate_ranks_milestones_time($courseid, $userrankin
  * @param integer $courseid
  * @param integer $userranking
  */
-function block_mt_block_mt_generate_ranks_milestones_time_active($courseid, $userranking) {
+function block_mt_generate_ranks_milestones_time_active($courseid, $userranking) {
     $usertimes = get_user_course_start_times($courseid);
-    $milestones = get_milestones_for_course($courseid);
+    $milestones = block_mt_get_milestones_for_course($courseid);
 
     foreach ($milestones as $milestone) {
         foreach ($usertimes as $userid => $starttime) {
-            $finishtimes = get_finish_times($milestone->module, $milestone, $userid);
+            $finishtimes = block_mt_ get_finish_times($milestone->module, $milestone, $userid);
             if ($finishtimes != null) {
                 $milestone->time = abs($finishtimes->timefinish - $starttime);
                 if ($milestone->time <= 0) {
                     $milestone->time = 0;
                 } else {
-                    add_update_milestone_ranking($milestone, $userid, $courseid);
+                    block_mt_add_update_milestone_ranking($milestone, $userid, $courseid);
                 }
                 $usertimes [$userid] = $finishtimes->timefinish;
             }
-            $rankings = get_milestone_rankings_active($milestone, $courseid);
+            $rankings = block_mt_get_milestone_rankings_active($milestone, $courseid);
             foreach ($rankings as $ranking) {
                 $userranking->userid = $ranking->userid;
                 $userranking->gradeid = $milestone->module;
@@ -219,7 +219,7 @@ function block_mt_block_mt_generate_ranks_milestones_time_active($courseid, $use
  * @param string $courseid
  * @return array
  */
-function get_milestones_for_course($courseid) {
+function block_mt_get_milestones_for_course($courseid) {
     global $DB;
     $parameters = array (
             'course' => $courseid
@@ -233,7 +233,7 @@ function get_milestones_for_course($courseid) {
  * @param string $userid
  * @param string $courseid
  */
-function add_update_milestone_ranking($milestone, $userid, $courseid) {
+function block_mt_add_update_milestone_ranking($milestone, $userid, $courseid) {
     global $DB;
     $parameters = array (
             'userid' => $userid,
@@ -262,7 +262,7 @@ function add_update_milestone_ranking($milestone, $userid, $courseid) {
  * @param string $courseid
  * @return array
  */
-function get_milestone_rankings($milestone, $courseid) {
+function block_mt_get_milestone_rankings($milestone, $courseid) {
     global $CFG, $DB;
 
     $milestone->name = block_mt_get_milestone_name($milestone->id, $milestone->instance, $courseid);
@@ -299,7 +299,7 @@ function get_milestone_rankings($milestone, $courseid) {
  * @param string $courseid
  * @return array
  */
-function get_milestone_rankings_active($milestone, $courseid) {
+function block_mt_get_milestone_rankings_active($milestone, $courseid) {
     global $CFG, $DB;
 
     $milestone->name = block_mt_get_milestone_name($milestone->id, $milestone->instance, $courseid);
@@ -339,16 +339,16 @@ function get_milestone_rankings_active($milestone, $courseid) {
  * @param string $userid
  * @return array
  */
-function get_finish_times($module, $milestone, $userid) {
+function block_mt_ get_finish_times($module, $milestone, $userid) {
     $quizid = block_mt_get_quiz_id();
     $assignmentid = block_mt_get_assign_id();
     $finishtimes = null;
 
     if ($quizid == $module) {
-        $finishtimes = get_quiz_finish_times($milestone, $userid);
+        $finishtimes = block_mt_get_quiz_finish_times($milestone, $userid);
     }
     if ($assignmentid == $module) {
-        $finishtimes = get_assignment_finish_times($milestone, $userid);
+        $finishtimes = block_mt_ get_assignment_finish_times($milestone, $userid);
     }
     return $finishtimes;
 }
@@ -359,7 +359,7 @@ function get_finish_times($module, $milestone, $userid) {
  * @param string $userid
  * @return array
  */
-function get_assignment_finish_times($milestone, $userid) {
+function block_mt_ get_assignment_finish_times($milestone, $userid) {
     global $DB;
     $sql = "SELECT {assign_submission}.id, {assign_submission}.timecreated as timefinish, grade
         FROM {assign_submission}
@@ -381,7 +381,7 @@ function get_assignment_finish_times($milestone, $userid) {
  * @param string $userid
  * @return array
  */
-function get_quiz_finish_times($milestone, $userid) {
+function block_mt_get_quiz_finish_times($milestone, $userid) {
     global $DB;
     $sql = "SELECT timefinish
         FROM {quiz_attempts}
@@ -402,9 +402,9 @@ function get_quiz_finish_times($milestone, $userid) {
  * @param integer $courseid
  * @param integer $userranking
  */
-function block_mt_block_mt_generate_ranks_milestones_all($courseid, $userranking) {
-    block_mt_block_mt_generate_ranks_milestones_time($courseid, $userranking);
-    block_mt_block_mt_generate_ranks_milestones_time_active($courseid, $userranking);
-    block_mt_block_mt_generate_ranks_milestones_pace($courseid, $userranking);
-    block_mt_block_mt_generate_ranks_milestones_pace_active($courseid, $userranking);
+function block_mt_generate_ranks_milestones_all($courseid, $userranking) {
+    block_mt_generate_ranks_milestones_time($courseid, $userranking);
+    block_mt_generate_ranks_milestones_time_active($courseid, $userranking);
+    block_mt_generate_ranks_milestones_pace($courseid, $userranking);
+    block_mt_generate_ranks_milestones_pace_active($courseid, $userranking);
 }

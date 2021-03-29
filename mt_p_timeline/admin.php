@@ -87,7 +87,7 @@ if ($mtptimeline->is_cancelled()) {
 
         $id = substr($id, 1);
         if (is_numeric($id)) {
-            add_update_milestone($id, $from);
+            block_mt_add_update_milestone($id, $from);
         }
     }
     // ... then redirect to main page.
@@ -112,7 +112,7 @@ $editnode->make_active();
  * @param int $id The course module id
  * @param int $value The milestone week value
  */
-function add_update_milestone($id, $value) {
+function block_mt_add_update_milestone($id, $value) {
     global $DB;
 
     // Get course module information.

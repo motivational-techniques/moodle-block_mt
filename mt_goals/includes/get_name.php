@@ -66,7 +66,7 @@ function get_assign_name($courseid, $assignid) {
  * @param string $assignid
  * @return string
  */
-function get_assignment_name($assignid) {
+function block_mt_ get_assignment_name($assignid) {
     global $DB;
     $assignname = "";
     $parameters = array(

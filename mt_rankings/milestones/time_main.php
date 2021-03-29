@@ -61,7 +61,7 @@ $results = $DB->get_records('block_mt_p_timeline', $parameters, 'id');
 if (count ( ( array ) $results ) > 0) {
     foreach ($results as $id => $results) {
         $milestoneurl = new stdClass ();
-        $milestoneurl->name = get_milestone_name ($results->id, $results->instance, $courseid);
+        $milestoneurl->name = block_mt_get_milestone_name ($results->id, $results->instance, $courseid);
         $milestoneurl->number = $results->id;
         $milestoneurl->id = $results->id;
 

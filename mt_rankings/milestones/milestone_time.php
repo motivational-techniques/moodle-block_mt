@@ -33,7 +33,7 @@ global $DB;
 $milestoneid = required_param ( 'milestoneid', PARAM_INT );
 $active = optional_param ( 'active', 'true', PARAM_STRINGID );
 
-$milestonename = get_milestone_name_by_id ( $milestoneid );
+$milestonename = block_mt_get_milestone_name_by_id ( $milestoneid );
 $pagename = get_string ( 'mt_rankings:milestone_time', 'block_mt', $milestonename );
 
 $pageurl = '/blocks/mt/mt_rankings/milestones/milestone_time.php';

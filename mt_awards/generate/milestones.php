@@ -37,7 +37,7 @@ function generate_awards_milestones($courseid) {
 
     $milestones = get_all_milestones($courseid);
     foreach ($milestones as $milestone) {
-        $rankings = get_milestone_rankings_by_milestone($courseid, $milestone->milestone);
+        $rankings = block_mt_get_milestone_rankings_by_milestone($courseid, $milestone->milestone);
         foreach ($rankings as $ranking) {
             $completeddays = $ranking->milestone_time / (60 * 60 * 24);
 
@@ -94,7 +94,7 @@ function get_all_milestones($courseid) {
  * @param string $milestoneid
  * @return array
  */
-function get_milestone_rankings_by_milestone($courseid, $milestoneid) {
+function block_mt_get_milestone_rankings_by_milestone($courseid, $milestoneid) {
     global $DB;
     $parameters = array(
             'courseid' => $courseid,
