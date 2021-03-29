@@ -32,7 +32,7 @@ defined('MOODLE_INTERNAL') || die();
  * @param array $periodparam
  */
 function generate_ranks_number_posts($courseid, $userranking, $periodparam) {
-    $onlineusers = students_in_course_forum($courseid);
+    $onlineusers = block_mt_students_in_course_forum($courseid);
     foreach ($onlineusers as $onlineuser) {
         $numberposts = get_number_forum_posts_student($courseid, $onlineuser->userid,
                 $periodparam->year, $periodparam->month);
@@ -146,7 +146,7 @@ function generate_ranks_number_posts_overall($courseid, $userranking) {
  * @param array $periodparam
  */
 function generate_ranks_read_posts($courseid, $userranking, $periodparam) {
-    $onlineusers = students_in_course_forum($courseid);
+    $onlineusers = block_mt_students_in_course_forum($courseid);
     $numberposts = get_number_forum_posts_year_month($courseid, $periodparam->year, $periodparam->month);
     foreach ($onlineusers as $onlineuser) {
         $readposts = get_read_forum_posts_period($courseid, $onlineuser->userid, $periodparam->year, $periodparam->month);
@@ -290,7 +290,7 @@ function generate_ranks_read_posts_overall($courseid, $userranking) {
         'block_mt', date ( "Y-n" ));
     $userranking->period_type = RANK_PERIOD_OVERALL;
 
-    $onlineusers = students_in_course_forum($courseid);
+    $onlineusers = block_mt_students_in_course_forum($courseid);
     $numberposts = get_number_forum_posts($courseid);
     foreach ($onlineusers as $onlineuser) {
         $readposts = get_read_forum_posts_rankings_user($onlineuser->userid, $courseid);
@@ -342,7 +342,7 @@ function generate_ranks_read_posts_overall_active($courseid, $userranking) {
 function generate_ranks_ratings_posts($courseid, $userranking, $periodparam) {
     global $DB;
 
-    $onlineusers = students_in_course_forum($courseid);
+    $onlineusers = block_mt_students_in_course_forum($courseid);
     foreach ($onlineusers as $onlineuser) {
         $ratingsposts = get_ratings_forum_posts_period($courseid, $onlineuser->userid,
                 $periodparam->year, $periodparam->month);
@@ -491,7 +491,7 @@ function generate_ranks_ratings_posts_overall($courseid, $userranking) {
         'block_mt', date ( "Y-n" ));
     $userranking->period_type = RANK_PERIOD_OVERALL;
 
-    $onlineusers = students_in_course_forum($courseid);
+    $onlineusers = block_mt_students_in_course_forum($courseid);
     foreach ($onlineusers as $onlineuser) {
         $ratingsposts = get_ratings_forum_posts_overall($courseid, $onlineuser->userid);
         $ratingpercent = 0;

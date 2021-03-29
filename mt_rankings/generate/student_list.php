@@ -30,7 +30,7 @@ defined('MOODLE_INTERNAL') || die();
  * @param integer $courseid
  * @return array
  */
-function students_in_course($courseid) {
+function block_mt_students_in_course($courseid) {
     global $DB;
     // Get users that are students roleid=5 and active in the course.
     $sql = "SELECT {logstore_standard_log}.userid
@@ -49,7 +49,7 @@ function students_in_course($courseid) {
  * @param integer $courseid
  * @return array
  */
-function students_in_course_forum($courseid) {
+function block_mt_students_in_course_forum($courseid) {
     global $DB;
     // Get users that are students roleid=5 and active in the course.
     $sql = "SELECT {forum_posts}.userid

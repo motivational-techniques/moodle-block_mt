@@ -119,7 +119,7 @@ function generate_ranks_online_time_active($courseid, $userranking, $periodparam
  * @param string $periodparam
  */
 function generate_ranks_online_time($courseid, $userranking, $periodparam) {
-    $onlineusers = students_in_course($courseid);
+    $onlineusers = block_mt_students_in_course($courseid);
     foreach ($onlineusers as $onlineuser) {
         $onlinetimedata = get_online_time_data($courseid, $onlineuser->userid, $periodparam->year, $periodparam->month);
         $onlinetime = calculate_online_time($onlinetimedata);
