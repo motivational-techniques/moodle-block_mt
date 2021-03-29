@@ -348,7 +348,7 @@ function block_mt_get_finish_times($module, $milestone, $userid) {
         $finishtimes = block_mt_get_quiz_finish_times($milestone, $userid);
     }
     if ($assignmentid == $module) {
-        $finishtimes = block_mt_ get_assignment_finish_times($milestone, $userid);
+        $finishtimes = block_mt_get_assignment_finish_times($milestone, $userid);
     }
     return $finishtimes;
 }
@@ -359,7 +359,7 @@ function block_mt_get_finish_times($module, $milestone, $userid) {
  * @param string $userid
  * @return array
  */
-function block_mt_ get_assignment_finish_times($milestone, $userid) {
+function block_mt_get_assignment_finish_times($milestone, $userid) {
     global $DB;
     $sql = "SELECT {assign_submission}.id, {assign_submission}.timecreated as timefinish, grade
         FROM {assign_submission}
