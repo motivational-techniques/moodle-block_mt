@@ -51,9 +51,12 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        php: ["7.2"] #["7.2", "7.3", "7.4"]
-        moodle-branch: ["MOODLE_34_STABLE"] #["MOODLE_34_STABLE", "MOODLE_35_STABLE", "MOODLE_36_STABLE", "MOODLE_37_STABLE", "MOODLE_38_STABLE"] # ["MOODLE_310_STABLE"]
-        ignore-paths: ["tests"]
+        php: ["7.2", "7.3", "7.4"]
+        moodle-branch: [
+            "MOODLE_34_STABLE",
+            "MOODLE_35_STABLE",
+            "MOODLE_36_STABLE",
+          ] # ["MOODLE_37_STABLE", "MOODLE_38_STABLE", "MOODLE_39_STABLE", "MOODLE_310_STABLE"]
         database: [pgsql, mariadb]
 
     steps:
@@ -84,7 +87,6 @@ jobs:
           MOODLE_BRANCH: ${{ matrix.moodle-branch }}
 
       - name: PHP Lint
-        # continue-on-error: true # This step will show errors but will not fail
         if: ${{ always() }}
         run: moodle-plugin-ci phplint
 
@@ -99,17 +101,14 @@ jobs:
         run: moodle-plugin-ci phpmd
 
       - name: Moodle Code Checker
-        # continue-on-error: true # This step will show errors but will not fail
         if: ${{ always() }}
         run: moodle-plugin-ci codechecker --max-warnings 0
 
       - name: Moodle PHPDoc Checker
-        # continue-on-error: true # This step will show errors but will not fail
         if: ${{ always() }}
         run: moodle-plugin-ci phpdoc
 
       - name: Validating
-        # continue-on-error: true # This step will show errors but will not fail
         if: ${{ always() }}
         run: moodle-plugin-ci validate
 
@@ -119,7 +118,6 @@ jobs:
         run: moodle-plugin-ci savepoints
 
       - name: Mustache Lint
-        # continue-on-error: true # This step will show errors but will not fail
         if: ${{ always() }}
         run: moodle-plugin-ci mustache
 
