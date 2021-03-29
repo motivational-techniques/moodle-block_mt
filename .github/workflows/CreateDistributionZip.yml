@@ -4,18 +4,23 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@master
+      - uses: actions/checkout@master
 
-    - name: Archive Release
-      uses: thedoctor0/zip-release@master
-      with:
-        filename: 'mt.zip'
-        path: .
-        directory: .
-        type: zip
-        exclusions: '*.git* .circleci/* .settings/* /documentation/* /tests/* *.json circleci/* *.yml* testing.txt Gruntfile.js'
+      - name: Archive Release
+        uses: thedoctor0/zip-release@master
+        with:
+          filename: "mt.zip"
+          path: .
+          directory: .
+          type: zip
+          exclusions: "*.git* .circleci/* .settings/* /documentation/* /tests/* *.json circleci/* *.yml* testing.txt Gruntfile.js"
 
-    - uses: actions/upload-artifact@v1
-      with:
-        name: mt
-        path: ${{ github.workspace }}/mt.zip
+      - uses: actions/upload-artifact@v1
+        with:
+          name: mt
+          path: ${{ github.workspace }}/mt.zip
+
+      - uses: ncipollo/release-action@v1
+        with:
+          artifacts: "mt.zip"
+          token: ${{ secrets.GITHUB_TOKEN }}
