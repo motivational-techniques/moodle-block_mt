@@ -95,7 +95,7 @@ function generate_active_users() {
 /**
  * Clear ranks
  */
-function clear_ranks() {
+function block_mt_clear_ranks() {
     global $DB, $CFG;
 
     if (null !== get_config("block_mt", "ranks_regenerate_all")) {
@@ -131,7 +131,7 @@ function clear_ranks() {
 function generate_ranks() {
     $userranking = new stdClass ();
 
-    clear_ranks ();
+    block_mt_clear_ranks ();
 
     $coursedata = get_courses();
 
