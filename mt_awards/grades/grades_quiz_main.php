@@ -39,9 +39,9 @@ require_once($CFG->dirroot . '/blocks/mt/includes/configuration_settings.php');
 require($CFG->dirroot . '/blocks/mt/mt_awards/includes/buttons/buttons_mainmenu.php');
 
 $counts = new stdClass ();
-$counts->gold =block_mt_get_awards_settings ( 'mt_awards:grades_gold_count_value', $courseid );
-$counts->silver =block_mt_get_awards_settings ( 'mt_awards:grades_silver_count_value', $courseid );
-$counts->bronze =block_mt_get_awards_settings ( 'mt_awards:grades_bronze_count_value', $courseid );
+$counts->gold = block_mt_get_awards_settings ( 'mt_awards:grades_gold_count_value', $courseid );
+$counts->silver = block_mt_get_awards_settings ( 'mt_awards:grades_silver_count_value', $courseid );
+$counts->bronze = block_mt_get_awards_settings ( 'mt_awards:grades_bronze_count_value', $courseid );
 
 echo html_writer::tag ( 'h2', get_string ( 'mt_awards:grade_quiz_calc', 'block_mt', $counts ) );
 
