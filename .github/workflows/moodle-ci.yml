@@ -28,8 +28,9 @@ jobs:
       fail-fast: false
       matrix:
         php: ["7.2"] #["7.2", "7.3", "7.4"]
-        moodle-branch: ["MOODLE_310_STABLE"]
-        database: [mariadb] #[pgsql, mariadb]
+        moodle-branch: #["MOODLE_34_STABLE", "MOODLE_35_STABLE", "MOODLE_36_STABLE", "MOODLE_37_STABLE", "MOODLE_38_STABLE"] # ["MOODLE_310_STABLE"]
+        ignore-paths: ["tests"]
+        database: [pgsql, mariadb]
 
     steps:
       - name: Check out repository code
