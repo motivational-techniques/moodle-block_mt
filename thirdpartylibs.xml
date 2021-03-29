@@ -1,42 +1,42 @@
 <?xml version="1.0"?>
 <libraries>
     <library>
-        <location>js/jquery.percentageloader/</location>
+        <location>includes/js/jquery.percentageloader/</location>
         <name>jQuery.PercentageLoader</name>
         <version>0.1</version>
         <license>Simplified BSD License</license>
         <licenseversion></licenseversion>
     </library>
     <library>
-        <location>js/jquery.tablesorter.js</location>
+        <location>includes/js/jquery.tablesorter.js</location>
         <name>TableSorter</name>
         <version>2.17.8</version>
         <license>MIT and GPL licenses</license>
         <licenseversion></licenseversion>
     </library>
     <library>
-        <location>css/theme.blud.css</location>
+        <location>includes/css/theme.blud.css</location>
         <name>TableSorter</name>
         <version>2.17.8</version>
         <license>MIT and GPL licenses</license>
         <licenseversion></licenseversion>
     </library>
     <library>
-        <location>js/jquery.tablesorter.pager.js</location>
+        <location>includes/js/jquery.tablesorter.pager.js</location>
         <name>TableSorter.pager</name>
         <version>2.17.8</version>
         <license>MIT and GPL licenses</license>
         <licenseversion></licenseversion>
     </library>
     <library>
-        <location>css/jquery.tablesorter.pager.css</location>
+        <location>includes/css/jquery.tablesorter.pager.css</location>
         <name>TableSorter.pager</name>
         <version>2.17.8</version>
         <license>MIT and GPL licenses</license>
         <licenseversion></licenseversion>
     </library>
     <library>
-        <location>js/jquery.tablesorter.pager.js</location>
+        <location>includes/js/jquery.tablesorter.pager.js</location>
         <name>TableSorter.pager</name>
         <version>2.17.8</version>
         <license>MIT and GPL licenses</license>
