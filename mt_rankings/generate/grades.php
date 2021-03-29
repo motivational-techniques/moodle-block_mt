@@ -30,7 +30,7 @@ defined('MOODLE_INTERNAL') || die();
  * @param integer $courseid
  * @param array $userranking
  */
-function generate_ranks_assignments($courseid, $userranking) {
+function block_mt_generate_ranks_assignments($courseid, $userranking) {
     global $DB;
     $assignmentlist = block_mt_get_assignment_list($courseid);
     foreach ($assignmentlist as $assignment) {
@@ -47,7 +47,7 @@ function generate_ranks_assignments($courseid, $userranking) {
  * @param integer $courseid
  * @param array $userranking
  */
-function generate_ranks_quizzes($courseid, $userranking) {
+function block_mt_generate_ranks_quizzes($courseid, $userranking) {
     global $DB;
     $quizlist = block_mt_get_quiz_list($courseid);
     foreach ($quizlist as $quiz) {
@@ -63,7 +63,7 @@ function generate_ranks_quizzes($courseid, $userranking) {
  * @param integer $courseid
  * @param array $userranking
  */
-function generate_ranks_overall_grade($courseid, $userranking) {
+function block_mt_generate_ranks_overall_grade($courseid, $userranking) {
     global $DB;
     $userranking->rankname = get_string('mt_rankings:generate_rank_grade_rank_name', 'block_mt');
     $finalgradeidparams = array(

@@ -31,7 +31,7 @@ defined('MOODLE_INTERNAL') || die();
  * @param integer $userranking
  * @param array $periodparam
  */
-function generate_ranks_number_posts($courseid, $userranking, $periodparam) {
+function block_mt_generate_ranks_number_posts($courseid, $userranking, $periodparam) {
     $onlineusers = block_mt_students_in_course_forum($courseid);
     foreach ($onlineusers as $onlineuser) {
         $numberposts = get_number_forum_posts_student($courseid, $onlineuser->userid,
@@ -57,7 +57,7 @@ function generate_ranks_number_posts($courseid, $userranking, $periodparam) {
  * @param integer $userranking
  * @param array $periodparam
  */
-function generate_ranks_number_posts_active($courseid, $userranking, $periodparam) {
+function block_mt_generate_ranks_number_posts_active($courseid, $userranking, $periodparam) {
     $rankings = get_number_forum_posts_rankings_monthly_active($periodparam->period, $courseid);
     foreach ($rankings as $ranking) {
         $userranking->userid = $ranking->userid;
@@ -75,7 +75,7 @@ function generate_ranks_number_posts_active($courseid, $userranking, $periodpara
  * @param integer $courseid
  * @param string $userranking
  */
-function generate_ranks_number_posts_all($courseid, $userranking) {
+function block_mt_generate_ranks_number_posts_all($courseid, $userranking) {
     if (has_no_last_period_run_ranks($courseid, RANK_TYPE_NUMBER_POSTS)) {
         $periodyears = get_all_years_forum_posts($courseid);
     } else {
@@ -94,8 +94,8 @@ function generate_ranks_number_posts_all($courseid, $userranking) {
             $period->year = $periodyear->year;
             $period->month = $periodmonth->month;
             $period->period = get_string('mt_rankings:generate_rank_period', 'block_mt', $period);
-            generate_ranks_number_posts($courseid, $userranking, $period);
-            generate_ranks_number_posts_active($courseid, $userranking, $period);
+            block_mt_generate_ranks_number_posts($courseid, $userranking, $period);
+            block_mt_generate_ranks_number_posts_active($courseid, $userranking, $period);
         }
     }
     update_last_period_run_ranks($courseid, RANK_TYPE_NUMBER_POSTS);
@@ -106,7 +106,7 @@ function generate_ranks_number_posts_all($courseid, $userranking) {
  * @param integer $courseid
  * @param string $userranking
  */
-function generate_ranks_number_posts_overall_active($courseid, $userranking) {
+function block_mt_generate_ranks_number_posts_overall_active($courseid, $userranking) {
     $rankings = get_average_forum_posts_overall_rankings($courseid);
     foreach ($rankings as $ranking) {
         $userranking->userid = $ranking->userid;
@@ -125,7 +125,7 @@ function generate_ranks_number_posts_overall_active($courseid, $userranking) {
  * @param integer $courseid
  * @param string $userranking
  */
-function generate_ranks_number_posts_overall($courseid, $userranking) {
+function block_mt_generate_ranks_number_posts_overall($courseid, $userranking) {
     $rankings = get_average_forum_posts_overall_rankings($courseid);
     foreach ($rankings as $ranking) {
         $userranking->rank = $ranking->rank;
@@ -145,7 +145,7 @@ function generate_ranks_number_posts_overall($courseid, $userranking) {
  * @param integer $userranking
  * @param array $periodparam
  */
-function generate_ranks_read_posts($courseid, $userranking, $periodparam) {
+function block_mt_generate_ranks_read_posts($courseid, $userranking, $periodparam) {
     $onlineusers = block_mt_students_in_course_forum($courseid);
     $numberposts = get_number_forum_posts_year_month($courseid, $periodparam->year, $periodparam->month);
     foreach ($onlineusers as $onlineuser) {
@@ -174,7 +174,7 @@ function generate_ranks_read_posts($courseid, $userranking, $periodparam) {
  * @param integer $userranking
  * @param array $periodparam
  */
-function generate_ranks_read_posts_active($courseid, $userranking, $periodparam) {
+function block_mt_generate_ranks_read_posts_active($courseid, $userranking, $periodparam) {
     $rankings = get_read_forum_posts_rankings_monthly_active($periodparam->period, $courseid);
     foreach ($rankings as $ranking) {
         $userranking->userid = $ranking->userid;
@@ -193,7 +193,7 @@ function generate_ranks_read_posts_active($courseid, $userranking, $periodparam)
  * @param integer $courseid
  * @param integer $userranking
  */
-function generate_ranks_read_posts_all($courseid, $userranking) {
+function block_mt_generate_ranks_read_posts_all($courseid, $userranking) {
     global $DB, $CFG;
 
     if (has_no_last_period_run_ranks($courseid, RANK_TYPE_WEEKLY_POSTS)) {
@@ -272,8 +272,8 @@ function generate_ranks_read_posts_all($courseid, $userranking) {
             $period->year = $periodyear->year;
             $period->month = $periodmonth->month;
             $period->period = get_string('mt_rankings:generate_rank_period', 'block_mt', $period);
-            generate_ranks_read_posts($courseid, $userranking, $period);
-            generate_ranks_read_posts_active($courseid, $userranking, $period);
+            block_mt_generate_ranks_read_posts($courseid, $userranking, $period);
+            block_mt_generate_ranks_read_posts_active($courseid, $userranking, $period);
         }
     }
     update_last_period_run_ranks($courseid, RANK_TYPE_WEEKLY_POSTS);
@@ -284,7 +284,7 @@ function generate_ranks_read_posts_all($courseid, $userranking) {
  * @param integer $courseid
  * @param integer $userranking
  */
-function generate_ranks_read_posts_overall($courseid, $userranking) {
+function block_mt_generate_ranks_read_posts_overall($courseid, $userranking) {
     $userranking->rank_type_id = RANK_TYPE_WEEKLY_POSTS;
     $userranking->rankname = get_string('mt_rankings:generate_rank_participation_read_posts_overall_period',
         'block_mt', date ( "Y-n" ));
@@ -319,7 +319,7 @@ function generate_ranks_read_posts_overall($courseid, $userranking) {
  * @param integer $courseid
  * @param integer $userranking
  */
-function generate_ranks_read_posts_overall_active($courseid, $userranking) {
+function block_mt_generate_ranks_read_posts_overall_active($courseid, $userranking) {
     $rankings = get_read_forum_posts_rankings_overall_active($courseid);
     foreach ($rankings as $ranking) {
         $userranking->userid = $ranking->userid;
@@ -339,7 +339,7 @@ function generate_ranks_read_posts_overall_active($courseid, $userranking) {
  * @param integer $userranking
  * @param array $periodparam
  */
-function generate_ranks_ratings_posts($courseid, $userranking, $periodparam) {
+function block_mt_generate_ranks_ratings_posts($courseid, $userranking, $periodparam) {
     global $DB;
 
     $onlineusers = block_mt_students_in_course_forum($courseid);
@@ -388,7 +388,7 @@ function generate_ranks_ratings_posts($courseid, $userranking, $periodparam) {
  * @param integer $userranking
  * @param array $periodparam
  */
-function generate_ranks_ratings_posts_active($courseid, $userranking, $periodparam) {
+function block_mt_generate_ranks_ratings_posts_active($courseid, $userranking, $periodparam) {
     $rankings = get_ratings_forum_posts_rankings_monthly_active($periodparam->period, $courseid);
     foreach ($rankings as $ranking) {
         $userranking->userid = $ranking->userid;
@@ -407,7 +407,7 @@ function generate_ranks_ratings_posts_active($courseid, $userranking, $periodpar
  * @param integer $courseid
  * @param integer $userranking
  */
-function generate_ranks_ratings_posts_all($courseid, $userranking) {
+function block_mt_generate_ranks_ratings_posts_all($courseid, $userranking) {
     global $DB, $CFG;
 
     if (has_no_last_period_run_ranks($courseid, RANK_TYPE_POST_RATING)) {
@@ -473,8 +473,8 @@ function generate_ranks_ratings_posts_all($courseid, $userranking) {
             $period->year = $periodyear->year;
             $period->month = $periodmonth->month;
             $period->period = get_string('mt_rankings:generate_rank_period', 'block_mt', $period);
-            generate_ranks_ratings_posts($courseid, $userranking, $period);
-            generate_ranks_ratings_posts_active($courseid, $userranking, $period);
+            block_mt_generate_ranks_ratings_posts($courseid, $userranking, $period);
+            block_mt_generate_ranks_ratings_posts_active($courseid, $userranking, $period);
         }
     }
     update_last_period_run_ranks($courseid, RANK_TYPE_POST_RATING);
@@ -485,7 +485,7 @@ function generate_ranks_ratings_posts_all($courseid, $userranking) {
  * @param integer $courseid
  * @param integer $userranking
  */
-function generate_ranks_ratings_posts_overall($courseid, $userranking) {
+function block_mt_generate_ranks_ratings_posts_overall($courseid, $userranking) {
     $userranking->rank_type_id = RANK_TYPE_POST_RATING;
     $userranking->rankname = get_string('mt_rankings:generate_rank_participation_rating_posts_overall_number_posts',
         'block_mt', date ( "Y-n" ));
@@ -530,7 +530,7 @@ function generate_ranks_ratings_posts_overall($courseid, $userranking) {
  * @param integer $courseid
  * @param integer $userranking
  */
-function generate_ranks_ratings_posts_overall_active($courseid, $userranking) {
+function block_mt_generate_ranks_ratings_posts_overall_active($courseid, $userranking) {
     $rankings = get_ratings_posts_rankings_overall_active($courseid);
     foreach ($rankings as $ranking) {
         $userranking->userid = $ranking->userid;

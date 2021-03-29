@@ -128,7 +128,7 @@ function block_mt_clear_ranks() {
 /**
  * generate ranks
  */
-function generate_ranks() {
+function block_mt_generate_ranks() {
     $userranking = new stdClass ();
 
     block_mt_clear_ranks ();
@@ -142,36 +142,36 @@ function generate_ranks() {
             mtrace(get_string('mt:cron_rankings_main', 'block_mt', $userranking->courseid));
 
             mtrace(get_string('mt:cron_rankings_overall', 'block_mt'));
-            generate_ranks_overall_grade ( $coursedata->id, $userranking );
+            block_mt_generate_ranks_overall_grade ( $coursedata->id, $userranking );
 
             mtrace(get_string('mt:cron_rankings_assign', 'block_mt'));
-            generate_ranks_assignments ( $coursedata->id, $userranking );
+            block_mt_generate_ranks_assignments ( $coursedata->id, $userranking );
 
             mtrace(get_string('mt:cron_rankings_quiz', 'block_mt'));
-            generate_ranks_quizzes ( $coursedata->id, $userranking );
+            block_mt_generate_ranks_quizzes ( $coursedata->id, $userranking );
 
             mtrace(get_string('mt:cron_rankings_time_online', 'block_mt'));
-            generate_ranks_online_time_all ( $coursedata->id, $userranking );
-            generate_ranks_online_time_overall ( $coursedata->id, $userranking );
-            generate_ranks_online_time_overall_active( $coursedata->id, $userranking );
+            block_mt_generate_ranks_online_time_all ( $coursedata->id, $userranking );
+            block_mt_generate_ranks_online_time_overall ( $coursedata->id, $userranking );
+            block_mt_generate_ranks_online_time_overall_active( $coursedata->id, $userranking );
 
             mtrace(get_string('mt:cron_rankings_num_posts', 'block_mt'));
-            generate_ranks_number_posts_all ( $coursedata->id, $userranking );
-            generate_ranks_number_posts_overall($coursedata->id, $userranking);
-            generate_ranks_number_posts_overall_active($coursedata->id, $userranking);
+            block_mt_generate_ranks_number_posts_all ( $coursedata->id, $userranking );
+            block_mt_generate_ranks_number_posts_overall($coursedata->id, $userranking);
+            block_mt_generate_ranks_number_posts_overall_active($coursedata->id, $userranking);
 
             mtrace(get_string('mt:cron_rankings_posts_read', 'block_mt'));
-            generate_ranks_read_posts_all ( $coursedata->id, $userranking );
-            generate_ranks_read_posts_overall($coursedata->id, $userranking);
-            generate_ranks_read_posts_overall_active($coursedata->id, $userranking);
+            block_mt_generate_ranks_read_posts_all ( $coursedata->id, $userranking );
+            block_mt_generate_ranks_read_posts_overall($coursedata->id, $userranking);
+            block_mt_generate_ranks_read_posts_overall_active($coursedata->id, $userranking);
 
             mtrace(get_string('mt:cron_rankings_rating_posts', 'block_mt'));
-            generate_ranks_ratings_posts_all ( $coursedata->id, $userranking );
-            generate_ranks_ratings_posts_overall($coursedata->id, $userranking);
-            generate_ranks_ratings_posts_overall_active($coursedata->id, $userranking);
+            block_mt_generate_ranks_ratings_posts_all ( $coursedata->id, $userranking );
+            block_mt_generate_ranks_ratings_posts_overall($coursedata->id, $userranking);
+            block_mt_generate_ranks_ratings_posts_overall_active($coursedata->id, $userranking);
 
             mtrace(get_string('mt:cron_rankings_milestones', 'block_mt'));
-            generate_ranks_milestones_all ( $coursedata->id, $userranking );
+            block_mt_generate_ranks_milestones_all ( $coursedata->id, $userranking );
         }
     }
 }
@@ -181,6 +181,6 @@ mtrace(get_string('mt:cron_rankings_start', 'block_mt'));
 
 generate_active_users ();
 
-generate_ranks ();
+block_mt_generate_ranks ();
 
 mtrace(get_string('mt:cron_rankings_end', 'block_mt', microtime_diff($starttime, microtime ())));

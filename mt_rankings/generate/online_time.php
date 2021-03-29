@@ -98,7 +98,7 @@ function get_online_time_data($courseid, $userid, $periodyear, $periodmonth) {
  * @param string $userranking
  * @param string $periodparam
  */
-function generate_ranks_online_time_active($courseid, $userranking, $periodparam) {
+function block_mt_generate_ranks_online_time_active($courseid, $userranking, $periodparam) {
     $rankings = get_active_online_rankings_by_period($courseid, $periodparam->period);
     foreach ($rankings as $ranking) {
         $userranking->userid = $ranking->userid;
@@ -118,7 +118,7 @@ function generate_ranks_online_time_active($courseid, $userranking, $periodparam
  * @param string $userranking
  * @param string $periodparam
  */
-function generate_ranks_online_time($courseid, $userranking, $periodparam) {
+function block_mt_generate_ranks_online_time($courseid, $userranking, $periodparam) {
     $onlineusers = block_mt_students_in_course($courseid);
     foreach ($onlineusers as $onlineuser) {
         $onlinetimedata = get_online_time_data($courseid, $onlineuser->userid, $periodparam->year, $periodparam->month);
@@ -416,7 +416,7 @@ function get_period_years_course($courseid) {
  * @param string $courseid
  * @param string $userranking
  */
-function generate_ranks_online_time_all($courseid, $userranking) {
+function block_mt_generate_ranks_online_time_all($courseid, $userranking) {
     global $DB, $CFG;
 
     $periodyears = get_period_years_course($courseid);
@@ -474,8 +474,8 @@ function generate_ranks_online_time_all($courseid, $userranking) {
             $period->year = $periodyear->period_year;
             $period->month = $periodmonth->period_month;
             $period->period = get_string('mt_rankings:generate_rank_period', 'block_mt', $period);
-            generate_ranks_online_time($courseid, $userranking, $period);
-            generate_ranks_online_time_active($courseid, $userranking, $period);
+            block_mt_generate_ranks_online_time($courseid, $userranking, $period);
+            block_mt_generate_ranks_online_time_active($courseid, $userranking, $period);
         }
     }
     update_last_period_run_ranks($courseid, RANK_TYPE_ONLINE_TIME);
@@ -486,7 +486,7 @@ function generate_ranks_online_time_all($courseid, $userranking) {
  * @param string $courseid
  * @param string $userranking
  */
-function generate_ranks_online_time_overall($courseid, $userranking) {
+function block_mt_generate_ranks_online_time_overall($courseid, $userranking) {
     $rankings = get_online_rankings_overall($courseid);
     foreach ($rankings as $ranking) {
         $userranking->rank = $ranking->rank;
@@ -505,7 +505,7 @@ function generate_ranks_online_time_overall($courseid, $userranking) {
  * @param string $courseid
  * @param string $userranking
  */
-function generate_ranks_online_time_overall_active($courseid, $userranking) {
+function block_mt_generate_ranks_online_time_overall_active($courseid, $userranking) {
     $rankings = get_active_online_rankings_overall($courseid);
     foreach ($rankings as $ranking) {
         $userranking->rankactive = $ranking->rank;
