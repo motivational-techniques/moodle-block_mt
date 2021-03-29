@@ -18,9 +18,4 @@ jobs:
       - uses: actions/upload-artifact@v1
         with:
           name: mt
-          path: ${{ github.workspace }}/mt.zip
-
-      - uses: ncipollo/release-action@v1
-        with:
-          artifacts: "mt.zip"
-          token: ${{ secrets.GITHUB_TOKEN }}
+          path: mt.zip
