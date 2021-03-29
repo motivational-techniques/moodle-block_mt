@@ -15,7 +15,7 @@
         <licenseversion></licenseversion>
     </library>
     <library>
-        <location>includes/css/theme.blud.css</location>
+        <location>includes/css/theme.blue.css</location>
         <name>TableSorter</name>
         <version>2.17.8</version>
         <license>MIT and GPL licenses</license>
