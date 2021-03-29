@@ -82,7 +82,8 @@ class block_mt_base_testcase extends advanced_testcase {
      * @param string $cid
      */
     private function helper_enrol_users(&$users, $cid) {
-        for ($i = 0; $i < count($users); $i++) {
+        $userCount = count($users);
+        for ($i = 0; $i < $userCount; $i++) {
             $this->getDataGenerator()->enrol_user($users[$i]->id, $cid);
         }
     }
