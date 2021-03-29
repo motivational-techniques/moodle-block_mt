@@ -50,45 +50,45 @@ $mtawards = new mt_awards_form ();
 
 $toform ['courseid'] = $courseid;
 
-$toform ['grades_gold_count'] = get_awards_settings ( 'mt_awards:grades_gold_count_value', $courseid );
-$toform ['grades_silver_count'] = get_awards_settings ( 'mt_awards:grades_silver_count_value', $courseid );
-$toform ['grades_bronze_count'] = get_awards_settings ( 'mt_awards:grades_bronze_count_value', $courseid );
+$toform ['grades_gold_count'] =block_mt_get_awards_settings ( 'mt_awards:grades_gold_count_value', $courseid );
+$toform ['grades_silver_count'] =block_mt_get_awards_settings ( 'mt_awards:grades_silver_count_value', $courseid );
+$toform ['grades_bronze_count'] =block_mt_get_awards_settings ( 'mt_awards:grades_bronze_count_value', $courseid );
 
-$toform ['online_time_gold_weight'] = get_awards_settings ( 'mt_awards:time_online_gold_weight_value', $courseid );
-$toform ['online_time_silver_weight'] = get_awards_settings ( 'mt_awards:time_online_silver_weight_value', $courseid );
-$toform ['online_time_bronze_weight'] = get_awards_settings ( 'mt_awards:time_online_bronze_weight_value', $courseid );
+$toform ['online_time_gold_weight'] =block_mt_get_awards_settings ( 'mt_awards:time_online_gold_weight_value', $courseid );
+$toform ['online_time_silver_weight'] =block_mt_get_awards_settings ( 'mt_awards:time_online_silver_weight_value', $courseid );
+$toform ['online_time_bronze_weight'] =block_mt_get_awards_settings ( 'mt_awards:time_online_bronze_weight_value', $courseid );
 
-$toform ['num_posts_gold_count'] = get_awards_settings ( 'mt_awards:num_posts_gold_count_value', $courseid );
-$toform ['num_posts_silver_count'] = get_awards_settings ( 'mt_awards:num_posts_silver_count_value', $courseid );
-$toform ['num_posts_bronze_count'] = get_awards_settings ( 'mt_awards:num_posts_bronze_count_value', $courseid );
+$toform ['num_posts_gold_count'] =block_mt_get_awards_settings ( 'mt_awards:num_posts_gold_count_value', $courseid );
+$toform ['num_posts_silver_count'] =block_mt_get_awards_settings ( 'mt_awards:num_posts_silver_count_value', $courseid );
+$toform ['num_posts_bronze_count'] =block_mt_get_awards_settings ( 'mt_awards:num_posts_bronze_count_value', $courseid );
 
-$toform ['num_posts_gold_weight'] = get_awards_settings ( 'mt_awards:num_posts_gold_weight_value', $courseid );
-$toform ['num_posts_silver_weight'] = get_awards_settings ( 'mt_awards:num_posts_silver_weight_value', $courseid );
-$toform ['num_posts_bronze_weight'] = get_awards_settings ( 'mt_awards:num_posts_bronze_weight_value', $courseid );
+$toform ['num_posts_gold_weight'] =block_mt_get_awards_settings ( 'mt_awards:num_posts_gold_weight_value', $courseid );
+$toform ['num_posts_silver_weight'] =block_mt_get_awards_settings ( 'mt_awards:num_posts_silver_weight_value', $courseid );
+$toform ['num_posts_bronze_weight'] =block_mt_get_awards_settings ( 'mt_awards:num_posts_bronze_weight_value', $courseid );
 
-$toform ['read_posts_gold_count'] = get_awards_settings ( 'mt_awards:read_posts_gold_count_value', $courseid );
-$toform ['read_posts_silver_count'] = get_awards_settings ( 'mt_awards:read_posts_silver_count_value', $courseid );
-$toform ['read_posts_bronze_count'] = get_awards_settings ( 'mt_awards:read_posts_bronze_count_value', $courseid );
+$toform ['read_posts_gold_count'] =block_mt_get_awards_settings ( 'mt_awards:read_posts_gold_count_value', $courseid );
+$toform ['read_posts_silver_count'] =block_mt_get_awards_settings ( 'mt_awards:read_posts_silver_count_value', $courseid );
+$toform ['read_posts_bronze_count'] =block_mt_get_awards_settings ( 'mt_awards:read_posts_bronze_count_value', $courseid );
 
-$toform ['read_posts_gold_weight'] = get_awards_settings ( 'mt_awards:read_posts_gold_weight_value', $courseid );
-$toform ['read_posts_silver_weight'] = get_awards_settings ( 'mt_awards:read_posts_silver_weight_value', $courseid );
-$toform ['read_posts_bronze_weight'] = get_awards_settings ( 'mt_awards:read_posts_bronze_weight_value', $courseid );
+$toform ['read_posts_gold_weight'] =block_mt_get_awards_settings ( 'mt_awards:read_posts_gold_weight_value', $courseid );
+$toform ['read_posts_silver_weight'] =block_mt_get_awards_settings ( 'mt_awards:read_posts_silver_weight_value', $courseid );
+$toform ['read_posts_bronze_weight'] =block_mt_get_awards_settings ( 'mt_awards:read_posts_bronze_weight_value', $courseid );
 
-$toform ['rating_posts_gold_count'] = get_awards_settings ( 'mt_awards:rating_posts_gold_count_value', $courseid );
-$toform ['rating_posts_silver_count'] = get_awards_settings ( 'mt_awards:rating_posts_silver_count_value', $courseid );
-$toform ['rating_posts_bronze_count'] = get_awards_settings ( 'mt_awards:rating_posts_bronze_count_value', $courseid );
+$toform ['rating_posts_gold_count'] =block_mt_get_awards_settings ( 'mt_awards:rating_posts_gold_count_value', $courseid );
+$toform ['rating_posts_silver_count'] =block_mt_get_awards_settings ( 'mt_awards:rating_posts_silver_count_value', $courseid );
+$toform ['rating_posts_bronze_count'] =block_mt_get_awards_settings ( 'mt_awards:rating_posts_bronze_count_value', $courseid );
 
-$toform ['rating_posts_gold_weight'] = get_awards_settings ( 'mt_awards:rating_posts_gold_weight_value', $courseid );
-$toform ['rating_posts_silver_weight'] = get_awards_settings ( 'mt_awards:rating_posts_silver_weight_value', $courseid );
-$toform ['rating_posts_bronze_weight'] = get_awards_settings ( 'mt_awards:rating_posts_bronze_weight_value', $courseid );
+$toform ['rating_posts_gold_weight'] =block_mt_get_awards_settings ( 'mt_awards:rating_posts_gold_weight_value', $courseid );
+$toform ['rating_posts_silver_weight'] =block_mt_get_awards_settings ( 'mt_awards:rating_posts_silver_weight_value', $courseid );
+$toform ['rating_posts_bronze_weight'] =block_mt_get_awards_settings ( 'mt_awards:rating_posts_bronze_weight_value', $courseid );
 
-$toform ['milestones_gold_weight'] = get_awards_settings ( 'mt_awards:milestones_gold_days_value', $courseid );
-$toform ['milestones_silver_weight'] = get_awards_settings ( 'mt_awards:milestones_silver_days_value', $courseid );
-$toform ['milestones_bronze_weight'] = get_awards_settings ( 'mt_awards:milestones_bronze_days_value', $courseid );
+$toform ['milestones_gold_weight'] =block_mt_get_awards_settings ( 'mt_awards:milestones_gold_days_value', $courseid );
+$toform ['milestones_silver_weight'] =block_mt_get_awards_settings ( 'mt_awards:milestones_silver_days_value', $courseid );
+$toform ['milestones_bronze_weight'] =block_mt_get_awards_settings ( 'mt_awards:milestones_bronze_days_value', $courseid );
 
-$toform ['achievements_gold_weight'] = get_awards_settings ( 'mt_awards:achievements_gold_weight_value', $courseid );
-$toform ['achievements_silver_weight'] = get_awards_settings ( 'mt_awards:achievements_silver_weight_value', $courseid );
-$toform ['achievements_bronze_weight'] = get_awards_settings ( 'mt_awards:achievements_bronze_weight_value', $courseid );
+$toform ['achievements_gold_weight'] =block_mt_get_awards_settings ( 'mt_awards:achievements_gold_weight_value', $courseid );
+$toform ['achievements_silver_weight'] =block_mt_get_awards_settings ( 'mt_awards:achievements_silver_weight_value', $courseid );
+$toform ['achievements_bronze_weight'] =block_mt_get_awards_settings ( 'mt_awards:achievements_bronze_weight_value', $courseid );
 
 $mtawards->set_data ( $toform );
 

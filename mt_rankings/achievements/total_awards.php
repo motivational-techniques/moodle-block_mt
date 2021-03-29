@@ -41,9 +41,9 @@ require($CFG->dirroot . '/blocks/mt/mt_rankings/includes/includes.php');
 require_once($CFG->dirroot . '/blocks/mt/includes/configuration_settings.php');
 
 $weights = new stdClass ();
-$weights->gold = get_awards_settings ( 'mt_awards:achievements_gold_weight_value', $courseid );
-$weights->silver = get_awards_settings ( 'mt_awards:achievements_silver_weight_value', $courseid );
-$weights->bronze = get_awards_settings ( 'mt_awards:achievements_bronze_weight_value', $courseid );
+$weights->gold =block_mt_get_awards_settings ( 'mt_awards:achievements_gold_weight_value', $courseid );
+$weights->silver =block_mt_get_awards_settings ( 'mt_awards:achievements_silver_weight_value', $courseid );
+$weights->bronze =block_mt_get_awards_settings ( 'mt_awards:achievements_bronze_weight_value', $courseid );
 
 echo html_writer::tag ( 'h2', get_string ( 'mt_rankings:total_awards_desc', 'block_mt' ) );
 echo html_writer::tag ( 'h4', get_string ( 'mt_rankings:total_awards_calc', 'block_mt', $weights ) );
