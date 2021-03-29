@@ -92,7 +92,7 @@ function add_assignment_grade_goals($courseid) {
         $user->goal_type_id = GOAL_TYPE_GRADES;
         $user->goal = $goal->goal;
         $user->goalname = get_string('mt_awards:generate_grade_name', 'block_mt',
-                block_mt_ get_assignment_name($goal->assignid));
+                block_mt_get_assignment_name($goal->assignid));
         $user->achieved = $goal->achieved;
         $user->timeachieved = get_assign_time_achieved($goal->userid, $goal->assignid );
         add_goal($user);

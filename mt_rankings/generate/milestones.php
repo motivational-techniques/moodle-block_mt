@@ -155,7 +155,7 @@ function block_mt_generate_ranks_milestones_time($courseid, $userranking) {
 
     foreach ($milestones as $milestone) {
         foreach ($usertimes as $userid => $starttime) {
-            $finishtimes = block_mt_ get_finish_times($milestone->module, $milestone, $userid);
+            $finishtimes = block_mt_get_finish_times($milestone->module, $milestone, $userid);
             if ($finishtimes != null) {
                 $milestone->time = abs($finishtimes->timefinish - $starttime);
                 if ($milestone->time <= 0) {
@@ -190,7 +190,7 @@ function block_mt_generate_ranks_milestones_time_active($courseid, $userranking)
 
     foreach ($milestones as $milestone) {
         foreach ($usertimes as $userid => $starttime) {
-            $finishtimes = block_mt_ get_finish_times($milestone->module, $milestone, $userid);
+            $finishtimes = block_mt_get_finish_times($milestone->module, $milestone, $userid);
             if ($finishtimes != null) {
                 $milestone->time = abs($finishtimes->timefinish - $starttime);
                 if ($milestone->time <= 0) {
@@ -339,7 +339,7 @@ function block_mt_get_milestone_rankings_active($milestone, $courseid) {
  * @param string $userid
  * @return array
  */
-function block_mt_ get_finish_times($module, $milestone, $userid) {
+function block_mt_get_finish_times($module, $milestone, $userid) {
     $quizid = block_mt_get_quiz_id();
     $assignmentid = block_mt_get_assign_id();
     $finishtimes = null;
