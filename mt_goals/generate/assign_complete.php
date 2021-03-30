@@ -42,8 +42,8 @@ function assign_complete_process_entry($param) {
     if ($recordcount > 0) {
         $parameters ['id'] = $DB->get_field ( 'block_mt_goals_assign_comp', 'id', $parameters );
         $parameters ['goal'] = $DB->get_field ( 'block_mt_goals_assign_comp', 'goal', $parameters );
-        if (assignment_submitted($param["userid"], $param["assignid"])) {
-            $parameters ['achieved'] = has_achieved($parameters ['goal'], $param["timeachieved"]);
+        if (block_mt_goals_assignment_submitted($param["userid"], $param["assignid"])) {
+            $parameters ['achieved'] = block_mt_goals_has_achieved($parameters ['goal'], $param["timeachieved"]);
         } else {
             $parameters ['achieved'] = false;
         }

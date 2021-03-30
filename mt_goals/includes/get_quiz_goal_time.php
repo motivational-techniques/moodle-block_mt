@@ -30,7 +30,7 @@ defined('MOODLE_INTERNAL') || die();
  * @param string $courseid
  * @return string
  */
-function get_quiz_goal_time_start($userid, $quizid, $courseid) {
+function block_mt_goals_get_quiz_goal_time_start($userid, $quizid, $courseid) {
     global $DB;
     $goal = null;
     $params = array (
@@ -43,7 +43,7 @@ function get_quiz_goal_time_start($userid, $quizid, $courseid) {
     } else {
         $goal = null;
     }
-    return get_course_week($goal);
+    return block_mt_goals_get_course_week($goal);
 }
 
 /**
@@ -53,7 +53,7 @@ function get_quiz_goal_time_start($userid, $quizid, $courseid) {
  * @param string $courseid
  * @return string
  */
-function get_quiz_goal_time_completed($userid, $quizid, $courseid) {
+function block_mt_goals_get_quiz_goal_time_completed($userid, $quizid, $courseid) {
     global $DB;
     $goal = null;
     $params = array (
@@ -66,5 +66,5 @@ function get_quiz_goal_time_completed($userid, $quizid, $courseid) {
     } else {
         $goal = null;
     }
-    return get_course_week($goal);
+    return block_mt_goals_get_course_week($goal);
 }

@@ -29,7 +29,7 @@ defined('MOODLE_INTERNAL') || die();
  * @param DateTime $date
  * @return DateTime
  */
-function display_goal_date($date) {
+function block_mt_goals_display_goal_date($date) {
     if ($date != "") {
         $date = userdate($date, get_string('strftimedate'));
     }
@@ -44,7 +44,7 @@ function display_goal_date($date) {
  * @param DateTime $paramstarted
  * @return string
  */
-function days_remaining($paramgoaltostart, $paramcurrentday, $paramstarted) {
+function block_mt_goals_days_remaining($paramgoaltostart, $paramcurrentday, $paramstarted) {
     $remainingdays = get_string('mt_goals:not_achieved', 'block_mt');
     $startday = new DateTime();
     $goalday = new DateTime();

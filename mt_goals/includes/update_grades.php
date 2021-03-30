@@ -34,7 +34,7 @@ defined('MOODLE_INTERNAL') || die();
  * @param boolean $achieved
  * @return null
  */
-function update_final_grade_status($courseid, $userid, $finalgrade, $achieved) {
+function block_mt_goals_update_final_grade_status($courseid, $userid, $finalgrade, $achieved) {
     global $DB;
 
     $parameters = array (
@@ -61,7 +61,7 @@ function update_final_grade_status($courseid, $userid, $finalgrade, $achieved) {
  * @param boolean $achieved
  * @return null
  */
-function update_assign_grade_status($assignid, $userid, $grade, $achieved) {
+function block_mt_goals_update_assign_grade_status($assignid, $userid, $grade, $achieved) {
     global $DB;
 
     $parameters = array (
@@ -88,7 +88,7 @@ function update_assign_grade_status($assignid, $userid, $grade, $achieved) {
  * @param boolean $achieved
  * @return null
  */
-function update_quiz_grade_status($quizid, $userid, $grade, $achieved) {
+function block_mt_goals_update_quiz_grade_status($quizid, $userid, $grade, $achieved) {
     global $DB;
 
     $parameters = array (

@@ -24,14 +24,14 @@
  */
 defined('MOODLE_INTERNAL') || die();
 
-require($CFG->dirroot . '/blocks/mt/mt_goals/includes/add_data_average_graph.php');
+require($CFG->dirroot . '/blocks/mt/mt_goals/includes/block_mt_goals_add_data_average_graph.php');
 require($CFG->dirroot . '/blocks/mt/mt_goals/includes/get_assign_completed_time.php');
 require($CFG->dirroot . '/blocks/mt/mt_goals/includes/get_assign_goal_time.php');
 require($CFG->dirroot . '/blocks/mt/mt_goals/includes/get_name.php');
-require($CFG->dirroot . '/blocks/mt/mt_goals/includes/get_quiz_completed_time.php');
+require($CFG->dirroot . '/blocks/mt/mt_goals/includes/block_mt_goals_get_quiz_completed_time.php');
 require($CFG->dirroot . '/blocks/mt/mt_goals/includes/get_quiz_goal_time.php');
 require($CFG->dirroot . '/blocks/mt/mt_goals/includes/get_quiz_start_time.php');
-require($CFG->dirroot . '/blocks/mt/mt_goals/includes/get_course_week.php');
+require($CFG->dirroot . '/blocks/mt/mt_goals/includes/block_mt_goals_get_course_week.php');
 
 /**
  * Get chart data
@@ -70,33 +70,33 @@ function block_mt_get_chart_average_data(&$courseid, &$userid) {
     foreach ($quizlist as $quizdata) {
         $quizid = $quizdata->id;
         $data = new stdClass ();
-        $data->name = get_quiz_name($quizid );
+        $data->name = block_mt_goals_get_quiz_name($quizid );
         $data->goaltext = get_string('mt_goals:course_average_to_start', 'block_mt');
-        $data->myprogress = get_quiz_start_time_week($userid, $quizid);
-        $data->progress = get_quiz_average_start_time($quizid);
-        $rows [] = add_data_average_graph($data);
+        $data->myprogress = block_mt_goals_get_quiz_start_time_week($userid, $quizid);
+        $data->progress = block_mt_goals_get_quiz_average_start_time($quizid);
+        $rows [] = block_mt_goals_add_data_average_graph($data);
     }
 
     $quizlist = $DB->get_records('quiz', $params, 'timemodified');
     foreach ($quizlist as $id => $quizdata) {
         $quizid = $quizdata->id;
         $data = new stdClass ();
-        $data->name = get_quiz_name($quizid);
+        $data->name = block_mt_goals_get_quiz_name($quizid);
         $data->goaltext = get_string('mt_goals:course_average_to_complete', 'block_mt');
-        $data->myprogress = get_quiz_completed_time_week($userid, $quizid);
-        $data->progress = get_quiz_average_completed_time($quizid);
-        $rows [] = add_data_average_graph($data);
+        $data->myprogress = block_mt_goals_get_quiz_completed_time_week($userid, $quizid);
+        $data->progress = block_mt_goals_get_quiz_average_completed_time($quizid);
+        $rows [] = block_mt_goals_add_data_average_graph($data);
     }
 
     $assignlist = $DB->get_records('assign', $params, 'timemodified');
     foreach ($assignlist as $id => $assigndata) {
         $assignid = $assigndata->id;
         $data = new stdClass ();
-        $data->name = get_assign_name($courseid, $assignid);
+        $data->name = block_mt_goals_get_assign_name($courseid, $assignid);
         $data->goaltext = get_string('mt_goals:course_average_to_complete', 'block_mt');
-        $data->myprogress = get_assign_completed_time_week($userid, $assignid);
-        $data->progress = get_assign_average_completed_time($assignid);
-        $rows [] = add_data_average_graph($data);
+        $data->myprogress = block_mt_goals_get_assign_completed_time_week($userid, $assignid);
+        $data->progress = block_mt_goals_get_assign_average_completed_time($assignid);
+        $rows [] = block_mt_goals_add_data_average_graph($data);
     }
     $table ['rows'] = $rows;
     return $table;

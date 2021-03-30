@@ -67,9 +67,9 @@ $assignparams = array (
 $assignlist = $DB->get_records ( 'grade_items', $assignparams );
 if (count((array) $assignlist ) > 0) {
     foreach ($assignlist as $assign) {
-        $assignfinalgrade = get_assign_final_grade($assign->id, $userid);
-        $goalgrade = get_assign_goal_grade($assign->id, $userid, $courseid);
-        $status = determine_grade_status ( $goalgrade, $assignfinalgrade );
+        $assignfinalgrade = block_mt_goals_get_assign_final_grade($assign->id, $userid);
+        $goalgrade = block_mt_goals_get_assign_goal_grade($assign->id, $userid, $courseid);
+        $status = block_mt_goals_determine_grade_status ( $goalgrade, $assignfinalgrade );
 
         $linkparams = new stdClass ();
         $linkparams->url = 'assign_grade_settings.php';
@@ -89,8 +89,8 @@ if (count((array) $assignlist ) > 0) {
         }
         $tablerow = new html_table_row ( array (
                 $assign->itemname,
-                display_goal_grade($assignfinalgrade),
-                display_goal_grade($goalgrade),
+                block_mt_goals_display_goal_grade($assignfinalgrade),
+                block_mt_goals_display_goal_grade($goalgrade),
                 $status,
                 $button
         ) );

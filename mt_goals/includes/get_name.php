@@ -29,7 +29,7 @@ defined('MOODLE_INTERNAL') || die();
  * @param string $quizid
  * @return string
  */
-function get_quiz_name($quizid) {
+function block_mt_goals_get_quiz_name($quizid) {
     global $DB;
     $quizname = "";
     $parameters = array(
@@ -47,7 +47,7 @@ function get_quiz_name($quizid) {
  * @param string $assignid
  * @return string
  */
-function get_assign_name($courseid, $assignid) {
+function block_mt_goals_get_assign_name($courseid, $assignid) {
     global $DB;
     $assignname = "";
     $parameters = array(
@@ -66,7 +66,7 @@ function get_assign_name($courseid, $assignid) {
  * @param string $assignid
  * @return string
  */
-function block_mt_get_assignment_name($assignid) {
+function block_mt_goals_get_assignment_name($assignid) {
     global $DB;
     $assignname = "";
     $parameters = array(
@@ -83,7 +83,7 @@ function block_mt_get_assignment_name($assignid) {
  * @param string $awardid
  * @return string
  */
-function get_award_name_byid($awardid) {
+function block_mt_goals_get_award_name_byid($awardid) {
     global $DB;
     $awardname = "";
     $parameters = array (
@@ -101,7 +101,7 @@ function get_award_name_byid($awardid) {
  * @param string $rankid
  * @return string
  */
-function get_rank_name_byid($rankid) {
+function block_mt_goals_get_rank_name_byid($rankid) {
     global $DB;
     $rankname = "";
     $parameters = array (

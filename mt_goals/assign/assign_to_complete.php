@@ -38,7 +38,7 @@ require($CFG->dirroot . '/blocks/mt/mt_goals/includes/get_assign_completed_time.
 require($CFG->dirroot . '/blocks/mt/mt_goals/includes/get_assign_goal_time.php');
 require($CFG->dirroot . '/blocks/mt/mt_goals/includes/get_assign_final_grade.php');
 require($CFG->dirroot . "/blocks/mt/includes/get_assignment_list.php");
-require($CFG->dirroot . '/blocks/mt/mt_goals/includes/get_course_week.php');
+require($CFG->dirroot . '/blocks/mt/mt_goals/includes/block_mt_goals_get_course_week.php');
 
 global $DB, $OUTPUT;
 
@@ -69,8 +69,8 @@ $assignlist = block_mt_get_assignment_list($courseid);
 if (count ( ( array ) $assignlist ) > 0) {
     $currentday = date_timestamp_get ( date_create () );
     foreach ($assignlist as $assign) {
-        $assignfinalgrade = get_assign_final_grade($assign->id, $userid);
-        $goaltocomplete = get_assign_goal_time($userid, $assign->iteminstance, $courseid);
+        $assignfinalgrade = block_mt_goals_get_assign_final_grade($assign->id, $userid);
+        $goaltocomplete = block_mt_goals_get_assign_goal_time($userid, $assign->iteminstance, $courseid);
 
         if ($assignfinalgrade != null) {
             $parameters = array (

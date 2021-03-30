@@ -85,7 +85,7 @@ if (count ( ( array ) $gradeid ) > 0) {
             $goalgrade = '';
         }
 
-        $status = determine_grade_status ( $goalgrade, $finalgrade );
+        $status = block_mt_goals_determine_grade_status ( $goalgrade, $finalgrade );
 
         $linkparams = new stdClass ();
         $linkparams->url = 'overall_grade_settings.php';

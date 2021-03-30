@@ -31,7 +31,7 @@ defined('MOODLE_INTERNAL') || die();
  * @param array $rankparam
  * @return null
  */
-function display_link($linkparam, $rankparam) {
+function block_mt_goals_display_link($linkparam, $rankparam) {
     $urlparams = array (
             'courseid' => $rankparam->courseid
     );

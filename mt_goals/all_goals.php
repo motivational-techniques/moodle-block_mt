@@ -65,7 +65,7 @@ if (count ( ( array ) $goaldata ) > 0) {
 
         $tablerow = new html_table_row ( array (
                 $goaldata->goalname,
-                display_status ( $goaldata->achieved )
+                block_mt_goals_display_status ( $goaldata->achieved )
         ) );
         $table->data [] = $tablerow;
     }

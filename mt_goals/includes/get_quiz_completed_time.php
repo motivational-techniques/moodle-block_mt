@@ -30,7 +30,7 @@ defined('MOODLE_INTERNAL') || die();
  * @param string $courseid
  * @return string
  */
-function get_quiz_goal_completed_time($userid, $quizid, $courseid) {
+function block_mt_goals_get_quiz_goal_completed_time($userid, $quizid, $courseid) {
     global $DB;
     $goaltocompletedate = null;
     $parameters = array (
@@ -50,7 +50,7 @@ function get_quiz_goal_completed_time($userid, $quizid, $courseid) {
  * @param string $quizid
  * @return string
  */
-function get_quiz_completed_time($userid, $quizid) {
+function block_mt_goals_get_quiz_completed_time($userid, $quizid) {
     global $DB;
     $completed = null;
     $params = array (
@@ -73,8 +73,8 @@ function get_quiz_completed_time($userid, $quizid) {
  * @param string $quizid
  * @return string
  */
-function get_quiz_completed_time_week($userid, $quizid) {
-    return get_course_week(get_quiz_completed_time($userid, $quizid));
+function block_mt_goals_get_quiz_completed_time_week($userid, $quizid) {
+    return block_mt_goals_get_course_week(block_mt_goals_get_quiz_completed_time($userid, $quizid));
 }
 
 /**
@@ -82,7 +82,7 @@ function get_quiz_completed_time_week($userid, $quizid) {
  * @param string $quizid
  * @return string
  */
-function get_quiz_average_completed_time($quizid) {
+function block_mt_goals_get_quiz_average_completed_time($quizid) {
     global $DB;
 
     $averagetime = null;
@@ -97,5 +97,5 @@ function get_quiz_average_completed_time($quizid) {
     } else {
         $averagetime = null;
     }
-    return get_course_week($averagetime);
+    return block_mt_goals_get_course_week($averagetime);
 }

@@ -30,7 +30,7 @@ defined('MOODLE_INTERNAL') || die();
  * @param string $quizid
  * @return string
  */
-function get_quiz_time_achieved($userid, $quizid) {
+function block_mt_goals_get_quiz_time_achieved($userid, $quizid) {
     global $DB;
     $timeachieved = "";
 
@@ -53,7 +53,7 @@ function get_quiz_time_achieved($userid, $quizid) {
  * @param string $assignid
  * @return string
  */
-function get_assign_time_achieved($userid, $assignid) {
+function block_mt_goals_get_assign_time_achieved($userid, $assignid) {
     global $DB;
     $timeachieved = "";
 

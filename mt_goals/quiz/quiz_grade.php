@@ -35,8 +35,8 @@ require($CFG->dirroot . '/blocks/mt/mt_goals/includes/includes.php');
 require($CFG->dirroot . '/blocks/mt/mt_goals/includes/determine_status.php');
 require($CFG->dirroot . '/blocks/mt/mt_goals/includes/buttons/display_button.php');
 require($CFG->dirroot . '/blocks/mt/mt_goals/includes/display_goal_grades.php');
-require($CFG->dirroot . '/blocks/mt/mt_goals/includes/get_quiz_final_grade.php');
-require($CFG->dirroot . '/blocks/mt/mt_goals/includes/get_quiz_goal_grade.php');
+require($CFG->dirroot . '/blocks/mt/mt_goals/includes/block_mt_goals_get_quiz_final_grade.php');
+require($CFG->dirroot . '/blocks/mt/mt_goals/includes/block_mt_goals_get_quiz_goal_grade.php');
 
 global $DB, $OUTPUT;
 
@@ -65,9 +65,9 @@ $table->id = "myTable";
 $quizlist = block_mt_get_quiz_list($courseid);
 if (count((array) $quizlist ) > 0) {
     foreach ($quizlist as $quiz) {
-        $quizfinalgrade = get_quiz_final_grade($quiz->id, $userid);
-        $goalgrade = get_quiz_goal_grade($quiz->iteminstance, $userid, $courseid);
-        $status = determine_grade_status ( $goalgrade, $quizfinalgrade );
+        $quizfinalgrade = block_mt_goals_get_quiz_final_grade($quiz->id, $userid);
+        $goalgrade = block_mt_goals_get_quiz_goal_grade($quiz->iteminstance, $userid, $courseid);
+        $status = block_mt_goals_determine_grade_status ( $goalgrade, $quizfinalgrade );
 
         $linkparams = new stdClass ();
         $linkparams->url = 'quiz_grade_settings.php';

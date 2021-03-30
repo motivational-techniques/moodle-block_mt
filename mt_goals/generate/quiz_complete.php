@@ -42,7 +42,7 @@ function quiz_complete_process_entry($param) {
     if ($recordcount > 0) {
         $parameters ['id'] = $DB->get_field ( 'block_mt_goals_quiz_comp', 'id', $parameters );
         $parameters ['goal'] = $DB->get_field ( 'block_mt_goals_quiz_comp', 'goal', $parameters );
-        $parameters ['achieved'] = has_achieved($parameters ['goal'], $param["timeachieved"]);
+        $parameters ['achieved'] = block_mt_goals_has_achieved($parameters ['goal'], $param["timeachieved"]);
         $parameters ['timeachieved'] = $param["timeachieved"];
         $DB->update_record ( 'block_mt_goals_quiz_comp', $parameters, false );
     }

@@ -30,7 +30,7 @@ defined('MOODLE_INTERNAL') || die();
  * @param string $assignmentid
  * @return boolean
  */
-function assignment_submitted($userid, $assignmentid) {
+function block_mt_goals_assignment_submitted($userid, $assignmentid) {
     global $DB;
     $returnvalue = false;
     $sql = "SELECT {assign_submission}.*

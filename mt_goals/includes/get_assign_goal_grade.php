@@ -30,7 +30,7 @@ defined('MOODLE_INTERNAL') || die();
  * @param string $courseid
  * @return string
  */
-function get_assign_goal_grade($assignid, $userid, $courseid) {
+function block_mt_goals_get_assign_goal_grade($assignid, $userid, $courseid) {
     global $DB;
 
     $goalgradeparams = array (

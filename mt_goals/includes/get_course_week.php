@@ -29,7 +29,7 @@ defined('MOODLE_INTERNAL') || die();
  * @param integer $timedate
  * @return string
  */
-function get_course_week($timedate) {
+function block_mt_goals_get_course_week($timedate) {
     if ($timedate != null) {
         $returnvalue = date("W", $timedate);
     } else {

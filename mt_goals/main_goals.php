@@ -58,61 +58,61 @@ echo html_writer::start_tag ( 'div', $menuheader );
 echo html_writer::tag ( 'p', get_string ( 'mt_goals:main_goals_header', 'block_mt' ), $menuheader );
 $linkparams->url = 'all_goals.php';
 $linkparams->text = get_string ( 'mt_goals:main_goals_all_goals', 'block_mt' );
-display_link ( $linkparams, $rankingsparams );
+block_mt_goals_display_link ( $linkparams, $rankingsparams );
 echo html_writer::end_tag ( 'div' );
 
 echo html_writer::start_tag ( 'div', $menuheader );
 echo html_writer::tag ( 'p', get_string ( 'mt_goals:main_goals_header', 'block_mt' ), $menuheader );
 $linkparams->url = 'course/course_progress.php';
 $linkparams->text = get_string ( 'mt_goals:main_goals_course_progress', 'block_mt' );
-display_link ( $linkparams, $rankingsparams );
+block_mt_goals_display_link ( $linkparams, $rankingsparams );
 
 $linkparams->url = 'course/course_average.php';
 $linkparams->text = get_string ( 'mt_goals:main_goals_course_average', 'block_mt' );
-display_link ( $linkparams, $rankingsparams );
+block_mt_goals_display_link ( $linkparams, $rankingsparams );
 echo html_writer::end_tag ( 'div' );
 
 echo html_writer::start_tag ( 'div', $menuheader );
 echo html_writer::tag ( 'p', get_string ( 'mt_goals:main_goals_header_overall_grade', 'block_mt' ), $menuheader );
 $linkparams->url = 'grade/overall_grade.php';
 $linkparams->text = get_string ( 'mt_goals:main_goals_overall_grade', 'block_mt' );
-display_link ( $linkparams, $rankingsparams );
+block_mt_goals_display_link ( $linkparams, $rankingsparams );
 echo html_writer::end_tag ( 'div' );
 
 echo html_writer::start_tag ( 'div', $menuheader );
 echo html_writer::tag ( 'p', get_string ( 'mt_goals:main_goals_header_assign', 'block_mt' ), $menuheader );
 $linkparams->url = 'assign/assign_to_complete.php';
 $linkparams->text = get_string ( 'mt_goals:main_goals_assign_tocomplete', 'block_mt' );
-display_link ( $linkparams, $rankingsparams );
+block_mt_goals_display_link ( $linkparams, $rankingsparams );
 
 $linkparams->url = 'assign/assign_grade.php';
 $linkparams->text = get_string ( 'mt_goals:main_goals_assign_grade', 'block_mt' );
-display_link ( $linkparams, $rankingsparams );
+block_mt_goals_display_link ( $linkparams, $rankingsparams );
 echo html_writer::end_tag ( 'div' );
 
 echo html_writer::start_tag ( 'div', $menuheader );
 echo html_writer::tag ( 'p', get_string ( 'mt_goals:main_goals_header_quiz', 'block_mt' ), $menuheader );
 $linkparams->url = 'quiz/quiz_to_start.php';
 $linkparams->text = get_string ( 'mt_goals:main_goals_quiz_tostart', 'block_mt' );
-display_link ( $linkparams, $rankingsparams );
+block_mt_goals_display_link ( $linkparams, $rankingsparams );
 
 $linkparams->url = 'quiz/quiz_to_complete.php';
 $linkparams->text = get_string ( 'mt_goals:main_goals_quiz_tocomplete', 'block_mt' );
-display_link ( $linkparams, $rankingsparams );
+block_mt_goals_display_link ( $linkparams, $rankingsparams );
 
 $linkparams->url = 'quiz/quiz_grade.php';
 $linkparams->text = get_string ( 'mt_goals:main_goals_quiz_grade', 'block_mt' );
-display_link ( $linkparams, $rankingsparams );
+block_mt_goals_display_link ( $linkparams, $rankingsparams );
 echo html_writer::end_tag ( 'div' );
 
 echo html_writer::start_tag ( 'div', $menuheader );
 echo html_writer::tag ( 'p', get_string ( 'mt_goals:main_goals_header_rank_award', 'block_mt' ), $menuheader );
 $linkparams->url = 'ranking_award/ranking.php';
 $linkparams->text = get_string ( 'mt_goals:main_goals_rank', 'block_mt' );
-display_link ( $linkparams, $rankingsparams );
+block_mt_goals_display_link ( $linkparams, $rankingsparams );
 
 $linkparams->url = 'ranking_award/award.php';
 $linkparams->text = get_string ( 'mt_goals:main_goals_award', 'block_mt' );
-display_link ( $linkparams, $rankingsparams );
+block_mt_goals_display_link ( $linkparams, $rankingsparams );
 echo html_writer::end_tag ( 'div' );
 echo $OUTPUT->footer();

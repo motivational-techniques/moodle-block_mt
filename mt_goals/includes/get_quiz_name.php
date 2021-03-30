@@ -29,7 +29,7 @@ defined('MOODLE_INTERNAL') || die();
  * @param string $quizid
  * @return string
  */
-function get_quiz_name($courseid, $quizid) {
+function block_mt_goals_get_quiz_name($courseid, $quizid) {
     global $DB;
     $quizname = "";
     $parameters = array (

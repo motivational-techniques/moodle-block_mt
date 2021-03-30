@@ -31,7 +31,7 @@ require_once($CFG->dirroot.'/blocks/mt/includes/constants.php');
  * @param string $id
  * @return string
  */
-function get_award_text($id) {
+function block_mt_goals_get_award_text($id) {
     switch ($id) {
         case GOLD_AWARD_ID :
             return get_string('mt_goals:award_gold', 'block_mt');

@@ -29,7 +29,7 @@ defined('MOODLE_INTERNAL') || die();
  * @param string $userid
  * @return integer
  */
-function get_quiz_final_grade($quizid, $userid) {
+function block_mt_goals_get_quiz_final_grade($quizid, $userid) {
     global $DB;
 
     $finalgradeparams = array (

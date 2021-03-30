@@ -28,7 +28,7 @@ defined('MOODLE_INTERNAL') || die();
  * @param array $params
  * @return string
  */
-function add_data_average_graph($params) {
+function block_mt_goals_add_data_average_graph($params) {
     $temp = array();
     $temp[] = array (
         'v' => get_string('mt_goals:course_average_name_goal', 'block_mt', $params),

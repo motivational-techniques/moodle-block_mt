@@ -44,33 +44,33 @@ function generate_achieved_all($courseid) {
         $user->courseid = $courseid;
         $user->goal_type_id = GOAL_TYPE_GRADES;
         $user->goal = $goal->goal;
-        $user->goalname = get_quiz_name($courseid, $goal->quizid);
+        $user->goalname = block_mt_goals_get_quiz_name($courseid, $goal->quizid);
         $user->achieved = $goal->achieved;
-        $user->timeachieved = get_quiz_time_achieved($goal->userid, $goal->quizid);
+        $user->timeachieved = block_mt_goals_get_quiz_time_achieved($goal->userid, $goal->quizid);
         add_goal($user);
     }
 
     // Get overall grade goals.
     $goallist = $DB->get_records('block_mt_goals_overall', $params);
     foreach ($goallist as $goal) {
-        $finalgrade = get_overall_grade ($goal->userid, $courseid);
-        $achieved = determine_grade_status_achieved ($goal->goal, $finalgrade);
-        update_final_grade_status ($courseid, $goal->userid, $finalgrade, $achieved);
+        $finalgrade = block_mt_goals_get_overall_grade ($goal->userid, $courseid);
+        $achieved = block_mt_goals_determine_grade_status_achieved ($goal->goal, $finalgrade);
+        block_mt_goals_update_final_grade_status ($courseid, $goal->userid, $finalgrade, $achieved);
     }
 
     // Get assignment grade goals.
     $goallist = $DB->get_records('block_mt_goals_assign', $params);
     foreach ($goallist as $goal) {
-        $assigngrade = get_assign_grade ($goal->userid, $goal->assignid);
-        $achieved = determine_grade_status_achieved ($goal->goal, $assigngrade);
-        update_assign_grade_status ($goal->assignid, $goal->userid, $assigngrade, $achieved);
+        $assigngrade = block_mt_goals_get_assign_grade ($goal->userid, $goal->assignid);
+        $achieved = block_mt_goals_determine_grade_status_achieved ($goal->goal, $assigngrade);
+        block_mt_goals_update_assign_grade_status ($goal->assignid, $goal->userid, $assigngrade, $achieved);
     }
 
     // Get quiz grade goals.
     $goallist = $DB->get_records('block_mt_goals_quiz', $params);
     foreach ($goallist as $goal) {
-        $quizgrade = get_quiz_grade ($goal->userid, $goal->quizid);
-        $achieved = determine_grade_status_achieved ($goal->goal, $quizgrade);
-        update_quiz_grade_status ($goal->quizid, $goal->userid, $quizgrade, $achieved);
+        $quizgrade = block_mt_goals_get_quiz_grade ($goal->userid, $goal->quizid);
+        $achieved = block_mt_goals_determine_grade_status_achieved ($goal->goal, $quizgrade);
+        block_mt_goals_update_quiz_grade_status ($goal->quizid, $goal->userid, $quizgrade, $achieved);
     }
 }

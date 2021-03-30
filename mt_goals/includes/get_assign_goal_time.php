@@ -30,7 +30,7 @@ defined('MOODLE_INTERNAL') || die();
  * @param string $courseid
  * @return string
  */
-function get_assign_goal_time($userid, $assignid, $courseid) {
+function block_mt_goals_get_assign_goal_time($userid, $assignid, $courseid) {
     global $DB;
     $goal = null;
     $params = array(
@@ -53,6 +53,6 @@ function get_assign_goal_time($userid, $assignid, $courseid) {
  * @param string $courseid
  * @return string
  */
-function get_assign_goal_time_week($userid, $assignid, $courseid) {
-    return get_course_week(get_assign_goal_time($userid, $assignid, $courseid));
+function block_mt_goals_get_assign_goal_time_week($userid, $assignid, $courseid) {
+    return block_mt_goals_get_course_week(block_mt_goals_get_assign_goal_time($userid, $assignid, $courseid));
 }

@@ -29,7 +29,7 @@ defined('MOODLE_INTERNAL') || die();
  * @param string $grade
  * @return string
  */
-function display_goal_grade($grade) {
+function block_mt_goals_display_goal_grade($grade) {
     if ($grade != null) {
         $grade = number_format($grade , 2);
     }

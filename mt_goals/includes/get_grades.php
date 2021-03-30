@@ -31,7 +31,7 @@ defined('MOODLE_INTERNAL') || die();
  * @param string $courseid
  * @return string
  */
-function get_overall_grade($userid, $courseid) {
+function block_mt_goals_get_overall_grade($userid, $courseid) {
     global $DB;
     $finalgrade = null;
 
@@ -62,7 +62,7 @@ function get_overall_grade($userid, $courseid) {
  * @param string $assignid
  * @return string
  */
-function get_assign_grade($userid, $assignid) {
+function block_mt_goals_get_assign_grade($userid, $assignid) {
     global $DB;
     $grade = null;
 
@@ -84,7 +84,7 @@ function get_assign_grade($userid, $assignid) {
  * @param string $quizid
  * @return string
  */
-function get_quiz_grade($userid, $quizid) {
+function block_mt_goals_get_quiz_grade($userid, $quizid) {
     global $DB;
     $grade = null;
 

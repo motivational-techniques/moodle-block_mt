@@ -35,7 +35,7 @@ require($CFG->dirroot . '/blocks/mt/mt_goals/includes/includes.php');
 require($CFG->dirroot . '/blocks/mt/mt_goals/includes/determine_status.php');
 require($CFG->dirroot . '/blocks/mt/mt_goals/includes/buttons/display_button.php');
 require($CFG->dirroot . '/blocks/mt/mt_goals/includes/display_goal_dates.php');
-require($CFG->dirroot . '/blocks/mt/mt_goals/includes/get_quiz_completed_time.php');
+require($CFG->dirroot . '/blocks/mt/mt_goals/includes/block_mt_goals_get_quiz_completed_time.php');
 
 global $DB, $OUTPUT;
 
@@ -68,9 +68,9 @@ if (count ( ( array ) $quizlist ) > 0) {
     $currentday = date_timestamp_get ( date_create () );
     foreach ($quizlist as $quiz) {
         $quizid = $quiz->iteminstance;
-        $goaltocompletedate = get_quiz_goal_completed_time($userid, $quizid, $courseid);
-        $completeddate = get_quiz_completed_time($userid, $quizid);
-        $status = days_remaining($goaltocompletedate, $currentday, $completeddate);
+        $goaltocompletedate = block_mt_goals_get_quiz_goal_completed_time($userid, $quizid, $courseid);
+        $completeddate = block_mt_goals_get_quiz_completed_time($userid, $quizid);
+        $status = block_mt_goals_days_remaining($goaltocompletedate, $currentday, $completeddate);
 
         $linkparams = new stdClass ();
         $linkparams->url = 'quiz_to_complete_settings.php';

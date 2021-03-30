@@ -28,7 +28,7 @@ defined('MOODLE_INTERNAL') || die();
  * @param array $params
  * @return string
  */
-function add_data_progress_graph($params) {
+function block_mt_goals_add_data_progress_graph($params) {
     $temp = array();
     $temp[] = array (
         'v' => get_string('mt_goals:course_progress_name_goal', 'block_mt', $params),

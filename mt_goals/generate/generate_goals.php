@@ -35,7 +35,7 @@ require_once($CFG->dirroot . "/blocks/mt/mt_goals/includes/update_grades.php");
 require_once($CFG->dirroot . "/blocks/mt/mt_goals/includes/determine_status.php");
 require_once($CFG->dirroot . "/blocks/mt/mt_goals/includes/determine_submitted.php");
 require_once($CFG->dirroot . "/blocks/mt/mt_goals/includes/get_quiz_start_time.php");
-require_once($CFG->dirroot . "/blocks/mt/mt_goals/includes/get_quiz_completed_time.php");
+require_once($CFG->dirroot . "/blocks/mt/mt_goals/includes/block_mt_goals_get_quiz_completed_time.php");
 
 require_once($CFG->dirroot . "/blocks/mt/mt_goals/generate/quiz_grade.php");
 require_once($CFG->dirroot . "/blocks/mt/mt_goals/generate/quiz_start.php");

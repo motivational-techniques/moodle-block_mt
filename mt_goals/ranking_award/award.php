@@ -81,7 +81,7 @@ if ($DB->record_exists ('block_mt_awards_user', $params)) {
         );
         if ($DB->record_exists('block_mt_goals_awards', $params, false)) {
             $goal = $DB->get_record('block_mt_goals_awards', $params)->goal;
-            $status = determine_awards_status($awards->awardid, $goal);
+            $status = block_mt_goals_determine_awards_status($awards->awardid, $goal);
         } else {
             $goal = '';
             $status = '';
@@ -100,8 +100,8 @@ if ($DB->record_exists ('block_mt_awards_user', $params)) {
         $button = display_button($urlparams, $linkparams);
         $tablerow = new html_table_row(array(
             $awards->award_name,
-            get_award_text($awards->awardid),
-            get_award_text($goal),
+            block_mt_goals_get_award_text($awards->awardid),
+            block_mt_goals_get_award_text($goal),
             $status,
             $button
         ));

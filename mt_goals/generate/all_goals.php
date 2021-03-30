@@ -92,9 +92,9 @@ function add_assignment_grade_goals($courseid) {
         $user->goal_type_id = GOAL_TYPE_GRADES;
         $user->goal = $goal->goal;
         $user->goalname = get_string('mt_awards:generate_grade_name', 'block_mt',
-                block_mt_get_assignment_name($goal->assignid));
+                block_mt_goals_get_assignment_name($goal->assignid));
         $user->achieved = $goal->achieved;
-        $user->timeachieved = get_assign_time_achieved($goal->userid, $goal->assignid );
+        $user->timeachieved = block_mt_goals_get_assign_time_achieved($goal->userid, $goal->assignid );
         add_goal($user);
     }
 }
@@ -116,9 +116,9 @@ function add_quiz_grade_goals($courseid) {
         $user->courseid = $courseid;
         $user->goal_type_id = GOAL_TYPE_GRADES;
         $user->goal = $goal->goal;
-        $user->goalname = get_string('mt_awards:generate_grade_name', 'block_mt', get_quiz_name ($goal->quizid));
+        $user->goalname = get_string('mt_awards:generate_grade_name', 'block_mt', block_mt_goals_get_quiz_name ($goal->quizid));
         $user->achieved = $goal->achieved;
-        $user->timeachieved = get_quiz_time_achieved ( $goal->userid, $goal->quizid );
+        $user->timeachieved = block_mt_goals_get_quiz_time_achieved ( $goal->userid, $goal->quizid );
         add_goal($user);
     }
 }
@@ -159,7 +159,7 @@ function add_quiz_to_start_goals($courseid) {
     );
     $goaldata = $DB->get_records ( 'block_mt_goals_quiz_start', $parameters);
     foreach ($goaldata as $goal) {
-        $quizname = get_quiz_name ($goal->quizid);
+        $quizname = block_mt_goals_get_quiz_name ($goal->quizid);
         $user = new stdClass ();
         $user->userid = $goal->userid;
         $user->courseid = $courseid;
@@ -167,7 +167,7 @@ function add_quiz_to_start_goals($courseid) {
         $user->goal = $goal->goal;
         $user->goalname = get_string('mt_goals:generate_quiz_to_start', 'block_mt', $quizname);
         $user->achieved = $goal->achieved;
-        $user->timeachieved = get_quiz_time_achieved ( $goal->userid, $goal->quizid );
+        $user->timeachieved = block_mt_goals_get_quiz_time_achieved ( $goal->userid, $goal->quizid );
         add_goal($user);
     }
 }
@@ -184,7 +184,7 @@ function add_quiz_to_complete_goals($courseid) {
     );
     $goaldata = $DB->get_records ( 'block_mt_goals_quiz_comp', $parameters);
     foreach ($goaldata as $goal) {
-        $quizname = get_quiz_name ($goal->quizid);
+        $quizname = block_mt_goals_get_quiz_name ($goal->quizid);
         $user = new stdClass ();
         $user->userid = $goal->userid;
         $user->courseid = $courseid;
@@ -192,7 +192,7 @@ function add_quiz_to_complete_goals($courseid) {
         $user->goal = $goal->goal;
         $user->goalname = get_string('mt_goals:generate_quiz_to_complete', 'block_mt', $quizname);
         $user->achieved = $goal->achieved;
-        $user->timeachieved = get_quiz_time_achieved ( $goal->userid, $goal->quizid );
+        $user->timeachieved = block_mt_goals_get_quiz_time_achieved ( $goal->userid, $goal->quizid );
         add_goal($user);
     }
 }
@@ -209,7 +209,7 @@ function add_assignment_to_complete_goals($courseid) {
     );
     $goaldata = $DB->get_records ( 'block_mt_goals_assign_comp', $parameters);
     foreach ($goaldata as $goal) {
-        $assignname = get_assign_name ($courseid, $goal->assignid);
+        $assignname = block_mt_goals_get_assign_name ($courseid, $goal->assignid);
         $user = new stdClass ();
         $user->userid = $goal->userid;
         $user->courseid = $courseid;
@@ -234,7 +234,7 @@ function add_ranks_goals($courseid) {
     );
     $goaldata = $DB->get_records ( 'block_mt_goals_ranks', $parameters);
     foreach ($goaldata as $goal) {
-        $rankname = get_rank_name_byid ( $goal->ranktypeid);
+        $rankname = block_mt_goals_get_rank_name_byid ( $goal->ranktypeid);
         $user = new stdClass ();
         $user->userid = $goal->userid;
         $user->courseid = $courseid;
@@ -258,7 +258,7 @@ function add_awards_goals($courseid) {
     );
     $goaldata = $DB->get_records ( 'block_mt_goals_awards', $parameters);
     foreach ($goaldata as $goal) {
-        $awardname = get_award_name_byid ( $goal->awardid);
+        $awardname = block_mt_goals_get_award_name_byid ( $goal->awardid);
         $user = new stdClass ();
         $user->userid = $goal->userid;
         $user->courseid = $courseid;

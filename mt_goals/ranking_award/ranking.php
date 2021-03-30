@@ -82,7 +82,7 @@ if ($DB->record_exists('block_mt_ranks_user', $params)) {
         );
         if ($DB->record_exists('block_mt_goals_ranks', $params, false)) {
             $goalranking = $DB->get_record('block_mt_goals_ranks', $params)->goal;
-            $status = determine_ranks_status($rankings->rank, $goalranking);
+            $status = block_mt_goals_determine_ranks_status($rankings->rank, $goalranking);
         } else {
             $goalranking = '';
             $status = '';

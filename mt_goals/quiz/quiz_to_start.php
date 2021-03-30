@@ -68,7 +68,7 @@ if (count ( ( array ) $quizlist ) > 0) {
     $currentday = date_timestamp_get(date_create () );
     foreach ($quizlist as $quiz) {
         $quizid = $quiz->iteminstance;
-        $goaltostartdate = get_quiz_goal_start_time($userid, $quizid, $courseid);
+        $goaltostartdate = block_mt_goals_get_quiz_goal_start_time($userid, $quizid, $courseid);
         $starteddate = get_quiz_start_time($userid, $quizid);
         $status = days_remaining ( $goaltostartdate, $currentday, $starteddate );
 
@@ -93,9 +93,9 @@ if (count ( ( array ) $quizlist ) > 0) {
 
         $tablerow = new html_table_row ( array (
                 $quiz->itemname,
-                display_goal_date($currentday),
-                display_goal_date($goaltostartdate),
-                display_goal_date($starteddate),
+                block_mt_goals_display_goal_date($currentday),
+                block_mt_goals_display_goal_date($goaltostartdate),
+                block_mt_goals_display_goal_date($starteddate),
                 $status,
                 $button
         ) );

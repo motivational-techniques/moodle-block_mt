@@ -30,7 +30,7 @@ defined('MOODLE_INTERNAL') || die();
  * @param string $grade
  * @return boolean
  */
-function achieved_goal($goal, $grade) {
+function block_mt_goals_achieved_goal($goal, $grade) {
     if ($goal) {
         if (intval ( $goal ) <= intval ( $grade )) {
             return true;
@@ -47,7 +47,7 @@ function achieved_goal($goal, $grade) {
  * @param string $grade
  * @return string
  */
-function determine_grade_status($goal, $grade) {
+function block_mt_goals_block_mt_goals_determine_grade_status($goal, $grade) {
     $gradestatus = get_string ( 'mt_goals:not_achieved', 'block_mt' );
     if ($goal) {
         if (intval ( $goal ) <= intval ( $grade )) {
@@ -69,7 +69,7 @@ function determine_grade_status($goal, $grade) {
  * @param string $grade
  * @return boolean
  */
-function determine_grade_status_achieved($goal, $grade) {
+function block_mt_goals_determine_grade_status_achieved($goal, $grade) {
     $achieved = false;
     if ($goal) {
         if (intval ( $goal ) <= intval ( $grade )) {
@@ -87,7 +87,7 @@ function determine_grade_status_achieved($goal, $grade) {
  * @param string $rank
  * @return string
  */
-function determine_ranks_status($goal, $rank) {
+function block_mt_goals_determine_ranks_status($goal, $rank) {
     if ($goal <= $rank) {
         return get_string ( 'mt_goals:achieved', 'block_mt' );
     } else {
@@ -100,7 +100,7 @@ function determine_ranks_status($goal, $rank) {
  * @param string $goal
  * @return string
  */
-function determine_awards_status($award, $goal) {
+function block_mt_goals_determine_awards_status($award, $goal) {
     if ($goal >= $award) {
         return get_string ( 'mt_goals:achieved', 'block_mt' );
     } else {
@@ -112,7 +112,7 @@ function determine_awards_status($award, $goal) {
  * @param string $achieved
  * @return boolean
  */
-function display_status($achieved) {
+function block_mt_goals_display_status($achieved) {
     if ($achieved == '1') {
         return get_string ( 'mt_goals:achieved', 'block_mt' );
     } else {

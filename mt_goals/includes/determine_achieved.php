@@ -30,7 +30,7 @@ defined('MOODLE_INTERNAL') || die();
  * @param string $timeachieved
  * @return string
  */
-function has_achieved($goal, $timeachieved) {
+function block_mt_goals_has_achieved($goal, $timeachieved) {
     $achieved = false;
     if (($timeachieved === null) || ($timeachieved == '')) {
         $achieved = false;

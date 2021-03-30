@@ -29,7 +29,7 @@ defined('MOODLE_INTERNAL') || die();
  * @param string $assignid
  * @return string
  */
-function get_assign_completed_time($userid, $assignid) {
+function block_mt_goals_get_assign_completed_time($userid, $assignid) {
     global $DB;
     $completed = '';
     $sql = "SELECT {assign_submission}.*
@@ -58,8 +58,8 @@ function get_assign_completed_time($userid, $assignid) {
  * @param string $assignid
  * @return string
  */
-function get_assign_completed_time_week($userid, $assignid) {
-    return get_course_week(get_assign_completed_time($userid, $assignid));
+function block_mt_goals_get_assign_completed_time_week($userid, $assignid) {
+    return block_mt_goals_get_course_week(block_mt_goals_get_assign_completed_time($userid, $assignid));
 }
 
 /**
@@ -67,7 +67,7 @@ function get_assign_completed_time_week($userid, $assignid) {
  * @param string $assignid
  * @return string
  */
-function get_assign_average_completed_time($assignid) {
+function block_mt_goals_get_assign_average_completed_time($assignid) {
     global $DB;
 
     $averagetime = null;
@@ -83,5 +83,5 @@ function get_assign_average_completed_time($assignid) {
     } else {
         $averagetime = null;
     }
-    return get_course_week($averagetime);
+    return block_mt_goals_get_course_week($averagetime);
 }
