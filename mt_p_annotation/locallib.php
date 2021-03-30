@@ -99,7 +99,7 @@ function populate_instancenames($courseid, $updatedb = false) {
 
     // Any leftover activities are not in the DB table.
     $courseinfo = [];
-    foreach ($mods as $key => $value) {
+    foreach ($mods as $key) {
         $courseinfo[] = (object) array(
             'courseid'   => $courseid,
             'instanceid' => $key
