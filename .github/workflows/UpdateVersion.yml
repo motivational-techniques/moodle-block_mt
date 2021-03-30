@@ -7,16 +7,6 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v1
-
-      - name: Read package.json
-        uses: tyankatsu0105/read-package-version-actions@v1
-        id: package-version
-
-      - name: Show version number
-        env:
-          V_RELEASE: "$plugin->release =${{ steps.package-version.outputs.version }}"
-
       - name: get-npm-version
         id: package-version
         uses: martinbeentjes/npm-get-version-action@master
