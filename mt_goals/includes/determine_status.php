@@ -47,7 +47,7 @@ function block_mt_goals_achieved_goal($goal, $grade) {
  * @param string $grade
  * @return string
  */
-function block_mt_goals_block_mt_goals_determine_grade_status($goal, $grade) {
+function block_mt_goals_determine_grade_status($goal, $grade) {
     $gradestatus = get_string ( 'mt_goals:not_achieved', 'block_mt' );
     if ($goal) {
         if (intval ( $goal ) <= intval ( $grade )) {

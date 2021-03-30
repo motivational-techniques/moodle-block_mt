@@ -35,8 +35,8 @@ require($CFG->dirroot . '/blocks/mt/mt_goals/includes/includes.php');
 require($CFG->dirroot . '/blocks/mt/mt_goals/includes/determine_status.php');
 require($CFG->dirroot . '/blocks/mt/mt_goals/includes/buttons/display_button.php');
 require($CFG->dirroot . '/blocks/mt/mt_goals/includes/display_goal_grades.php');
-require($CFG->dirroot . '/blocks/mt/mt_goals/includes/block_mt_goals_get_quiz_final_grade.php');
-require($CFG->dirroot . '/blocks/mt/mt_goals/includes/block_mt_goals_get_quiz_goal_grade.php');
+require($CFG->dirroot . '/blocks/mt/mt_goals/includes/get_quiz_final_grade.php');
+require($CFG->dirroot . '/blocks/mt/mt_goals/includes/get_quiz_goal_grade.php');
 
 global $DB, $OUTPUT;
 

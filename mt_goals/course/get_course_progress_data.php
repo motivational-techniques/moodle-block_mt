@@ -24,14 +24,14 @@
  */
 defined('MOODLE_INTERNAL') || die();
 
-require($CFG->dirroot . '/blocks/mt/mt_goals/includes/block_mt_goals_add_data_progress_graph.php');
+require($CFG->dirroot . '/blocks/mt/mt_goals/includes/add_data_progress_graph.php');
 require($CFG->dirroot . '/blocks/mt/mt_goals/includes/get_assign_completed_time.php');
 require($CFG->dirroot . '/blocks/mt/mt_goals/includes/get_assign_goal_time.php');
 require($CFG->dirroot . '/blocks/mt/mt_goals/includes/get_name.php');
-require($CFG->dirroot . '/blocks/mt/mt_goals/includes/block_mt_goals_get_quiz_completed_time.php');
+require($CFG->dirroot . '/blocks/mt/mt_goals/includes/get_quiz_completed_time.php');
 require($CFG->dirroot . '/blocks/mt/mt_goals/includes/get_quiz_goal_time.php');
 require($CFG->dirroot . '/blocks/mt/mt_goals/includes/get_quiz_start_time.php');
-require($CFG->dirroot . '/blocks/mt/mt_goals/includes/block_mt_goals_get_course_week.php');
+require($CFG->dirroot . '/blocks/mt/mt_goals/includes/get_course_week.php');
 
 /**
  * Get chart data

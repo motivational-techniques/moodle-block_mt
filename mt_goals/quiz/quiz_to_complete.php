@@ -35,7 +35,7 @@ require($CFG->dirroot . '/blocks/mt/mt_goals/includes/includes.php');
 require($CFG->dirroot . '/blocks/mt/mt_goals/includes/determine_status.php');
 require($CFG->dirroot . '/blocks/mt/mt_goals/includes/buttons/display_button.php');
 require($CFG->dirroot . '/blocks/mt/mt_goals/includes/display_goal_dates.php');
-require($CFG->dirroot . '/blocks/mt/mt_goals/includes/block_mt_goals_get_quiz_completed_time.php');
+require($CFG->dirroot . '/blocks/mt/mt_goals/includes/get_quiz_completed_time.php');
 
 global $DB, $OUTPUT;
 

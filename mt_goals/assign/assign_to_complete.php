@@ -38,7 +38,7 @@ require($CFG->dirroot . '/blocks/mt/mt_goals/includes/get_assign_completed_time.
 require($CFG->dirroot . '/blocks/mt/mt_goals/includes/get_assign_goal_time.php');
 require($CFG->dirroot . '/blocks/mt/mt_goals/includes/get_assign_final_grade.php');
 require($CFG->dirroot . "/blocks/mt/includes/get_assignment_list.php");
-require($CFG->dirroot . '/blocks/mt/mt_goals/includes/block_mt_goals_get_course_week.php');
+require($CFG->dirroot . '/blocks/mt/mt_goals/includes/get_course_week.php');
 
 global $DB, $OUTPUT;
 
