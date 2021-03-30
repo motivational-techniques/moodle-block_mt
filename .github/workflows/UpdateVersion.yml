@@ -1,21 +1,40 @@
 name: Update Version
 on:
+  push:
+    branches:
+      - "master"
   workflow_dispatch:
     branches:
       - "master"
+
 jobs:
-  build:
+  bump-version:
+    name: "Bump Version on master"
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v1
+      - name: "Checkout source code"
+        uses: "actions/checkout@v2"
+        with:
+          ref: ${{ github.ref }}
+      - name: "cat package.json"
+        run: cat ./package.json
+      - name: "Setup Node.js"
+        uses: "actions/setup-node@v1"
+        with:
+          node-version: 12
+      - name: "Automated Version Bump"
+        uses: "phips28/gh-action-bump-version@master"
+        with:
+          tag-prefix: ""
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: "cat package.json"
+        run: cat ./package.json
 
-      - name: Read package.json
-        uses: dutscher/read-package-json-endpoint-actions@v1.33.7
-        id: package-json-endpoint
-
-      - name: Show version number
-        run: echo "${{ steps.package-json-endpoint.outputs.endpoint }}"
-
+  update-version:
+    name: "Update Version.php"
+    runs-on: ubuntu-latest
+    steps:
       - name: Get current time
         uses: 1466587594/get-current-time@v2
         id: current-time
