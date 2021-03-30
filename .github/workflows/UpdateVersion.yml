@@ -1,0 +1,25 @@
+name: Update Version
+on: [workflow_dispatch, deployment]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Get Time
+        id: time
+        uses: nanzm/get-time-action@v1.1
+        with:
+          timeZone: 8
+          format: "YYYYMMDDHH"
+      - name: Usage
+        env:
+          TIME: "$plugin->version = ${{ steps.time.outputs.time }}"
+        run: |
+          echo $TIME
+
+#      - uses: actions/checkout@v2
+#      - name: Find and Replace
+#        uses: jacobtomlinson/gha-find-replace@master
+#        with:
+#          find: "$plugin->version = "
+#          replace: "$plugin->version = "
+#          include: "version.php"
