@@ -33,7 +33,7 @@ defined('MOODLE_INTERNAL') || die();
  * @param boolean $updatedb Flag to update the DB table
  * @return array
  */
-function populate_instancenames($courseid, $updatedb = false) {
+function block_mt_p_annotation_populate_instancenames($courseid, $updatedb = false) {
     global $DB, $PAGE, $USER;
 
     // Build the instancenames records for this course and insert into DB.

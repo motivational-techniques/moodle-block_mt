@@ -80,7 +80,7 @@ $results = $DB->get_records_sql($sql, array(
 ));
 
 // Get the pretty HTML module names with icons.
-$modnames = populate_instancenames($courseid);
+$modnames = block_mt_p_annotation_populate_instancenames($courseid);
 
 // Output the page.
 echo $OUTPUT->header();

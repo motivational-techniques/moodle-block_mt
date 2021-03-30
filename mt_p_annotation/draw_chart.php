@@ -99,7 +99,7 @@ function block_mt_p_annotation_get_chart_data(&$courseid, &$userid) {
     $countnot   = 0;
 
     // Get all the learning object for this course.
-    $modnames = populate_instancenames($courseid, true);
+    $modnames = block_mt_p_annotation_populate_instancenames($courseid, true);
 
     // Count those that are done and in progress.
     foreach ($results as &$result1) {
