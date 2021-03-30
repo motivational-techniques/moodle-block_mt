@@ -45,7 +45,7 @@ $out = array(
         'title' => get_string('mt_goals:course_average_page_name', 'block_mt'),
         'vaxis' => get_string('mt_goals:course_average_week', 'block_mt'),
         'haxis' => get_string('mt_goals:course_average_goal', 'block_mt'),
-        'chartdata' => get_chart_data($courseid, $userid)
+        'chartdata' => block_mt_get_chart_average_data($courseid, $userid)
 );
 
 $PAGE->requires->js_init_call('init', array($out), true);

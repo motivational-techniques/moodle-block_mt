@@ -39,7 +39,7 @@ require($CFG->dirroot . '/blocks/mt/mt_goals/includes/get_course_week.php');
  * @param string $userid
  * @return array
  */
-function get_chart_data(&$courseid, &$userid) {
+function block_mt_get_chart_average_data(&$courseid, &$userid) {
     global $DB;
 
     $table = array ();
