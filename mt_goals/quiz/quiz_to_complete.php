@@ -93,9 +93,9 @@ if (count ( ( array ) $quizlist ) > 0) {
 
         $tablerow = new html_table_row ( array (
                 $quiz->itemname,
-                display_goal_date ( $currentday ),
-                display_goal_date ( $goaltocompletedate ),
-                display_goal_date ( $completeddate ),
+                block_mt_goals_display_goal_date ( $currentday ),
+                block_mt_goals_display_goal_date ( $goaltocompletedate ),
+                block_mt_goals_display_goal_date ( $completeddate ),
                 $status,
                 $button
         ) );

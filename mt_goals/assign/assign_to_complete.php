@@ -103,9 +103,9 @@ if (count ( ( array ) $assignlist ) > 0) {
         $status = block_mt_goals_days_remaining ( $goaltocomplete, $currentday, $completed );
         $tablerow = new html_table_row ( array (
                 $assign->itemname,
-                display_goal_date ( $currentday ),
-                display_goal_date ( $goaltocomplete ),
-                display_goal_date ( $completed ),
+                block_mt_goals_display_goal_date ( $currentday ),
+                block_mt_goals_display_goal_date ( $goaltocomplete ),
+                block_mt_goals_display_goal_date ( $completed ),
                 $status,
                 $button
         ) );
