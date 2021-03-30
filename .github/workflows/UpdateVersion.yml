@@ -1,8 +1,5 @@
 name: Update Version
 on:
-  push:
-    branches:
-      - "master"
   workflow_dispatch:
     branches:
       - "master"
@@ -23,6 +20,9 @@ jobs:
           V_TIME: "$plugin->version = ${{ steps.current-time.outputs.formattedTime }}"
         run: echo $V_TIME
       - uses: "actions/checkout@v2"
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
       - name: Find and Replace
         uses: jacobtomlinson/gha-find-replace@master
         with:
