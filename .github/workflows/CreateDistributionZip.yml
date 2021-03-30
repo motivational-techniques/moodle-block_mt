@@ -11,9 +11,9 @@ jobs:
         with:
           filename: "block_mt.zip"
           path: .
-          directory: .
+          directory: block_mt
           type: zip
-          exclusions: "*.git* .circleci/* .travis.yml .settings/* /documentation/* /tests/* *.json circleci/* *.yml* testing.txt Gruntfile.js"
+          exclusions: "*.git* .circleci/* .circleci .travis.yml .settings/* /documentation/* /tests/* *.json circleci/* *.yml* testing.txt Gruntfile.js"
 
       - uses: actions/upload-artifact@v1
         with:
