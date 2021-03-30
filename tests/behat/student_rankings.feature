@@ -11,4 +11,3 @@ Feature: A student achieves a ranking
     And the following "courses" exist:
       | fullname | shortname | category | groupmode |
       | Course 1 | C1        | 0        | 1         |
-      
