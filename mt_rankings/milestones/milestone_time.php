@@ -89,7 +89,7 @@ if ($DB->record_exists('block_mt_ranks_milestones', $params)) {
         $tablerow = new html_table_row (array (
             $i,
             $studentname,
-            display_active_flag ( $student->active ),
+            block_mt_display_active_flag ( $student->active ),
             number_format ( $student->milestone_time / (60 * 60 * 24), 2 )
         ));
         $tablerow->cells [2]->attributes ['class'] = 'activeColumn';

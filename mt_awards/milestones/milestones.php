@@ -114,7 +114,7 @@ if ($DB->record_exists('block_mt_ranks_milestones', $params)) {
 
         $tablerow = new html_table_row (array (
             $studentname,
-            display_active_flag ( $student->active ),
+            block_mt_display_active_flag ( $student->active ),
             $award
         ));
         $tablerow->cells [1]->attributes ['class'] = 'activeColumn';

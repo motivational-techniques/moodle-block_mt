@@ -198,7 +198,7 @@ if ($DB->record_exists_sql ( $sql, $params )) {
         $row = array (
             $i,
             $studentname,
-            display_active_flag ( $studentlist->active ),
+            block_mt_display_active_flag ( $studentlist->active ),
             number_format ( $studentlist->rating_percent, 2 )
         );
         $titletext = get_string ( 'mt_rankings:rating_posts_overall_title_percent', 'block_mt', $studentlist );

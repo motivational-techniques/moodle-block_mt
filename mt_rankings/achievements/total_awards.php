@@ -93,7 +93,7 @@ if ($DB->record_exists('block_mt_ranks_achiev', $params)) {
         $tablerow = new html_table_row ( array (
             $i,
             $studentname,
-            display_active_flag ( $student->active ),
+            block_mt_display_active_flag ( $student->active ),
             $student->gold,
             $student->silver,
             $student->bronze,

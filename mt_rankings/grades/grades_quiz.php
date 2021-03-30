@@ -97,7 +97,7 @@ if ($DB->record_exists_sql ( $sql, $params )) {
         $tablerow = new html_table_row ( array (
             $i,
             $studentname,
-            display_active_flag ($student->active),
+            block_mt_display_active_flag ($student->active),
             number_format ($student->finalgrade, 2)
         ) );
         $tablerow->cells [2]->attributes ['class'] = 'activeColumn';
