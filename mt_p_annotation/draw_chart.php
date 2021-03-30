@@ -52,7 +52,7 @@ $out = array(
     'wwwroot'   => $CFG->wwwroot,
     'courseid'  => $courseid,
     'userid'    => $userid,
-    'chartdata' => get_chart_data($courseid, $userid)
+    'chartdata' => block_mt_p_annotation_get_chart_data($courseid, $userid)
 );
 
 // Set up the page.
@@ -85,7 +85,7 @@ echo $OUTPUT->footer();
  * @param int $userid The user id
  * @return array
  */
-function get_chart_data(&$courseid, &$userid) {
+function block_mt_p_annotation_get_chart_data(&$courseid, &$userid) {
     global $DB;
 
     // Get the student selections.

@@ -50,7 +50,7 @@ $out = array(
     'title' => get_string('mt_ptimeline:chart_title', 'block_mt'),
     'vaxis' => get_string('mt_ptimeline:chart_vaxis', 'block_mt'),
     'haxis' => get_string('mt_ptimeline:chart_haxis', 'block_mt'),
-    'chartdata' => get_chart_data($courseid, $userid)
+    'chartdata' => mt_p_timeline_get_chart_data($courseid, $userid)
 );
 
 // Get the page title.
@@ -92,7 +92,7 @@ echo $OUTPUT->footer();
  * @param int $userid The user id
  * @return array
  */
-function get_chart_data(&$courseid, &$userid) {
+function mt_p_timeline_get_chart_data(&$courseid, &$userid) {
     global $DB;
 
     // Get quiz module id.
