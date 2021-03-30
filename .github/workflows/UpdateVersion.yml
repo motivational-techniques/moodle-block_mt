@@ -4,6 +4,11 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
+      - name: get-npm-version
+        id: package-version
+        uses: martinbeentjes/npm-get-version-action@master
+        env:
+          V_VERSION: "${{ steps.package-version.outputs.current-version}}"
       - name: Get current time
         uses: 1466587594/get-current-time@v2
         id: current-time
