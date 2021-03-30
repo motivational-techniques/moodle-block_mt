@@ -103,8 +103,8 @@ if (count ( ( array ) $gradeid ) > 0) {
         $button = display_button ( $urlparams, $linkparams );
 
         $tablerow = new html_table_row ( array (
-                display_goal_grade ( $finalgrade ),
-                display_goal_grade ( $goalgrade ),
+                block_mt_goals_display_goal_grade ( $finalgrade ),
+                block_mt_goals_display_goal_grade ( $goalgrade ),
                 $status,
                 $button
         ) );

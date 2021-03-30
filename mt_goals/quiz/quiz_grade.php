@@ -89,8 +89,8 @@ if (count((array) $quizlist ) > 0) {
         }
         $tablerow = new html_table_row ( array (
                 $quiz->itemname,
-                display_goal_grade ( $quizfinalgrade ),
-                display_goal_grade ( $goalgrade ),
+                block_mt_goals_display_goal_grade ( $quizfinalgrade ),
+                block_mt_goals_display_goal_grade ( $goalgrade ),
                 $status,
                 $button
         ) );
