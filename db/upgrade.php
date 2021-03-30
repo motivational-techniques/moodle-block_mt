@@ -29,26 +29,6 @@ defined('MOODLE_INTERNAL') || die();
  * @param int $oldversion The old version of the plugin.
  */
 function xmldb_block_mt_upgrade($oldversion) {
-    // global $DB;
-
-    // $currentversion = 2019072000;
-
-    // if ($oldversion < $currentversion) {
-
-    //     $dbman = $DB->get_manager();
-
-    //     // Define field id to be dropped from block_mt_instancenames.
-    //     $table = new xmldb_table('block_mt_instancenames');
-    //     $field = new xmldb_field('name');
-
-    //     // Conditionally launch drop field id.
-    //     if ($dbman->field_exists($table, $field)) {
-    //         $dbman->drop_field($table, $field);
-    //     }
-
-    //     // Mt savepoint reached.
-    //     upgrade_block_savepoint(true, $currentversion, 'mt');
-    // }
 
     return true;
 }
