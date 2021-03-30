@@ -1,13 +1,14 @@
-name: My Workflow
-on: [push, pull_request, workflow_dispatch]
+name: Update Version
+on: [workflow_dispatch]
+
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: "actions/checkout@v2"
       - name: Find and Replace
         uses: jacobtomlinson/gha-find-replace@master
         with:
-          find: "version"
-          replace: "versionz"
+          find: "version" #/\$plugin->version.*/g
+          replace: "test" #$V_TIME
           include: "version.php"
