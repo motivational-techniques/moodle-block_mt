@@ -22,7 +22,9 @@ jobs:
         env:
           V_TIME: "$plugin->version = ${{ steps.current-time.outputs.formattedTime }}"
         run: echo $V_TIME
-      - uses: actions/checkout@v2
+        uses: "actions/checkout@v2"
+        with:
+          ref: ${{ github.ref }}
       - name: Find and Replace
         uses: jacobtomlinson/gha-find-replace@master
         with:
