@@ -31,11 +31,6 @@ jobs:
       - name: "cat package.json"
         run: cat ./package.json
 
-  update-version:
-    needs: bump-version
-    name: "Update Version.php"
-    runs-on: ubuntu-latest
-    steps:
       - name: Get current time
         uses: 1466587594/get-current-time@v2
         id: current-time
@@ -45,7 +40,6 @@ jobs:
       - name: Use current time
         env:
           V_TIME: "$plugin->version = ${{ steps.current-time.outputs.formattedTime }}"
-        run: echo $V_TIME
       - uses: actions/checkout@v2
       - name: Find and Replace
         uses: jacobtomlinson/gha-find-replace@master
