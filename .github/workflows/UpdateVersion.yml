@@ -1,5 +1,8 @@
 name: Update Version
-on: [workflow_dispatch, deployment]
+on:
+  workflow_dispatch:
+    branches:
+      - "master"
 jobs:
   build:
     runs-on: ubuntu-latest
