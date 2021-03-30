@@ -19,5 +19,5 @@ jobs:
         uses: jacobtomlinson/gha-find-replace@master
         with:
           find: "$plugin->version = .*"
-          replace: $V_TIM
+          replace: $V_TIME
           include: "version.php"
