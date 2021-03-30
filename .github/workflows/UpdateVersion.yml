@@ -32,6 +32,7 @@ jobs:
         run: cat ./package.json
 
   update-version:
+    needs: bump-version
     name: "Update Version.php"
     runs-on: ubuntu-latest
     steps:
