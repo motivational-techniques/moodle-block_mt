@@ -11,7 +11,7 @@ jobs:
         with:
           filename: "block_mt.zip"
           path: .
-          directory: block_mt
+          directory: .
           type: zip
           exclusions: "*.git* .circleci/* .circleci .travis.yml .settings/* /documentation/* /tests/* *.json circleci/* *.yml* testing.txt Gruntfile.js"
 
