@@ -10,8 +10,8 @@ jobs:
         uses: thedoctor0/zip-release@master
         with:
           filename: "block_mt.zip"
-          path: ./mt
-          directory: .
+          path: .
+          directory: ./mt
           type: zip
           exclusions: "*.git* .circleci/* .travis.yml .settings/* /documentation/* /tests/* *.json circleci/* *.yml* testing.txt Gruntfile.js"
 
