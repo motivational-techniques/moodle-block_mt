@@ -32,7 +32,7 @@ jobs:
 
     services:
       postgres:
-        image: postgres:10.16 #postgres:9.6
+        image: "postgres:10.16" # "postgres:11"] #postgres:9.6
         env:
           POSTGRES_USER: "postgres"
           POSTGRES_HOST_AUTH_METHOD: "trust"
@@ -51,7 +51,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        php: ["7.2", "7.3", "7.4"]
+        php: ["7.2", "7.3"] #[ "7.4"]
         moodle-branch: [
             "MOODLE_34_STABLE",
             "MOODLE_35_STABLE",
