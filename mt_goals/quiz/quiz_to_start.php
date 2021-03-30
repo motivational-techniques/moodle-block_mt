@@ -70,7 +70,7 @@ if (count ( ( array ) $quizlist ) > 0) {
         $quizid = $quiz->iteminstance;
         $goaltostartdate = block_mt_goals_get_quiz_goal_start_time($userid, $quizid, $courseid);
         $starteddate = get_quiz_start_time($userid, $quizid);
-        $status = days_remaining ( $goaltostartdate, $currentday, $starteddate );
+        $status = block_mt_goals_days_remaining ( $goaltostartdate, $currentday, $starteddate );
 
         $linkparams = new stdClass ();
         $linkparams->url = 'quiz_to_start_settings.php';
