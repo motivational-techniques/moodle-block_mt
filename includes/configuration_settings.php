@@ -54,7 +54,7 @@ function block_mt_get_awards_settings($fieldvalue, $courseid) {
  * @param integer $value
  * @return null
  */
-function block_mt_update_awards_settings($fieldvalue, $courseid, $value) {
+function block_mt_upd_awards_settings($fieldvalue, $courseid, $value) {
     global $DB;
 
     $parameters = array(
