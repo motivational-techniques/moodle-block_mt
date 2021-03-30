@@ -9,7 +9,7 @@ on:
 
 jobs:
   bump-version:
-    name: "Bump version on master"
+    name: "Bump Version on master"
     runs-on: ubuntu-latest
     steps:
       - name: "Checkout source code"
@@ -31,6 +31,11 @@ jobs:
       - name: "cat package.json"
         run: cat ./package.json
 
+  update-version:
+    needs: bump-version
+    name: "Update Version.php"
+    runs-on: ubuntu-latest
+    steps:
       - name: Get current time
         uses: 1466587594/get-current-time@v2
         id: current-time
