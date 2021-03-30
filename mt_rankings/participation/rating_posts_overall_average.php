@@ -55,7 +55,7 @@ $tableheader = array (
     get_string ( 'mt_rankings:rating_posts_overall_percent', 'block_mt' )
 );
 
-$table->head = generate_table_header_months ( $tableheader );
+$table->head = block_mt_generate_table_header_months ( $tableheader );
 
 $table->size = array (
     '10px',

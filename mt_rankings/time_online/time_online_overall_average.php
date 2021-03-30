@@ -54,7 +54,7 @@ $tableheader = array (
         get_string ( 'mt_rankings:time_online_average_average_time', 'block_mt' )
 );
 
-$table->head = generate_table_header_months ( $tableheader );
+$table->head = block_mt_generate_table_header_months ( $tableheader );
 
 $table->size = array (
         '10px',
