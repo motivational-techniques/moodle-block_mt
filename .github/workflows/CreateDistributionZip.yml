@@ -7,7 +7,7 @@ jobs:
       - uses: actions/checkout@master
 
       - name: copy-dist
-        run: mkdir dist/block_mt
+        run: ls
 
       - name: Archive Release
         uses: thedoctor0/zip-release@master
