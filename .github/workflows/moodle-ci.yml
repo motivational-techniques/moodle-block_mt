@@ -27,9 +27,9 @@ jobs:
       - name: "cat package.json"
         run: cat ./package.json
 
-  test:
+  test-code:
     runs-on: ubuntu-18.04
-
+    needs: [bump-version]
     services:
       postgres:
         image: "postgres:10.16" # "postgres:11"] #postgres:9.6
