@@ -6,6 +6,9 @@ jobs:
     steps:
       - uses: actions/checkout@master
 
+      - name: copy-dist
+        run: mkdir dist/block_mt
+
       - name: Archive Release
         uses: thedoctor0/zip-release@master
         with:
