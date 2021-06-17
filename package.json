@@ -1,7 +1,7 @@
 {
   "name": "mottec-motivational-techniques",
   "description": "build for deployment as a Moodle block plugin",
-  "version": "1.0.553",
+  "version": "1.0.554",
   "license": "ISC",
   "devDependencies": {
     "grunt": "^1.4.1",
