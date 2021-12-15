@@ -18,7 +18,7 @@ jobs:
           type: zip
           exclusions: "*.git* *.circleci* .travis.yml .settings/* /documentation/* /tests/* *.json  *.yml* testing.txt Gruntfile.js"
 
-      - uses: actions/upload-artifact@v2.2.4
+      - uses: actions/upload-artifact@v2.3.1
         with:
           name: block_mt
           path: block_mt.zip
