@@ -16,7 +16,7 @@ jobs:
         with:
           ref: ${{ github.ref }}
       - name: "Setup Node.js"
-        uses: "actions/setup-node@v3.2.0"
+        uses: "actions/setup-node@v3.3.0"
         with:
           node-version: 12
       - name: "Automated Version Bump"
