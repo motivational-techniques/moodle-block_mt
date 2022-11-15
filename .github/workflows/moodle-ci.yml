@@ -9,7 +9,7 @@ jobs:
 
     steps:
       - name: "Checkout source code"
-        uses: "actions/checkout@v2"
+        uses: "actions/checkout@v3.1.0"
         with:
           ref: ${{ github.ref }}
       - name: "cat package.json"
@@ -77,7 +77,7 @@ jobs:
 
     steps:
       - name: Check out repository code
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3.1.0
         with:
           path: plugin
 
